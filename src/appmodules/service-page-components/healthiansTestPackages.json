@@ -1,0 +1,126 @@
+{
+  "Full Body Checkup": [
+    {
+      "title": "Make India Healthy Package 2026",
+      "test_count": 7,
+      "tests_included": ["Calcium Total, Serum", "Cholesterol-Total, Serum", "Creatinine, Serum", "SGOT/AST"],
+      "fasting_requirement": "10 hrs Fasting Required",
+      "recommendation": "Recommended for Everyone",
+      "report_time": "Reports within 11 Hours",
+      "current_price": "99",
+      "old_price": "499",
+      "discount": "80% OFF"
+    },
+    {
+      "title": "Live More Screening Package",
+      "test_count": 67,
+      "tests_included": ["Cholesterol-Total, Serum", "Blood Glucose Fasting", "Triglycerides, Serum", "Liver Function Test"],
+      "fasting_requirement": "12 hrs Fasting Required",
+      "recommendation": "Recommended for Everyone",
+      "report_time": "Reports within 15 Hours",
+      "current_price": "475",
+      "old_price": "2376",
+      "discount": "80% OFF"
+    },
+    {
+      "title": "Healthy India 2026 Full Body Checkup",
+      "test_count": 72,
+      "tests_included": ["Cholesterol-Total, Serum", "Blood Glucose Fasting", "Iron, Serum", "Triglycerides, Serum"],
+      "fasting_requirement": "12 hrs Fasting Required",
+      "recommendation": "Recommended for Everyone",
+      "report_time": "Reports within 15 Hours",
+      "current_price": "641",
+      "old_price": "3660",
+      "discount": "82% OFF"
+    }
+  ],
+  "Fever": [
+    {
+      "title": "Dengue Test",
+      "test_count": 3,
+      "tests_included": ["Dengue IgG And IgM (Rapid Card)", "Dengue NS1 Antigen Detection - RAPID Card"],
+      "fasting_requirement": "No Fasting Required",
+      "recommendation": "Recommended for Everyone",
+      "report_time": "17 Hours",
+      "current_price": "656",
+      "old_price": "2186",
+      "discount": "70% OFF"
+    },
+    {
+      "title": "Healthians Advance Fever Package",
+      "test_count": 71,
+      "tests_included": ["Chikungunya IgM Antibody", "COMPLETE BLOOD COUNT", "CRP", "Dengue IgG"],
+      "fasting_requirement": "No Fasting Required",
+      "recommendation": "Recommended for Everyone",
+      "report_time": "22 Hours",
+      "current_price": "2394",
+      "old_price": "7981",
+      "discount": "70% OFF"
+    }
+  ],
+  "Vitamins": [
+    {
+      "title": "Vitamin Plus Package",
+      "test_count": 3,
+      "tests_included": ["Calcium Total, Serum", "Vitamin B12 Cyanocobalamin", "Vitamin D Total-25 Hydroxy"],
+      "fasting_requirement": "No Fasting Required",
+      "recommendation": "Recommended for Everyone",
+      "report_time": "13 Hours",
+      "current_price": "474",
+      "old_price": "1580",
+      "discount": "70% OFF"
+    }
+  ],
+  "Diabetes": [
+    {
+      "title": "Advance Diabetes Monitoring (Senior Female)",
+      "test_count": 50,
+      "tests_included": ["Blood Glucose Fasting", "E2 - Female Reproductive Hormone Test", "HbA1c", "Kidney Function Test Advance"],
+      "fasting_requirement": "12 hrs Fasting Required",
+      "recommendation": "Recommended for Females",
+      "report_time": "15 Hours",
+      "current_price": "1959",
+      "old_price": "6529",
+      "discount": "70% OFF"
+    }
+  ],
+  "Heart": [
+    {
+      "title": "Cardiac Health Assessment Package",
+      "test_count": 24,
+      "tests_included": ["CRP Quantitative", "Homocysteine", "HsCRP High Sensitivity", "Kidney Function Test Advance"],
+      "fasting_requirement": "12 hrs Fasting Required",
+      "recommendation": "Recommended for Everyone",
+      "report_time": "12 Hours",
+      "current_price": "1426",
+      "old_price": "4752",
+      "discount": "70% OFF"
+    }
+  ],
+  "Kidney": [
+    {
+      "title": "Kidney Function Test Advance",
+      "test_count": 11,
+      "tests_included": ["BUN Urea Nitrogen", "BUN/Creatinine Ratio", "Calcium Total", "Chlorides, Serum"],
+      "fasting_requirement": "No Fasting Required",
+      "recommendation": "Recommended for Everyone",
+      "report_time": "15 Hours",
+      "current_price": "427",
+      "old_price": "1423",
+      "discount": "70% OFF"
+    }
+  ],
+  "Allergy": [
+    {
+      "title": "Allergy Screening Package",
+      "test_count": 2,
+      "tests_included": ["Absolute Eosinophil Count", "IgE Total antibody"],
+      "fasting_requirement": "No Fasting Required",
+      "recommendation": "Recommended for Everyone",
+      "report_time": "13 Hours",
+      "current_price": "811",
+      "old_price": "2705",
+      "discount": "70% OFF"
+    }
+  ]
+}
