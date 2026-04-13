@@ -8,7 +8,7 @@ function Team() {
                     <div className="row g-5 align-items-center mb-5">
 
                         <div className="col-md-6 wow fadeIn" data-wow-delay="0.3s">
-                            <img className="img-fluid w-100" src="/dr-rakesh-kumar.jpg" alt="Dr. Rakesh Kumar" />
+                            <img className="img-fluid w-100" src="/profile-placeholder.png" alt="Profile Placeholder" style={{ maxWidth: '400px', display: 'block', margin: '0 auto' }} />
                         </div>
 
                         <div className="col-md-6 wow fadeIn" data-wow-delay="0.5s">
