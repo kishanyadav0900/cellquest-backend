@@ -9,13 +9,13 @@ function Carousel(){
         <div id="header-carousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <img className="w-100" src="https://res.cloudinary.com/dckaebnl5/image/upload/v1772820729/carousel-1_irgfjp.jpg" alt="Image"/>
+                    <img className="w-100" src="/carousel-1.jpg" alt="Lab Scientist" style={{ objectFit: 'cover', height: '75vh', minHeight: '400px' }}/>
                     <div className="carousel-caption">
                         <div className="container">
                             <div className="row justify-content-start">
                                 <div className="col-lg-7 text-start">
-                                    <h1 className="display-1 text-white animated slideInRight mb-3">Award Winning Laboratory Center</h1>
-                                    <p className="mb-5 animated slideInRight">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus augue, iaculis id elit eget, ultrices pulvinar tortor. Quisque vel lorem porttitor, malesuada arcu quis, fringilla risus.</p>
+                                    <h1 className="display-1 text-white animated slideInRight mb-3">Advanced Diagnostic Laboratory Center</h1>
+                                    <p className="mb-5 animated slideInRight">Welcome to Cell Quest India. We provide highly accurate, timely, and reliable pathology and biochemistry testing services. Your health and safety are our top priority.</p>
                                     <Link to="" className="btn btn-primary py-3 px-5 animated slideInRight">Explore More</Link>
                                 </div>
                             </div>
@@ -23,13 +23,13 @@ function Carousel(){
                     </div>
                 </div>
                 <div className="carousel-item">
-                    <img className="w-100" src="https://res.cloudinary.com/dckaebnl5/image/upload/v1772820730/carousel-2_rn7vbi.jpg" alt="Image"/>
+                    <img className="w-100" src="/carousel-2.jpg" alt="Expert Doctors" style={{ objectFit: 'cover', height: '75vh', minHeight: '400px' }}/>
                     <div className="carousel-caption">
                         <div className="container">
                             <div className="row justify-content-end">
                                 <div className="col-lg-7 text-end">
-                                    <h1 className="display-1 text-white animated slideInLeft mb-3">Expet Doctors & Lab Assistants</h1>
-                                    <p className="mb-5 animated slideInLeft">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus augue, iaculis id elit eget, ultrices pulvinar tortor. Quisque vel lorem porttitor, malesuada arcu quis, fringilla risus.</p>
+                                    <h1 className="display-1 text-white animated slideInLeft mb-3">Expert Doctors & Trained Technicians</h1>
+                                    <p className="mb-5 animated slideInLeft">Our laboratory is equipped with state-of-the-art machines and guided by highly experienced medical professionals, ensuring every test report is precise and dependable.</p>
                                     <Link to="" className="btn btn-primary py-3 px-5 animated slideInLeft">Explore More</Link>
                                 </div>
                             </div>

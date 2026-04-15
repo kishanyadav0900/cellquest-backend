@@ -14,10 +14,7 @@ function Features2() {
                                 </h1>
 
                                 <p className="mb-4 wow fadeIn" data-wow-delay="0.4s">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Curabitur tellus augue, iaculis id elit eget, ultrices
-                                    pulvinar tortor. Quisque vel lorem porttitor, malesuada arcu
-                                    quis, fringilla risus. Pellentesque eu consequat augue.
+                                    Choosing the right pathology lab is an important decision. We combine modern medical technology with years of clinical experience to provide testing you can trust blindly.
                                 </p>
 
                                 <div className="row g-5 pt-2 mb-5">
@@ -27,7 +24,7 @@ function Features2() {
                                         </div>
                                         <h5 className="mb-3">Experience Doctors</h5>
                                         <span>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Managed by senior medical professionals for error-free testing.
                                         </span>
                                     </div>
 
@@ -37,7 +34,7 @@ function Features2() {
                                         </div>
                                         <h5 className="mb-3">Advanced Microscopy</h5>
                                         <span>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            100% automated analyzers for highest accuracy results.
                                         </span>
                                     </div>
                                 </div>

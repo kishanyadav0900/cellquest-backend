@@ -77,8 +77,8 @@ function Nav() {
                             </div>
                         </div>
 
-                        <NavLink to="/" className="h1 text-white mb-0">
-                            My<span className="text-dark">Lab</span>
+                        <NavLink to="/" className="navbar-brand">
+                            <img src="/cellquest-logo.png" alt="Cell Quest India Logo" style={{ height: "80px", objectFit: "contain", transform: "scale(3)" }} />
                         </NavLink>
 
                         <div className="d-flex">
@@ -100,9 +100,7 @@ function Nav() {
                     <nav className="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3">
 
                         <NavLink to="/" className="navbar-brand d-lg-none">
-                            <h1 className="text-primary m-0">
-                                My<span className="text-dark">Lab</span>
-                            </h1>
+                            <img src="/cellquest-logo.png" alt="Cell Quest India Logo" style={{ height: "65px", objectFit: "contain", transform: "scale(2.5)", transformOrigin: "left center" }} />
                         </NavLink>
 
                         <button

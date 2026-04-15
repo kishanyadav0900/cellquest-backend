@@ -12,9 +12,7 @@ function Testimonial() {
               </h1>
 
               <p className="text-white mb-5">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur tellus augue, iaculis id elit eget, ultrices pulvinar
-                tortor.
+                We take immense pride in the accuracy of our reports and the satisfaction of our patients. Read what our community in Gurgaon has to say about their experience with Cell Quest India.
               </p>
 
               <a href="#" className="btn btn-primary py-3 px-5">
@@ -38,11 +36,7 @@ function Testimonial() {
                     </div>
 
                     <p className="fs-5 mb-4">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Curabitur tellus augue, iaculis id elit eget, ultrices
-                      pulvinar tortor. Quisque vel lorem porttitor, malesuada
-                      arcu quis, fringilla risus. Pellentesque eu consequat
-                      augue.
+                      "Very clean lab and highly professional staff. The home collection boy was extremely polite, hygienic, and skilled. Highly recommended for anyone in Gurgaon!"
                     </p>
 
                     <div className="d-flex align-items-center">
@@ -53,8 +47,8 @@ function Testimonial() {
                       />
 
                       <div className="ps-3">
-                        <h5 className="mb-1">Client Name</h5>
-                        <span className="text-primary">Profession</span>
+                        <h5 className="mb-1">Rahul S.</h5>
+                        <span className="text-primary">Local Resident</span>
                       </div>
                     </div>
 
@@ -68,11 +62,7 @@ function Testimonial() {
                     </div>
 
                     <p className="fs-5 mb-4">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Curabitur tellus augue, iaculis id elit eget, ultrices
-                      pulvinar tortor. Quisque vel lorem porttitor, malesuada
-                      arcu quis, fringilla risus. Pellentesque eu consequat
-                      augue.
+                      "I received my complete body checkup and blood test reports exactly on time. Dr. Rakesh Kumar is very knowledgeable, helpful, and the prices here are very genuine."
                     </p>
 
                     <div className="d-flex align-items-center">
@@ -83,8 +73,8 @@ function Testimonial() {
                       />
 
                       <div className="ps-3">
-                        <h5 className="mb-1">Client Name</h5>
-                        <span className="text-primary">Profession</span>
+                        <h5 className="mb-1">Priya M.</h5>
+                        <span className="text-primary">Corporate Employee</span>
                       </div>
                     </div>
 

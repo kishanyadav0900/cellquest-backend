@@ -13,24 +13,27 @@ function Team() {
 
                         <div className="col-md-6 wow fadeIn" data-wow-delay="0.5s">
                             <h1 className="display-6 mb-3">Dr. Rakesh Kumar</h1>
-                            <p className="mb-1">CEO & Founder</p>
-                            <p className="mb-5">CodeSquadz, New York, USA</p>
+                            <p className="mb-1 fw-bold fs-5 text-dark">Sr. Consultant Biochemistry</p>
+                            <p className="mb-4 text-muted">MSc Biochemistry, PhD in Biochemistry | 15+ Years Experience</p>
 
                             <h3 className="mb-3">Biography</h3>
 
                             <p className="mb-4">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                                tellus augue, iaculis id elit eget, ultrices pulvinar tortor.
-                                Quisque vel lorem porttitor, malesuada arcu quis, fringilla
-                                risus. Pellentesque eu consequat augue.
+                                Hi, I'm <strong>Dr. Rakesh Kumar</strong>. I am presently working as a Sr. Consultant Biochemistry at Drxlabs. With more than 15 years of hands-on experience, my core expertise lies in <strong>Quality Assurance</strong>, comprehensive <strong>Test Performing & Reporting</strong>, and <strong>Lab Operations</strong>.
                             </p>
 
-                            <p className="mb-4">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                                tellus augue, iaculis id elit eget, ultrices pulvinar tortor.
-                                Quisque vel lorem porttitor, malesuada arcu quis, fringilla
-                                risus. Pellentesque eu consequat augue.
-                            </p>
+                            <h5 className="mb-3">Areas of Expertise</h5>
+                            <ul className="mb-4 text-muted">
+                                <li className="mb-2">Knowledge of Biochemistry assay validation, method validation, QC performance, calibration and test performing and reporting.</li>
+                                <li className="mb-2">Knowledge of ELISA kit validation, QC performance, calibration and test performing and reporting.</li>
+                                <li className="mb-2">Knowledge of IFA examination & microscopy and reporting for Anti Nuclear Antibody - (ANA-IFA).</li>
+                                <li className="mb-2">Knowledge of Flowcytometry examination and reporting.</li>
+                                <li className="mb-2">Knowledge of HPLC, GCLC, TLC performing and report validation.</li>
+                                <li className="mb-2">Knowledge of Maternal Marker Risk assessment, assay validation and reporting.</li>
+                                <li className="mb-2">Knowledge of QA department all activities as per ISO 15189 - 2012 & 2022 (NABL and CAP) all types of instrument validation, IQC, EQAS, LJ, in-house mean, SD, CV%, CAPA, ILC read, document prepare, validate and maintain record.</li>
+                                <li className="mb-2">Knowledge of Plant phytochemical extraction, result evaluation and calculations.</li>
+                                <li className="mb-2">Knowledge of Plant tissue culture and Antimicrobial activity with plant extract.</li>
+                            </ul>
 
                             <div className="d-flex">
                                 <a className="btn btn-lg-square btn-primary me-2" href="#">

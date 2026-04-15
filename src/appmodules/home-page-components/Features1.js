@@ -12,8 +12,8 @@ function Feature1() {
                                 <div className="icon-box-primary mb-4">
                                     <i className="bi bi-award text-dark"></i>
                                 </div>
-                                <h5 className="mb-3">Award Winning</h5>
-                                <p className="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus augue.</p>
+                                <h5 className="mb-3">Accurate Results</h5>
+                                <p className="mb-0">We use advanced lab equipment and strict quality checks to guarantee correct and reliable test reports.</p>
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
@@ -21,8 +21,8 @@ function Feature1() {
                                 <div className="icon-box-primary mb-4">
                                     <i className="bi bi-people text-dark"></i>
                                 </div>
-                                <h5 className="mb-3">Expet Doctors</h5>
-                                <p className="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus augue.</p>
+                                <h5 className="mb-3">Expert Team</h5>
+                                <p className="mb-0">Our lab is managed by experienced senior consultants and highly trained technicians.</p>
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
@@ -30,8 +30,8 @@ function Feature1() {
                                 <div className="icon-box-primary mb-4">
                                     <i className="bi bi-cash-coin text-dark"></i>
                                 </div>
-                                <h5 className="mb-3">Fair Prices</h5>
-                                <p className="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus augue.</p>
+                                <h5 className="mb-3">Home Collection</h5>
+                                <p className="mb-0">For your convenience, we offer safe and hygienic home sample collection services.</p>
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
@@ -39,8 +39,8 @@ function Feature1() {
                                 <div className="icon-box-primary mb-4">
                                     <i className="bi bi-headphones text-dark"></i>
                                 </div>
-                                <h5 className="mb-3">24/7 Support</h5>
-                                <p className="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus augue.</p>
+                                <h5 className="mb-3">Fast Delivery</h5>
+                                <p className="mb-0">We understand the value of time. Get your digital test reports delivered quickly to your phone or email.</p>
                             </div>
                         </div>
                     </div>

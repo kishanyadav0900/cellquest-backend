@@ -11,29 +11,24 @@ function Footer() {
         <div className="container">
           <div className="row g-5 py-5">
             <div className="col-lg-6 pe-lg-5">
-              <a href="index.html" className="navbar-brand">
-                <h1 className="h1 text-primary mb-0">
-                  My<span className="text-white">Lab</span>
-                </h1>
+              <a href="index.html" className="navbar-brand d-inline-block mb-3">
+                <img src="/cellquest-logo.png" alt="Cell Quest India Logo" style={{ height: "90px", objectFit: "contain", transform: "scale(2)", transformOrigin: "left center" }} />
               </a>
 
               <p className="fs-5 mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur tellus augue, iaculis id elit eget, ultrices pulvinar
-                tortor.
+                Cell Quest India is a trusted and advanced diagnostic laboratory located in Gurgaon, Haryana. We offer a wide range of pathology, microbiology, and biochemistry tests with a focus on absolute accuracy and patient care.
               </p>
 
               <p>
-                <i className="fa fa-map-marker-alt me-2"></i>123 Street, New York,
-                USA
+                <i className="fa fa-map-marker-alt me-2"></i>Ist and 2nd floor, plot no -5, Kirti Nagar, Sec 15 Part 1, Near Bindle Colour lab, Gurgaon Haryana 122001
               </p>
 
               <p>
-                <i className="fa fa-phone-alt me-2"></i>+012 345 67890
+                <i className="fa fa-phone-alt me-2"></i>+91 805 956 5582
               </p>
 
               <p>
-                <i className="fa fa-envelope me-2"></i>info@example.com
+                <i className="fa fa-envelope me-2"></i>cellquestindia@gmail.com
               </p>
 
               <div className="d-flex mt-4">

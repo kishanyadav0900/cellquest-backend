@@ -50,9 +50,7 @@ function Contact() {
               </h1>
 
               <p className="mb-5">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur tellus augue, iaculis id elit eget, ultrices
-                pulvinar tortor.
+                Need to book a home sample collection, or have questions about a specific pathology test? Our care team is ready to assist you.
               </p>
             </div>
 
@@ -60,7 +58,7 @@ function Contact() {
 
               <div className="col-lg-6">
                 <a
-                  href="tel:+0123456789"
+                  href="tel:+918059565582"
                   className="d-flex justify-content-lg-center bg-primary p-4"
                 >
                   <div className="icon-box-light flex-shrink-0">
@@ -69,14 +67,14 @@ function Contact() {
 
                   <div className="ms-3">
                     <h5 className="text-white">Call Us</h5>
-                    <h2 className="text-white mb-0">+012 345 67890</h2>
+                    <h2 className="text-white mb-0">+91 805 956 5582</h2>
                   </div>
                 </a>
               </div>
 
               <div className="col-lg-6">
                 <a
-                  href="mailto:info@example.com"
+                  href="mailto:cellquestindia@gmail.com"
                   className="d-flex justify-content-lg-center bg-primary p-4"
                 >
                   <div className="icon-box-light flex-shrink-0">
@@ -85,7 +83,7 @@ function Contact() {
 
                   <div className="ms-3">
                     <h5 className="text-white">Mail Us</h5>
-                    <h2 className="text-white mb-0">info@example.com</h2>
+                    <h2 className="text-white mb-0">cellquestindia@gmail.com</h2>
                   </div>
                 </a>
               </div>

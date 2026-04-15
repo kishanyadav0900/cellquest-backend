@@ -11,15 +11,15 @@ function AboutContent() {
             <div className="col-lg-6">
               <div className="row g-0">
                 <div className="col-6">
-                  <img className="img-fluid" src="https://res.cloudinary.com/dckaebnl5/image/upload/v1772821775/about-1_ueltdq.jpg" alt="" />
+                  <img className="img-fluid" src="/about-1.jpg" alt="Lab Specialist" style={{ objectFit: 'cover', height: '100%', width: '100%' }} />
                 </div>
 
                 <div className="col-6">
-                  <img className="img-fluid" src="https://res.cloudinary.com/dckaebnl5/image/upload/v1772821775/about-2_yl5hdm.jpg" alt="" />
+                  <img className="img-fluid" src="/about-2.jpg" alt="Microscope Work" style={{ objectFit: 'cover', height: '100%', width: '100%' }} />
                 </div>
 
                 <div className="col-6">
-                  <img className="img-fluid" src="https://res.cloudinary.com/dckaebnl5/image/upload/v1772821775/about-3_btvaky.jpg" alt="" />
+                  <img className="img-fluid" src="/about-3.jpg" alt="Scientist Analyzing" style={{ objectFit: 'cover', height: '100%', width: '100%' }} />
                 </div>
 
                 <div className="col-6">
@@ -45,10 +45,7 @@ function AboutContent() {
               </h1>
 
               <p className="mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur tellus augue, iaculis id elit eget, ultrices pulvinar
-                tortor. Quisque vel lorem porttitor, malesuada arcu quis,
-                fringilla risus.
+                At Cell Quest India, we are committed to providing top-quality healthcare diagnostics. With the latest technology and strict quality control measures, we ensure that every test result is completely accurate. Our dedicated team of doctors and lab technicians work tirelessly to deliver reports on time, helping you and your doctors make the best healthcare decisions.
               </p>
 
               <div className="row g-4 g-sm-5 justify-content-center">
