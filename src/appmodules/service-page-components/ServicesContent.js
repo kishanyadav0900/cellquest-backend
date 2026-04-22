@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Mock Data for tests. 
 const testsData = {
@@ -1374,6 +1374,7 @@ const testsData = {
 const categories = Object.keys(testsData);
 
 function ServicesContent() {
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState("Full Body Checkup");
   const [modalTest, setModalTest] = useState(null);
   const [openAccordions, setOpenAccordions] = useState({});
@@ -1495,7 +1496,7 @@ function ServicesContent() {
                       </>
                     )}
                   </div>
-                  <button className="btn btn-primary rounded px-4 py-2 fw-medium">Book Now</button>
+                  <button className="btn btn-primary rounded px-4 py-2 fw-medium" onClick={() => navigate(`/appoinment?test=${encodeURIComponent(test.title)}`)}>Book Now</button>
                 </div>
 
               </div>
