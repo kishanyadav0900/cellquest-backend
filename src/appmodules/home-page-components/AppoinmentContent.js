@@ -66,6 +66,7 @@ function AppoinmentContent() {
       const appointmentPayload = {
         patient: form.name,
         phone: form.phone,
+        email: form.email,
         test: form.test,
         doctor: form.doctor || "To be assigned",
         date: form.date,
@@ -155,8 +156,8 @@ function AppoinmentContent() {
 
                     <div className="col-sm-6">
                       <div className="form-floating">
-                        <input type="email" className="form-control" id="email" name="email" placeholder="Your Email" value={form.email} onChange={handleChange} />
-                        <label htmlFor="email">Email (Optional)</label>
+                        <input type="email" className="form-control" id="email" name="email" placeholder="Your Email" required value={form.email} onChange={handleChange} />
+                        <label htmlFor="email">Email *</label>
                       </div>
                     </div>
 

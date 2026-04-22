@@ -94,33 +94,65 @@ function Appointments() {
     }
   };
 
+  // ── Assign doctor inline from table dropdown ──
+  const handleDoctorAssign = async (id, doctorName) => {
+    const apt = appointments.find(a => a.id === id);
+    if (!apt) return;
+    try {
+      const updated = await api.appointments.update({ ...apt, doctor: doctorName });
+      setAppointments(appointments.map((a) => (a.id === id ? updated : a)));
+    } catch (err) {
+      console.error("Failed to assign doctor", err);
+      alert("Failed to assign doctor");
+    }
+  };
+
+  // ── Send confirmation via Gmail compose (works reliably) ──
   const handleSendConfirmation = (apt) => {
     const email = apt.email;
     if (!email) {
-      alert("No email address found for this patient. Please edit the appointment and add an email first.");
+      alert("No email address found for this patient.\n\nPlease click 'Edit' and add the patient's email first, then try again.");
       return;
     }
-    const subject = encodeURIComponent(`Appointment Confirmation – Cell Quest India`);
-    const body = encodeURIComponent(
+    if (!apt.doctor || apt.doctor === "To be assigned") {
+      alert("Please assign a doctor to this appointment first before sending confirmation.");
+      return;
+    }
+
+    const subject = `Appointment Confirmed – Cell Quest India | ${apt.test}`;
+    const body =
 `Dear ${apt.patient},
 
-Your appointment has been confirmed with the following details:
+Thank you for booking your test with Cell Quest India! We are pleased to confirm your appointment.
+
+Here are your appointment details:
 
 🔬 Test: ${apt.test}
-👨‍⚕️ Doctor: ${apt.doctor}
+👨‍⚕️ Assigned Doctor: ${apt.doctor}
 📅 Date: ${apt.date}
 🕐 Time: ${apt.time}
-📊 Status: ${apt.status}
 
-Please arrive 15 minutes before your scheduled time. Bring any previous reports if applicable.
+📋 Important Instructions:
+• Please arrive 15 minutes before your scheduled time
+• Carry a valid photo ID and any previous medical reports
+• Follow any fasting instructions as applicable for your test
 
-For queries, call us at: +91 XXXXX XXXXX
-
-Regards,
+📍 Location:
 Cell Quest India
-Ist & 2nd floor, Plot no-5, Kirti Nagar, Sec 15 Part 1, Gurgaon, Haryana 122001`
-    );
-    window.open(`mailto:${email}?subject=${subject}&body=${body}`, "_blank");
+Ist & 2nd floor, Plot no-5, Kirti Nagar
+Sec 15 Part 1, Near Bindle Colour Lab
+Gurgaon, Haryana 122001
+
+For any queries or rescheduling, contact us at: +91 XXXXX XXXXX
+
+We look forward to serving you.
+
+Warm regards,
+Team Cell Quest India`;
+
+    // Open Gmail compose — works reliably in browser
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(gmailUrl, "_blank");
   };
 
   return (
@@ -179,7 +211,7 @@ Ist & 2nd floor, Plot no-5, Kirti Nagar, Sec 15 Part 1, Gurgaon, Haryana 122001`
           <form onSubmit={handleSubmit} style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "14px" }}>
             <div className="af"><label>Patient Name *</label><input className="admin-input" required value={form.patient} onChange={(e) => setForm({ ...form, patient: e.target.value })} placeholder="Full name" /></div>
             <div className="af"><label>Phone *</label><input className="admin-input" required value={form.phone}   onChange={(e) => setForm({ ...form, phone: e.target.value })}   placeholder="+91 XXXXX XXXXX" /></div>
-            <div className="af"><label>Email</label><input className="admin-input" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="patient@email.com" /></div>
+            <div className="af"><label>Email *</label><input className="admin-input" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="patient@gmail.com" /></div>
             <div className="af"><label>Test Name *</label><input className="admin-input" required value={form.test}    onChange={(e) => setForm({ ...form, test: e.target.value })}    placeholder="e.g. Blood Count" /></div>
             <div className="af">
               <label>Doctor *</label>
@@ -220,19 +252,36 @@ Ist & 2nd floor, Plot no-5, Kirti Nagar, Sec 15 Part 1, Gurgaon, Haryana 122001`
       <div className="admin-table-wrapper">
         <table className="admin-table">
           <thead>
-            <tr><th>#</th><th>Patient</th><th>Phone</th><th>Test</th><th>Doctor</th><th>Date</th><th>Time</th><th>Status</th><th>Actions</th></tr>
+            <tr><th>#</th><th>Patient</th><th>Email</th><th>Phone</th><th>Test</th><th>Assign Doctor</th><th>Date</th><th>Time</th><th>Status</th><th>Actions</th></tr>
           </thead>
           <tbody>
             {filtered.length === 0 ? (
-              <tr><td colSpan="9" style={{ textAlign: "center", color: "#94a3b8", padding: "30px" }}>No appointments found.</td></tr>
+              <tr><td colSpan="10" style={{ textAlign: "center", color: "#94a3b8", padding: "30px" }}>No appointments found.</td></tr>
             ) : (
               filtered.map((a, i) => (
                 <tr key={a.id}>
                   <td>{i + 1}</td>
                   <td style={{ fontWeight: 600 }}>{a.patient}</td>
+                  <td style={{ fontSize: "12px", color: a.email ? "#818cf8" : "#475569" }}>{a.email || "—"}</td>
                   <td>{a.phone}</td>
                   <td>{a.test}</td>
-                  <td>{a.doctor}</td>
+                  <td>
+                    <select
+                      className="admin-input"
+                      style={{ padding: "6px 10px", fontSize: "12px", minWidth: "150px" }}
+                      value={a.doctor || ""}
+                      onChange={(e) => handleDoctorAssign(a.id, e.target.value)}
+                    >
+                      <option value="">— Assign —</option>
+                      {doctors.map((d) => (
+                        <option key={d.id} value={d.name}>{d.name}</option>
+                      ))}
+                      {/* Keep current value if it doesn't match a doctor in the list */}
+                      {a.doctor && !doctors.find(d => d.name === a.doctor) && a.doctor !== "To be assigned" && (
+                        <option value={a.doctor}>{a.doctor}</option>
+                      )}
+                    </select>
+                  </td>
                   <td>{a.date}</td>
                   <td>{a.time}</td>
                   <td>
@@ -250,8 +299,15 @@ Ist & 2nd floor, Plot no-5, Kirti Nagar, Sec 15 Part 1, Gurgaon, Haryana 122001`
                   <td>
                     <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
                       <button className="admin-btn admin-btn-primary" style={{ padding: "5px 10px", fontSize: "11px" }} onClick={() => handleEdit(a)}>Edit</button>
-                      <button className="admin-btn admin-btn-confirm" style={{ padding: "5px 10px", fontSize: "11px" }} onClick={() => handleSendConfirmation(a)} title="Send confirmation email">📧 Confirm</button>
-                      <button className="admin-btn admin-btn-danger"  style={{ padding: "5px 10px", fontSize: "11px" }} onClick={() => handleDelete(a.id)}>Delete</button>
+                      <button
+                        className="admin-btn admin-btn-confirm"
+                        style={{ padding: "5px 10px", fontSize: "11px", opacity: (!a.email || !a.doctor || a.doctor === "To be assigned") ? 0.5 : 1 }}
+                        onClick={() => handleSendConfirmation(a)}
+                        title={!a.email ? "Add email first" : (!a.doctor || a.doctor === "To be assigned") ? "Assign doctor first" : "Send confirmation via Gmail"}
+                      >
+                        📧 Send
+                      </button>
+                      <button className="admin-btn admin-btn-danger" style={{ padding: "5px 10px", fontSize: "11px" }} onClick={() => handleDelete(a.id)}>Delete</button>
                     </div>
                   </td>
                 </tr>
