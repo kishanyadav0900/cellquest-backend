@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -32,16 +33,16 @@ function Footer() {
               </p>
 
               <div className="d-flex mt-4">
-                <a className="btn btn-lg-square btn-primary me-2" href="#">
+                <a className="btn btn-lg-square btn-primary me-2" href="https://twitter.com" target="_blank" rel="noreferrer">
                   <i className="fab fa-twitter"></i>
                 </a>
-                <a className="btn btn-lg-square btn-primary me-2" href="#">
+                <a className="btn btn-lg-square btn-primary me-2" href="https://facebook.com" target="_blank" rel="noreferrer">
                   <i className="fab fa-facebook-f"></i>
                 </a>
-                <a className="btn btn-lg-square btn-primary me-2" href="#">
+                <a className="btn btn-lg-square btn-primary me-2" href="https://linkedin.com" target="_blank" rel="noreferrer">
                   <i className="fab fa-linkedin-in"></i>
                 </a>
-                <a className="btn btn-lg-square btn-primary me-2" href="#">
+                <a className="btn btn-lg-square btn-primary me-2" href="https://instagram.com" target="_blank" rel="noreferrer">
                   <i className="fab fa-instagram"></i>
                 </a>
               </div>
@@ -51,40 +52,40 @@ function Footer() {
               <div className="row g-5">
                 <div className="col-sm-6">
                   <h4 className="text-light mb-4">Quick Links</h4>
-                  <a className="btn btn-link" href="">
+                  <Link className="btn btn-link" to="/about">
                     About Us
-                  </a>
-                  <a className="btn btn-link" href="">
+                  </Link>
+                  <Link className="btn btn-link" to="/contact">
                     Contact Us
-                  </a>
-                  <a className="btn btn-link" href="">
+                  </Link>
+                  <Link className="btn btn-link" to="/service">
                     Our Services
-                  </a>
-                  <a className="btn btn-link" href="">
-                    Terms & Condition
-                  </a>
-                  <a className="btn btn-link" href="">
+                  </Link>
+                  <Link className="btn btn-link" to="/contact">
+                    Terms &amp; Condition
+                  </Link>
+                  <Link className="btn btn-link" to="/contact">
                     Support
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="col-sm-6">
                   <h4 className="text-light mb-4">Popular Links</h4>
-                  <a className="btn btn-link" href="">
+                  <Link className="btn btn-link" to="/about">
                     About Us
-                  </a>
-                  <a className="btn btn-link" href="">
+                  </Link>
+                  <Link className="btn btn-link" to="/contact">
                     Contact Us
-                  </a>
-                  <a className="btn btn-link" href="">
+                  </Link>
+                  <Link className="btn btn-link" to="/service">
                     Our Services
-                  </a>
-                  <a className="btn btn-link" href="">
-                    Terms & Condition
-                  </a>
-                  <a className="btn btn-link" href="">
+                  </Link>
+                  <Link className="btn btn-link" to="/contact">
+                    Terms &amp; Condition
+                  </Link>
+                  <Link className="btn btn-link" to="/contact">
                     Support
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="col-sm-12">

@@ -36,16 +36,16 @@ function Team() {
                             </ul>
 
                             <div className="d-flex">
-                                <a className="btn btn-lg-square btn-primary me-2" href="#">
+                                <a className="btn btn-lg-square btn-primary me-2" href="https://facebook.com" target="_blank" rel="noreferrer">
                                     <i className="fab fa-facebook-f"></i>
                                 </a>
-                                <a className="btn btn-lg-square btn-primary me-2" href="#">
+                                <a className="btn btn-lg-square btn-primary me-2" href="https://twitter.com" target="_blank" rel="noreferrer">
                                     <i className="fab fa-twitter"></i>
                                 </a>
-                                <a className="btn btn-lg-square btn-primary me-2" href="#">
+                                <a className="btn btn-lg-square btn-primary me-2" href="https://linkedin.com" target="_blank" rel="noreferrer">
                                     <i className="fab fa-linkedin-in"></i>
                                 </a>
-                                <a className="btn btn-lg-square btn-primary me-2" href="#">
+                                <a className="btn btn-lg-square btn-primary me-2" href="https://youtube.com" target="_blank" rel="noreferrer">
                                     <i className="fab fa-youtube"></i>
                                 </a>
                             </div>

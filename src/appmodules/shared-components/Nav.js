@@ -129,13 +129,14 @@ function Nav() {
                                 </NavLink>
 
                                 <div className="nav-item dropdown">
-                                    <a
-                                        href="#"
-                                        className="nav-link dropdown-toggle"
+                                    <button
+                                        type="button"
+                                        className="nav-link dropdown-toggle btn btn-link"
                                         data-bs-toggle="dropdown"
+                                        aria-expanded="false"
                                     >
                                         Pages
-                                    </a>
+                                    </button>
 
                                     <div className="dropdown-menu bg-light m-0">
 
@@ -170,19 +171,19 @@ function Nav() {
 
                             <div className="ms-auto d-none d-lg-flex">
 
-                                <a className="btn btn-sm-square btn-primary ms-2" href="#">
+                                <a className="btn btn-sm-square btn-primary ms-2" href="https://facebook.com" target="_blank" rel="noreferrer">
                                     <i className="fab fa-facebook-f"></i>
                                 </a>
 
-                                <a className="btn btn-sm-square btn-primary ms-2" href="#">
+                                <a className="btn btn-sm-square btn-primary ms-2" href="https://twitter.com" target="_blank" rel="noreferrer">
                                     <i className="fab fa-twitter"></i>
                                 </a>
 
-                                <a className="btn btn-sm-square btn-primary ms-2" href="#">
+                                <a className="btn btn-sm-square btn-primary ms-2" href="https://linkedin.com" target="_blank" rel="noreferrer">
                                     <i className="fab fa-linkedin-in"></i>
                                 </a>
 
-                                <a className="btn btn-sm-square btn-primary ms-2" href="#">
+                                <a className="btn btn-sm-square btn-primary ms-2" href="https://youtube.com" target="_blank" rel="noreferrer">
                                     <i className="fab fa-youtube"></i>
                                 </a>
 
