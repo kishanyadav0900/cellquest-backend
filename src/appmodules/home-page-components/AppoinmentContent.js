@@ -48,7 +48,7 @@ function AppoinmentContent() {
       // 1. Create patient record
       const patientPayload = {
         name: form.name,
-        age: form.age,
+        age: parseInt(form.age, 10) || 0,
         gender: form.gender,
         phone: form.phone,
         test: form.test,
@@ -60,7 +60,7 @@ function AppoinmentContent() {
       const { error: patErr } = await supabase
         .from("patients")
         .insert(patientPayload);
-      if (patErr) throw patErr;
+      if (patErr) throw new Error("Patient: " + patErr.message);
 
       // 2. Create appointment record
       const appointmentPayload = {
@@ -77,12 +77,22 @@ function AppoinmentContent() {
       const { error: aptErr } = await supabase
         .from("appointments")
         .insert(appointmentPayload);
-      if (aptErr) throw aptErr;
+
+      // If email column doesn't exist yet, retry without it
+      if (aptErr && aptErr.message && aptErr.message.includes("email")) {
+        const { email, ...payloadWithoutEmail } = appointmentPayload;
+        const { error: retryErr } = await supabase
+          .from("appointments")
+          .insert(payloadWithoutEmail);
+        if (retryErr) throw new Error("Appointment: " + retryErr.message);
+      } else if (aptErr) {
+        throw new Error("Appointment: " + aptErr.message);
+      }
 
       setSubmitted(true);
     } catch (err) {
       console.error("Submission error:", err);
-      setError("Something went wrong while booking. Please try again or call us directly.");
+      setError(err.message || "Something went wrong while booking. Please try again or call us directly.");
     } finally {
       setLoading(false);
     }
