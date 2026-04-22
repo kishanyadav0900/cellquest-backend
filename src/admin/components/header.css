@@ -1,0 +1,130 @@
+/* src/admin/components/header.css */
+
+.admin-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1100;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.hamburger-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #e2e8f0;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  font-size: 22px;
+}
+
+.brand-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e2e8f0;
+  letter-spacing: 0.5px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-clock {
+  font-size: 14px;
+  color: #94a3b8;
+  font-family: 'Courier New', monospace;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-admin-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-avatar {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.admin-name {
+  color: #e2e8f0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.logout-btn {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  padding: 7px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover {
+  background: rgba(239, 68, 68, 0.3);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .header-clock { display: none; }
+  .admin-name { display: none; }
+  .brand-name { font-size: 15px; }
+}

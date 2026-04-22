@@ -21,6 +21,16 @@ import OurTeam from "./appmodules/main-pages/OurTeam";
 import Appoinment from "./appmodules/main-pages/Appoinment";
 import Contact from "./appmodules/main-pages/Contact";
 
+// ── Admin Section ──
+import AdminLayout    from "./admin/components/AdminLayout";
+import ProtectedRoute from "./admin/components/ProtectedRoute";
+import AdminLogin        from "./admin/pages/Login";
+import AdminDashboard    from "./admin/pages/Dashboard";
+import AdminDoctors      from "./admin/pages/Doctors";
+import AdminPatients     from "./admin/pages/Patients";
+import AdminAppointments from "./admin/pages/Appointments";
+import AdminSettings     from "./admin/pages/Settings";
+
 function App() {
 
   useEffect(() => {
@@ -71,6 +81,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* ── Public Site Routes ── */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/service" element={<Service />} />
@@ -78,6 +89,25 @@ function App() {
         <Route path="/team" element={<OurTeam />} />
         <Route path="/appoinment" element={<Appoinment />} />
         <Route path="/contact" element={<Contact />} />
+
+        {/* ── Admin Login (public) ── */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+
+        {/* ── Admin Protected Routes (hidden from main site) ── */}
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<AdminDashboard />} />
+          <Route path="doctors"      element={<AdminDoctors />} />
+          <Route path="patients"     element={<AdminPatients />} />
+          <Route path="appointments" element={<AdminAppointments />} />
+          <Route path="settings"     element={<AdminSettings />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
