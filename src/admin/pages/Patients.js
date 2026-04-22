@@ -5,6 +5,7 @@ const statusClass = { "Completed": "badge-success", "In Progress": "badge-warnin
 
 function Patients() {
   const [patients, setPatients] = useState([]);
+  const [doctors, setDoctors] = useState([]);
   const [search, setSearch] = useState("");
   const [filterStatus, setFilterStatus] = useState("All");
   const [showForm, setShowForm] = useState(false);
@@ -12,19 +13,25 @@ function Patients() {
   const [editId, setEditId] = useState(null);
 
   useEffect(() => {
-    const fetchPatients = async () => {
+    const fetchData = async () => {
       try {
         const data = await api.patients.getAll();
         setPatients(data);
       } catch (err) {
         console.error("Failed to load patients", err);
       }
+      try {
+        const docs = await api.doctors.getAll();
+        setDoctors(docs);
+      } catch (err) {
+        console.error("Failed to load doctors", err);
+      }
     };
-    fetchPatients();
+    fetchData();
   }, []);
 
   const filtered = patients.filter((p) => {
-    const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase()) || p.phone.includes(search);
+    const matchesSearch = (p.name || "").toLowerCase().includes(search.toLowerCase()) || (p.phone || "").includes(search);
     const matchesStatus = filterStatus === "All" || p.status === filterStatus;
     return matchesSearch && matchesStatus;
   });
@@ -74,7 +81,7 @@ function Patients() {
         <input
           className="admin-input"
           type="text"
-          placeholder="🔍  Search by name or test…"
+          placeholder="🔍  Search by name or phone…"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -111,7 +118,15 @@ function Patients() {
             </div>
             <div className="pf"><label>Phone *</label><input className="admin-input" required value={form.phone}  onChange={(e) => setForm({ ...form, phone: e.target.value })}  placeholder="+91 XXXXX XXXXX" /></div>
             <div className="pf"><label>Test Name *</label><input className="admin-input" required value={form.test}   onChange={(e) => setForm({ ...form, test: e.target.value })}   placeholder="e.g. Blood Count" /></div>
-            <div className="pf"><label>Referring Doctor *</label><input className="admin-input" required value={form.doctor} onChange={(e) => setForm({ ...form, doctor: e.target.value })} placeholder="Dr. Name" /></div>
+            <div className="pf">
+              <label>Referring Doctor *</label>
+              <select className="admin-input" required value={form.doctor} onChange={(e) => setForm({ ...form, doctor: e.target.value })}>
+                <option value="">— Select Doctor —</option>
+                {doctors.map((d) => (
+                  <option key={d.id} value={d.name}>{d.name} ({d.specialty})</option>
+                ))}
+              </select>
+            </div>
             <div style={{ gridColumn: "1/-1", display: "flex", gap: "12px" }}>
               <button type="submit" className="admin-btn admin-btn-primary">{editId ? "Update" : "Save Patient"}</button>
               <button type="button" className="admin-btn admin-btn-danger" onClick={() => { setShowForm(false); setEditId(null); }}>Cancel</button>
@@ -120,7 +135,7 @@ function Patients() {
         </div>
       )}
 
-      <div style={{ marginBottom: "12px", color: "#64748b", fontSize: "13px" }}>
+      <div style={{ marginBottom: "12px", color: "#94a3b8", fontSize: "13px" }}>
         Showing {filtered.length} of {patients.length} records
       </div>
 
@@ -131,18 +146,18 @@ function Patients() {
           </thead>
           <tbody>
             {filtered.length === 0 ? (
-              <tr><td colSpan="10" style={{ textAlign: "center", color: "#475569", padding: "30px" }}>No patients found.</td></tr>
+              <tr><td colSpan="10" style={{ textAlign: "center", color: "#94a3b8", padding: "30px" }}>No patients found.</td></tr>
             ) : (
               filtered.map((p, i) => (
                 <tr key={p.id}>
-                  <td style={{ color: "#475569" }}>{i + 1}</td>
-                  <td style={{ fontWeight: 600, color: "#e2e8f0" }}>{p.name}</td>
+                  <td>{i + 1}</td>
+                  <td style={{ fontWeight: 600 }}>{p.name}</td>
                   <td>{p.age}</td>
                   <td>{p.gender}</td>
                   <td>{p.phone}</td>
                   <td>{p.test}</td>
                   <td>{p.doctor}</td>
-                  <td style={{ color: "#64748b" }}>{p.date}</td>
+                  <td>{p.date}</td>
                   <td><span className={`admin-badge ${statusClass[p.status]}`}>{p.status}</span></td>
                   <td>
                     <div style={{ display: "flex", gap: "8px" }}>
@@ -159,7 +174,7 @@ function Patients() {
 
       <style>{`
         .pf { display: flex; flex-direction: column; gap: 6px; }
-        .pf label { font-size: 12px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.7px; }
+        .pf label { font-size: 12px; font-weight: 600; color: #c8d6e5; text-transform: uppercase; letter-spacing: 0.7px; }
         @media (max-width: 768px) {
           form[style*="grid-template-columns: 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
         }

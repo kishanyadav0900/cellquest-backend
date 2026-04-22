@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   height: 64px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background: linear-gradient(135deg, #111a2e 0%, #0d1526 50%, #0f1e3a 100%);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,7 +60,7 @@
 .brand-name {
   font-size: 18px;
   font-weight: 700;
-  color: #e2e8f0;
+  color: #ffffff;
   letter-spacing: 0.5px;
   font-family: 'Segoe UI', sans-serif;
 }
