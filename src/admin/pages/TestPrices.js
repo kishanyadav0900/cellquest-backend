@@ -70,6 +70,80 @@ function TestPrices() {
     setSaving(false);
   };
 
+  // Inline styles for the polished UI
+  const styles = {
+    editBtn: {
+      background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      color: "#fff",
+      border: "none",
+      padding: "6px 18px",
+      borderRadius: "20px",
+      fontSize: "0.8rem",
+      fontWeight: 600,
+      cursor: "pointer",
+      transition: "all 0.2s ease",
+      boxShadow: "0 2px 8px rgba(102, 126, 234, 0.3)",
+      letterSpacing: "0.3px",
+    },
+    saveBtn: {
+      background: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
+      color: "#0a0e1a",
+      border: "none",
+      padding: "6px 18px",
+      borderRadius: "20px",
+      fontSize: "0.8rem",
+      fontWeight: 700,
+      cursor: "pointer",
+      transition: "all 0.2s ease",
+      boxShadow: "0 2px 8px rgba(67, 233, 123, 0.3)",
+      marginRight: "6px",
+    },
+    cancelBtn: {
+      background: "transparent",
+      color: "#ff6b6b",
+      border: "1px solid #ff6b6b",
+      padding: "5px 14px",
+      borderRadius: "20px",
+      fontSize: "0.8rem",
+      fontWeight: 600,
+      cursor: "pointer",
+      transition: "all 0.2s ease",
+    },
+    editInput: {
+      padding: "6px 10px",
+      borderRadius: "8px",
+      border: "2px solid #667eea",
+      background: "rgba(102, 126, 234, 0.08)",
+      color: "#fff",
+      fontSize: "0.85rem",
+      fontWeight: 600,
+      outline: "none",
+      transition: "border-color 0.2s ease",
+    },
+    editInputSmall: {
+      padding: "6px 10px",
+      borderRadius: "8px",
+      border: "1px solid rgba(255,255,255,0.15)",
+      background: "rgba(255,255,255,0.05)",
+      color: "#ccd6f6",
+      fontSize: "0.85rem",
+      outline: "none",
+      transition: "border-color 0.2s ease",
+    },
+    editingRow: {
+      background: "rgba(102, 126, 234, 0.08)",
+      borderLeft: "3px solid #667eea",
+    },
+    badge: {
+      display: "inline-block",
+      padding: "3px 10px",
+      borderRadius: "12px",
+      fontSize: "0.7rem",
+      fontWeight: 700,
+      letterSpacing: "0.5px",
+    },
+  };
+
   return (
     <div>
       <h1 className="admin-page-title">💰 Test Prices</h1>
@@ -86,7 +160,7 @@ function TestPrices() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <span style={{ color: "#8892b0", fontSize: "0.85rem" }}>
+        <span style={{ color: "#8892b0", fontSize: "0.85rem", whiteSpace: "nowrap" }}>
           Showing {filtered.length} of {prices.length} tests
         </span>
       </div>
@@ -101,88 +175,118 @@ function TestPrices() {
               <tr>
                 <th style={{ width: "40px" }}>#</th>
                 <th>Test Name</th>
-                <th style={{ width: "130px" }}>Current Price</th>
+                <th style={{ width: "140px" }}>Current Price</th>
                 <th style={{ width: "130px" }}>Old Price</th>
-                <th style={{ width: "160px" }}>Discount</th>
-                <th style={{ width: "130px" }}>Actions</th>
+                <th style={{ width: "170px" }}>Discount</th>
+                <th style={{ width: "160px", textAlign: "center" }}>Actions</th>
               </tr>
             </thead>
             <tbody>
               {filtered.length === 0 ? (
                 <tr>
-                  <td colSpan="6" style={{ textAlign: "center", padding: "2rem", color: "#888" }}>
+                  <td colSpan="6" style={{ textAlign: "center", padding: "2rem", color: "#555" }}>
                     No tests matching "{search}"
                   </td>
                 </tr>
               ) : (
-                filtered.map((item, i) => (
-                  <tr key={item.id}>
-                    <td>{i + 1}</td>
-                    <td style={{ fontWeight: 600, fontSize: "0.9rem" }}>{item.test_name}</td>
+                filtered.map((item, i) => {
+                  const isEditing = editingId === item.id;
+                  return (
+                    <tr key={item.id} style={isEditing ? styles.editingRow : {}}>
+                      <td style={{ color: "#556" }}>{i + 1}</td>
+                      <td style={{ fontWeight: 600, fontSize: "0.9rem" }}>
+                        {item.test_name}
+                        {isEditing && (
+                          <div style={{ fontSize: "0.7rem", color: "#667eea", marginTop: "2px", fontWeight: 400 }}>
+                            ✏️ Editing…
+                          </div>
+                        )}
+                      </td>
 
-                    {editingId === item.id ? (
-                      <>
-                        <td>
-                          <input
-                            type="text"
-                            value={editForm.current_price}
-                            onChange={(e) => setEditForm({ ...editForm, current_price: e.target.value })}
-                            style={{ width: "90px", padding: "4px 8px", borderRadius: "6px", border: "1px solid #4fc3f7", background: "#1a1f3a", color: "#fff", fontSize: "0.85rem" }}
-                          />
-                        </td>
-                        <td>
-                          <input
-                            type="text"
-                            value={editForm.old_price}
-                            onChange={(e) => setEditForm({ ...editForm, old_price: e.target.value })}
-                            style={{ width: "90px", padding: "4px 8px", borderRadius: "6px", border: "1px solid #555", background: "#1a1f3a", color: "#fff", fontSize: "0.85rem" }}
-                          />
-                        </td>
-                        <td>
-                          <input
-                            type="text"
-                            value={editForm.discount}
-                            onChange={(e) => setEditForm({ ...editForm, discount: e.target.value })}
-                            style={{ width: "130px", padding: "4px 8px", borderRadius: "6px", border: "1px solid #555", background: "#1a1f3a", color: "#fff", fontSize: "0.85rem" }}
-                            placeholder="e.g. 70% OFF"
-                          />
-                        </td>
-                        <td>
-                          <button
-                            className="admin-btn-sm admin-btn-edit"
-                            onClick={() => saveEdit(item.id)}
-                            disabled={saving}
-                            style={{ marginRight: "4px" }}
-                          >
-                            {saving ? "…" : "Save"}
-                          </button>
-                          <button className="admin-btn-sm admin-btn-delete" onClick={cancelEdit}>
-                            Cancel
-                          </button>
-                        </td>
-                      </>
-                    ) : (
-                      <>
-                        <td style={{ color: "#4fc3f7", fontWeight: 700, fontSize: "0.95rem" }}>₹{item.current_price}</td>
-                        <td style={{ textDecoration: "line-through", color: "#666" }}>
-                          {item.old_price ? `₹${item.old_price}` : "—"}
-                        </td>
-                        <td>
-                          {item.discount ? (
-                            <span className="admin-badge badge-warning">{item.discount}</span>
-                          ) : (
-                            <span style={{ color: "#555" }}>—</span>
-                          )}
-                        </td>
-                        <td>
-                          <button className="admin-btn-sm admin-btn-edit" onClick={() => startEdit(item)}>
-                            Edit
-                          </button>
-                        </td>
-                      </>
-                    )}
-                  </tr>
-                ))
+                      {isEditing ? (
+                        <>
+                          <td>
+                            <input
+                              type="text"
+                              value={editForm.current_price}
+                              onChange={(e) => setEditForm({ ...editForm, current_price: e.target.value })}
+                              style={{ ...styles.editInput, width: "100px" }}
+                              autoFocus
+                              placeholder="₹ Price"
+                            />
+                          </td>
+                          <td>
+                            <input
+                              type="text"
+                              value={editForm.old_price}
+                              onChange={(e) => setEditForm({ ...editForm, old_price: e.target.value })}
+                              style={{ ...styles.editInputSmall, width: "95px" }}
+                              placeholder="₹ Old"
+                            />
+                          </td>
+                          <td>
+                            <input
+                              type="text"
+                              value={editForm.discount}
+                              onChange={(e) => setEditForm({ ...editForm, discount: e.target.value })}
+                              style={{ ...styles.editInputSmall, width: "140px" }}
+                              placeholder="e.g. 70% OFF"
+                            />
+                          </td>
+                          <td style={{ textAlign: "center" }}>
+                            <button
+                              style={styles.saveBtn}
+                              onClick={() => saveEdit(item.id)}
+                              disabled={saving}
+                              onMouseOver={(e) => { e.target.style.transform = "scale(1.05)"; }}
+                              onMouseOut={(e) => { e.target.style.transform = "scale(1)"; }}
+                            >
+                              {saving ? "Saving…" : "✓ Save"}
+                            </button>
+                            <button
+                              style={styles.cancelBtn}
+                              onClick={cancelEdit}
+                              onMouseOver={(e) => { e.target.style.background = "rgba(255,107,107,0.1)"; }}
+                              onMouseOut={(e) => { e.target.style.background = "transparent"; }}
+                            >
+                              ✕
+                            </button>
+                          </td>
+                        </>
+                      ) : (
+                        <>
+                          <td style={{ color: "#4fc3f7", fontWeight: 700, fontSize: "0.95rem" }}>₹{item.current_price}</td>
+                          <td style={{ textDecoration: "line-through", color: "#555" }}>
+                            {item.old_price ? `₹${item.old_price}` : "—"}
+                          </td>
+                          <td>
+                            {item.discount ? (
+                              <span style={{
+                                ...styles.badge,
+                                background: "linear-gradient(135deg, #f5af19 0%, #f12711 100%)",
+                                color: "#fff",
+                              }}>
+                                {item.discount}
+                              </span>
+                            ) : (
+                              <span style={{ color: "#444" }}>—</span>
+                            )}
+                          </td>
+                          <td style={{ textAlign: "center" }}>
+                            <button
+                              style={styles.editBtn}
+                              onClick={() => startEdit(item)}
+                              onMouseOver={(e) => { e.target.style.transform = "scale(1.08)"; e.target.style.boxShadow = "0 4px 15px rgba(102, 126, 234, 0.5)"; }}
+                              onMouseOut={(e) => { e.target.style.transform = "scale(1)"; e.target.style.boxShadow = "0 2px 8px rgba(102, 126, 234, 0.3)"; }}
+                            >
+                              ✎ Edit
+                            </button>
+                          </td>
+                        </>
+                      )}
+                    </tr>
+                  );
+                })
               )}
             </tbody>
           </table>
