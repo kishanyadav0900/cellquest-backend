@@ -30,6 +30,7 @@ import AdminDoctors      from "./admin/pages/Doctors";
 import AdminPatients     from "./admin/pages/Patients";
 import AdminAppointments from "./admin/pages/Appointments";
 import AdminSettings     from "./admin/pages/Settings";
+import AdminTestPrices   from "./admin/pages/TestPrices";
 
 function App() {
 
@@ -106,6 +107,7 @@ function App() {
           <Route path="doctors"      element={<AdminDoctors />} />
           <Route path="patients"     element={<AdminPatients />} />
           <Route path="appointments" element={<AdminAppointments />} />
+          <Route path="test-prices"   element={<AdminTestPrices />} />
           <Route path="settings"     element={<AdminSettings />} />
         </Route>
       </Routes>

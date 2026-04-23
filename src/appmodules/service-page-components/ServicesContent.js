@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { supabase } from "../../admin/services/api";
 
 // Mock Data for tests. 
 const testsData = {
@@ -1378,7 +1379,25 @@ function ServicesContent() {
   const [activeCategory, setActiveCategory] = useState("Full Body Checkup");
   const [modalTest, setModalTest] = useState(null);
   const [openAccordions, setOpenAccordions] = useState({});
+  const [priceOverrides, setPriceOverrides] = useState({});
   const sliderRef = useRef(null);
+
+  // Fetch admin-set prices from Supabase
+  useEffect(() => {
+    const fetchPrices = async () => {
+      try {
+        const { data } = await supabase.from("test_prices").select("*");
+        if (data) {
+          const map = {};
+          data.forEach((p) => { map[p.test_name] = p; });
+          setPriceOverrides(map);
+        }
+      } catch (err) {
+        console.error("Failed to fetch test prices", err);
+      }
+    };
+    fetchPrices();
+  }, []);
 
   // Reset slider to start when category changes
   useEffect(() => {
@@ -1387,7 +1406,19 @@ function ServicesContent() {
     }
   }, [activeCategory]);
 
-  const currentTests = testsData[activeCategory] || [];
+  // Merge admin prices onto test cards
+  const currentTests = (testsData[activeCategory] || []).map((test) => {
+    const override = priceOverrides[test.title];
+    if (override) {
+      return {
+        ...test,
+        currentPrice: override.current_price,
+        oldPrice: override.old_price || test.oldPrice,
+        discount: override.discount || test.discount,
+      };
+    }
+    return test;
+  });
 
   const handleKnowMore = (test) => {
     setModalTest(test);

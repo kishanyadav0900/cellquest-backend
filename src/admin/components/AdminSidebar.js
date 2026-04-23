@@ -7,6 +7,7 @@ import {
   FaProcedures,
   FaCalendarCheck,
   FaCog,
+  FaRupeeSign,
 } from "react-icons/fa";
 import "./sidebar.css";
 
@@ -15,6 +16,7 @@ const navLinks = [
   { to: "/admin/doctors", label: "Doctors", icon: <FaUserMd /> },
   { to: "/admin/patients", label: "Patients", icon: <FaProcedures /> },
   { to: "/admin/appointments", label: "Appointments", icon: <FaCalendarCheck /> },
+  { to: "/admin/test-prices", label: "Test Prices", icon: <FaRupeeSign /> },
   { to: "/admin/settings", label: "Settings", icon: <FaCog /> },
 ];
 
