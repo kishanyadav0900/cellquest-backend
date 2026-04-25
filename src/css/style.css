@@ -617,7 +617,7 @@ h1,h2,h3,h4,h5{
 
 /*** Custom Test Slider Styling ***/
 .bg-light-mint {
-    background-color: #f7fcfa !important;
+    background-color: #f1f8e9 !important;
 }
 
 .test-category-pill {
@@ -781,13 +781,13 @@ h1,h2,h3,h4,h5{
 }
 
 .know-more-accordion-item:hover {
-    background: #f8fffe;
+    background: #f1f8e9;
 }
 
 .know-more-test-icon {
     width: 44px;
     height: 44px;
-    background: #e8f6f3;
+    background: #e8f5e9;
     border-radius: 10px;
     display: flex;
     align-items: center;

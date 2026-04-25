@@ -73,7 +73,7 @@ function TestPrices() {
   // Inline styles for the polished UI
   const styles = {
     editBtn: {
-      background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      background: "linear-gradient(135deg, #2e7d32 0%, #43a047 100%)",
       color: "#fff",
       border: "none",
       padding: "6px 18px",
@@ -82,12 +82,12 @@ function TestPrices() {
       fontWeight: 600,
       cursor: "pointer",
       transition: "all 0.2s ease",
-      boxShadow: "0 2px 8px rgba(102, 126, 234, 0.3)",
+      boxShadow: "0 2px 8px rgba(46, 125, 50, 0.3)",
       letterSpacing: "0.3px",
     },
     saveBtn: {
-      background: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
-      color: "#0a0e1a",
+      background: "linear-gradient(135deg, #43a047 0%, #66bb6a 100%)",
+      color: "#fff",
       border: "none",
       padding: "6px 18px",
       borderRadius: "20px",
@@ -95,13 +95,13 @@ function TestPrices() {
       fontWeight: 700,
       cursor: "pointer",
       transition: "all 0.2s ease",
-      boxShadow: "0 2px 8px rgba(67, 233, 123, 0.3)",
+      boxShadow: "0 2px 8px rgba(46, 125, 50, 0.3)",
       marginRight: "6px",
     },
     cancelBtn: {
       background: "transparent",
-      color: "#ff6b6b",
-      border: "1px solid #ff6b6b",
+      color: "#e65100",
+      border: "1px solid #e65100",
       padding: "5px 14px",
       borderRadius: "20px",
       fontSize: "0.8rem",
@@ -112,8 +112,8 @@ function TestPrices() {
     editInput: {
       padding: "6px 10px",
       borderRadius: "8px",
-      border: "2px solid #667eea",
-      background: "rgba(102, 126, 234, 0.08)",
+      border: "2px solid #43a047",
+      background: "rgba(46, 125, 50, 0.08)",
       color: "#fff",
       fontSize: "0.85rem",
       fontWeight: 600,
@@ -125,14 +125,14 @@ function TestPrices() {
       borderRadius: "8px",
       border: "1px solid rgba(255,255,255,0.15)",
       background: "rgba(255,255,255,0.05)",
-      color: "#ccd6f6",
+      color: "#c8e6c9",
       fontSize: "0.85rem",
       outline: "none",
       transition: "border-color 0.2s ease",
     },
     editingRow: {
-      background: "rgba(102, 126, 234, 0.08)",
-      borderLeft: "3px solid #667eea",
+      background: "rgba(46, 125, 50, 0.08)",
+      borderLeft: "3px solid #43a047",
     },
     badge: {
       display: "inline-block",
@@ -197,7 +197,7 @@ function TestPrices() {
                       <td style={{ fontWeight: 600, fontSize: "0.9rem" }}>
                         {item.test_name}
                         {isEditing && (
-                          <div style={{ fontSize: "0.7rem", color: "#667eea", marginTop: "2px", fontWeight: 400 }}>
+                          <div style={{ fontSize: "0.7rem", color: "#43a047", marginTop: "2px", fontWeight: 400 }}>
                             ✏️ Editing…
                           </div>
                         )}
@@ -255,7 +255,7 @@ function TestPrices() {
                         </>
                       ) : (
                         <>
-                          <td style={{ color: "#4fc3f7", fontWeight: 700, fontSize: "0.95rem" }}>₹{item.current_price}</td>
+                          <td style={{ color: "#81c784", fontWeight: 700, fontSize: "0.95rem" }}>₹{item.current_price}</td>
                           <td style={{ textDecoration: "line-through", color: "#555" }}>
                             {item.old_price ? `₹${item.old_price}` : "—"}
                           </td>
@@ -263,7 +263,7 @@ function TestPrices() {
                             {item.discount ? (
                               <span style={{
                                 ...styles.badge,
-                                background: "linear-gradient(135deg, #f5af19 0%, #f12711 100%)",
+                                background: "linear-gradient(135deg, #e65100 0%, #f57c00 100%)",
                                 color: "#fff",
                               }}>
                                 {item.discount}
@@ -276,8 +276,8 @@ function TestPrices() {
                             <button
                               style={styles.editBtn}
                               onClick={() => startEdit(item)}
-                              onMouseOver={(e) => { e.target.style.transform = "scale(1.08)"; e.target.style.boxShadow = "0 4px 15px rgba(102, 126, 234, 0.5)"; }}
-                              onMouseOut={(e) => { e.target.style.transform = "scale(1)"; e.target.style.boxShadow = "0 2px 8px rgba(102, 126, 234, 0.3)"; }}
+                              onMouseOver={(e) => { e.target.style.transform = "scale(1.08)"; e.target.style.boxShadow = "0 4px 15px rgba(46, 125, 50, 0.5)"; }}
+                              onMouseOut={(e) => { e.target.style.transform = "scale(1)"; e.target.style.boxShadow = "0 2px 8px rgba(46, 125, 50, 0.3)"; }}
                             >
                               ✎ Edit
                             </button>
