@@ -65,15 +65,15 @@ function Nav() {
             {/* Topbar End */}
 
             {/* Brand Start */}
-            <div className="container-fluid bg-primary text-white pt-4 pb-5 d-none d-lg-flex">
+            <div className="container-fluid d-none d-lg-flex pt-4 pb-5" style={{ background: "#FFFFDD", borderBottom: "2px solid #E7F1A8" }}>
                 <div className="container pb-2">
                     <div className="d-flex align-items-center justify-content-between">
 
-                        <div className="d-flex">
-                            <i className="bi bi-telephone-inbound fs-2"></i>
+                        <div className="d-flex align-items-center">
+                            <i className="bi bi-telephone-inbound fs-2" style={{ color: "#5a8a1a" }}></i>
                             <div className="ms-3">
-                                <h5 className="text-white mb-0">Call Now</h5>
-                                <a href="tel:+918059565582" className="text-white text-decoration-none">+91 805 956 5582</a>
+                                <h5 className="mb-0" style={{ color: "#333" }}>Call Now</h5>
+                                <a href="tel:+918059565582" className="text-decoration-none" style={{ color: "#F87154", fontWeight: 600 }}>+91 805 956 5582</a>
                             </div>
                         </div>
 
@@ -81,11 +81,11 @@ function Nav() {
                             <img src="/cellquest-logo.png" alt="Cell Quest India Logo" style={{ height: "60px", objectFit: "contain" }} />
                         </NavLink>
 
-                        <div className="d-flex">
-                            <i className="bi bi-envelope fs-2"></i>
+                        <div className="d-flex align-items-center">
+                            <i className="bi bi-envelope fs-2" style={{ color: "#5a8a1a" }}></i>
                             <div className="ms-3">
-                                <h5 className="text-white mb-0">Mail Now</h5>
-                                <a href="mailto:cellquestindia@gmail.com" className="text-white text-decoration-none">cellquestindia@gmail.com</a>
+                                <h5 className="mb-0" style={{ color: "#333" }}>Mail Now</h5>
+                                <a href="mailto:cellquestindia@gmail.com" className="text-decoration-none" style={{ color: "#F87154", fontWeight: 600 }}>cellquestindia@gmail.com</a>
                             </div>
                         </div>
 

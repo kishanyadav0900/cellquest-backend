@@ -12,7 +12,6 @@ function Features2() {
     { title: "IFA", desc: "Based on specific, high-affinity binding between an antigen and an antibody. A fluorophore is conjugated to the antibody, allowing detection of the antibody-antigen complex under a microscope.", icon: "bi-lightbulb" },
   ];
 
-  const partners = ["BIO-RAD", "BD", "AtheneDx", "AGD", "TRIVITRON", "itDose", "maccura", "DiaSys", "zybio"];
 
   return (
     <>
@@ -57,27 +56,59 @@ function Features2() {
           </div>
 
           {/* Official Partners */}
+          {/* Official Partners */}
           <div className="mt-5 pt-4 wow fadeInUp" data-wow-delay="0.3s">
             <div className="text-center mb-4">
               <span className="px-4 py-2 rounded-pill text-white fw-bold" style={{ background: "linear-gradient(135deg, #F87154, #fa8a6a)", fontSize: "1rem" }}>
                 CellQuest Official Partners
               </span>
             </div>
-            <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 gap-md-4">
-              {partners.map((name, i) => (
-                <div key={i} className="px-4 py-2 rounded-3 text-center" style={{
-                  background: "#f5f5f5",
-                  border: "1px solid #e0e0e0",
-                  fontWeight: 700,
-                  color: "#333",
-                  fontSize: "0.85rem",
-                  letterSpacing: "0.5px",
-                  minWidth: "100px"
-                }}>
-                  {name}
-                </div>
-              ))}
+
+            {/* Scrolling Logo Marquee */}
+            <div style={{ overflow: "hidden", position: "relative", padding: "20px 0" }}>
+              {/* Fade edges */}
+              <div style={{ position: "absolute", top: 0, left: 0, width: "80px", height: "100%", background: "linear-gradient(to right, #fff, transparent)", zIndex: 2 }}></div>
+              <div style={{ position: "absolute", top: 0, right: 0, width: "80px", height: "100%", background: "linear-gradient(to left, #fff, transparent)", zIndex: 2 }}></div>
+
+              <div style={{
+                display: "flex",
+                animation: "partnerScroll 20s linear infinite",
+                width: "fit-content",
+              }}>
+                {/* Duplicate logos for seamless loop */}
+                {[...Array(2)].map((_, setIdx) => (
+                  [1,2,3,4,5,6,7,8,9].map((num) => (
+                    <div key={`${setIdx}-${num}`} style={{
+                      flex: "0 0 auto",
+                      padding: "0 30px",
+                      display: "flex",
+                      alignItems: "center",
+                    }}>
+                      <img
+                        src={`/partners/${num}.png`}
+                        alt={`Partner ${num}`}
+                        style={{
+                          height: "50px",
+                          objectFit: "contain",
+                          filter: "grayscale(30%)",
+                          opacity: 0.85,
+                          transition: "all 0.3s",
+                        }}
+                        onMouseEnter={e => { e.target.style.filter = "grayscale(0%)"; e.target.style.opacity = "1"; e.target.style.transform = "scale(1.1)"; }}
+                        onMouseLeave={e => { e.target.style.filter = "grayscale(30%)"; e.target.style.opacity = "0.85"; e.target.style.transform = "scale(1)"; }}
+                      />
+                    </div>
+                  ))
+                ))}
+              </div>
             </div>
+
+            <style>{`
+              @keyframes partnerScroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+              }
+            `}</style>
           </div>
 
         </div>
