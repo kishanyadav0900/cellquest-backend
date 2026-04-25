@@ -3,6 +3,7 @@ import AppoinmentContent from "../home-page-components/AppoinmentContent";
 import Carousel from "../home-page-components/Carousel";
 import Feature1 from "../home-page-components/Features1";
 import Features2 from "../home-page-components/Features2";
+import QualityScope from "../home-page-components/QualityScope";
 import Team from "../home-page-components/Team";
 import ServicesContent from "../service-page-components/ServicesContent";
 import Footer from "../shared-components/Footer";
@@ -22,6 +23,7 @@ function Home() {
                 <Feature1 />
                 <Features2 />
                 <ServicesContent />
+                <QualityScope />
                 <AppoinmentContent />
                 <Team />
             </main>
