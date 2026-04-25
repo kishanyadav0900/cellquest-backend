@@ -73,19 +73,19 @@ function Nav() {
                             <i className="bi bi-telephone-inbound fs-2"></i>
                             <div className="ms-3">
                                 <h5 className="text-white mb-0">Call Now</h5>
-                                <span>+91 805 956 5582</span>
+                                <a href="tel:+918059565582" className="text-white text-decoration-none">+91 805 956 5582</a>
                             </div>
                         </div>
 
                         <NavLink to="/" className="navbar-brand">
-                            <img src="/cellquest-logo.png" alt="Cell Quest India Logo" style={{ height: "80px", objectFit: "contain", transform: "scale(3)" }} />
+                            <img src="/cellquest-logo.png" alt="Cell Quest India Logo" style={{ height: "60px", objectFit: "contain", mixBlendMode: "multiply" }} />
                         </NavLink>
 
                         <div className="d-flex">
                             <i className="bi bi-envelope fs-2"></i>
                             <div className="ms-3">
                                 <h5 className="text-white mb-0">Mail Now</h5>
-                                <span>cellquestindia@gmail.com</span>
+                                <a href="mailto:cellquestindia@gmail.com" className="text-white text-decoration-none">cellquestindia@gmail.com</a>
                             </div>
                         </div>
 
@@ -100,7 +100,7 @@ function Nav() {
                     <nav className="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3">
 
                         <NavLink to="/" className="navbar-brand d-lg-none">
-                            <img src="/cellquest-logo.png" alt="Cell Quest India Logo" style={{ height: "65px", objectFit: "contain", transform: "scale(2.5)", transformOrigin: "left center" }} />
+                            <img src="/cellquest-logo.png" alt="Cell Quest India Logo" style={{ height: "45px", objectFit: "contain" }} />
                         </NavLink>
 
                         <button

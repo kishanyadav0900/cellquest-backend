@@ -13,7 +13,7 @@ function Footer() {
           <div className="row g-5 py-5">
             <div className="col-lg-6 pe-lg-5">
               <a href="index.html" className="navbar-brand d-inline-block mb-3">
-                <img src="/cellquest-logo.png" alt="Cell Quest India Logo" style={{ height: "90px", objectFit: "contain", transform: "scale(2)", transformOrigin: "left center" }} />
+                <img src="/cellquest-logo.png" alt="Cell Quest India Logo" style={{ height: "60px", objectFit: "contain", borderRadius: "8px" }} />
               </a>
 
               <p className="fs-5 mb-4">
@@ -25,11 +25,11 @@ function Footer() {
               </p>
 
               <p>
-                <i className="fa fa-phone-alt me-2"></i>+91 805 956 5582
+                <i className="fa fa-phone-alt me-2"></i><a href="tel:+918059565582" className="text-white-50 text-decoration-none">+91 805 956 5582</a>
               </p>
 
               <p>
-                <i className="fa fa-envelope me-2"></i>cellquestindia@gmail.com
+                <i className="fa fa-envelope me-2"></i><a href="mailto:cellquestindia@gmail.com" className="text-white-50 text-decoration-none">cellquestindia@gmail.com</a>
               </p>
 
               <div className="d-flex mt-4">
