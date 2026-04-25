@@ -88,23 +88,7 @@ function Footer() {
                   </Link>
                 </div>
 
-                <div className="col-sm-12">
-                  <h4 className="text-light mb-4">Newsletter</h4>
 
-                  <div className="w-100">
-                    <div className="input-group">
-                      <input
-                        type="text"
-                        className="form-control border-0 py-3 px-4"
-                        style={{ background: "rgba(255, 255, 255, .1)" }}
-                        placeholder="Your Email Address"
-                      />
-                      <button className="btn btn-primary px-4">
-                        Sign Up
-                      </button>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 

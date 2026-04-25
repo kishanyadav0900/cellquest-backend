@@ -198,7 +198,7 @@ h1,h2,h3,h4,h5{
     bottom: 0;
     display: flex;
     align-items: center;
-    background: rgba(3, 27, 78, .3);
+    background: rgba(27, 94, 32, .3);
     z-index: 1;
 }
 
@@ -231,7 +231,7 @@ h1,h2,h3,h4,h5{
 }
 
 .page-header {
-    background: linear-gradient(rgba(3, 27, 78, .3), rgba(3, 27, 78, .3)), url("https://res.cloudinary.com/dckaebnl5/image/upload/v1772883021/testimonial_fhnqdn.jpg") center center no-repeat;
+    background: linear-gradient(rgba(27, 94, 32, .3), rgba(27, 94, 32, .3)), url("https://res.cloudinary.com/dckaebnl5/image/upload/v1772883021/testimonial_fhnqdn.jpg") center center no-repeat;
     background-size: cover;
 }
 
@@ -248,7 +248,7 @@ h1,h2,h3,h4,h5{
 
 /*** Features ***/
 .feature {
-    background: linear-gradient(rgba(3, 27, 78, .3), rgba(3, 27, 78, .3)), url("https://res.cloudinary.com/dckaebnl5/image/upload/v1772822914/feature_zilqzt.jpg") left center no-repeat;
+    background: linear-gradient(rgba(27, 94, 32, .3), rgba(27, 94, 32, .3)), url("https://res.cloudinary.com/dckaebnl5/image/upload/v1772822914/feature_zilqzt.jpg") left center no-repeat;
     background-size: cover;
 }
 
@@ -561,7 +561,7 @@ h1,h2,h3,h4,h5{
 
 /*** Footer ***/
 .footer {
-    background: linear-gradient(rgba(3, 27, 78, .3), rgba(3, 27, 78, .3)), url("https://res.cloudinary.com/dckaebnl5/image/upload/v1772827399/footer_un0jf7.png") center center no-repeat;
+    background: linear-gradient(rgba(27, 94, 32, .3), rgba(27, 94, 32, .3)), url("https://res.cloudinary.com/dckaebnl5/image/upload/v1772827399/footer_un0jf7.png") center center no-repeat;
     background-size: contain;
 }
 

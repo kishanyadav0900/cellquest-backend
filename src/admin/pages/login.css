@@ -160,7 +160,7 @@
 }
 
 .login-submit-btn {
-  background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+  background: linear-gradient(135deg, #e65100 0%, #f57c00 100%);
   color: white;
   border: none;
   border-radius: 10px;
@@ -180,7 +180,7 @@
 .login-submit-btn:hover:not(:disabled) {
   opacity: 0.9;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.45);
+  box-shadow: 0 8px 25px rgba(230, 81, 0, 0.45);
 }
 
 .login-submit-btn:disabled {

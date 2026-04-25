@@ -227,14 +227,14 @@
 }
 
 .admin-btn-primary {
-  background: linear-gradient(135deg, #2e7d32, #43a047);
+  background: linear-gradient(135deg, #e65100, #f57c00);
   color: white;
 }
 
 .admin-btn-primary:hover {
   opacity: 0.9;
   transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(46,125,50,0.4);
+  box-shadow: 0 4px 15px rgba(230,81,0,0.4);
 }
 
 .admin-btn-confirm {

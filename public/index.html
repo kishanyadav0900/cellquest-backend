@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/cellquest-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#2e7d32" />
     <meta
       name="description"
-      content="Cell Quest India - Advanced Diagnostic Laboratory in Gurgaon, Haryana. Book pathology, microbiology & biochemistry tests online."
+      content="Cell Quest India - Advanced Diagnostic Laboratory in Gurgaon, Haryana. Book pathology, microbiology &amp; biochemistry tests online."
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/cellquest-logo.png" />
     <!--
@@ -29,7 +29,10 @@
       :root {
         --bs-primary: #2e7d32 !important;
         --bs-primary-rgb: 46, 125, 50 !important;
+        --bs-secondary: #e65100 !important;
+        --bs-secondary-rgb: 230, 81, 0 !important;
       }
+      /* Green primary */
       .bg-primary { background-color: #2e7d32 !important; }
       .btn-primary { background-color: #2e7d32 !important; border-color: #2e7d32 !important; }
       .btn-primary:hover { background-color: #1b5e20 !important; border-color: #1b5e20 !important; }
@@ -37,8 +40,16 @@
       .btn-outline-primary:hover { background-color: #2e7d32 !important; border-color: #2e7d32 !important; color: #fff !important; }
       .text-primary { color: #2e7d32 !important; }
       .border-primary { border-color: #2e7d32 !important; }
+      /* Orange secondary */
+      .bg-secondary { background-color: #e65100 !important; }
+      .btn-secondary { background-color: #e65100 !important; border-color: #e65100 !important; color: #fff !important; }
+      .btn-secondary:hover { background-color: #bf360c !important; border-color: #bf360c !important; }
+      .text-secondary { color: #e65100 !important; }
+      /* Links */
       a { color: #2e7d32; }
-      a:hover { color: #1b5e20; }
+      a:hover { color: #e65100; }
+      /* Footer green background */
+      .footer.bg-dark { background: linear-gradient(135deg, #1b5e20, #2e7d32) !important; }
     </style>
   </head>
   <body>
