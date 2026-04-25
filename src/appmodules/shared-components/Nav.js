@@ -78,7 +78,7 @@ function Nav() {
                         </div>
 
                         <NavLink to="/" className="navbar-brand">
-                            <img src="/cellquest-logo.png" alt="Cell Quest India Logo" style={{ height: "60px", objectFit: "contain", mixBlendMode: "multiply" }} />
+                            <img src="/cellquest-logo.png" alt="Cell Quest India Logo" style={{ height: "60px", objectFit: "contain" }} />
                         </NavLink>
 
                         <div className="d-flex">
