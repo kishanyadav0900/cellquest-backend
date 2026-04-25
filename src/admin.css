@@ -10,7 +10,7 @@
 /* ===================== LAYOUT ===================== */
 .admin-app-container {
   min-height: 100vh;
-  background: #071209;
+  background: #0b0f05;
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   color: #e8edf5;
 }
@@ -26,7 +26,7 @@
   flex: 1;
   padding: 28px;
   min-height: calc(100vh - 64px);
-  background: #071209;
+  background: #0b0f05;
   transition: margin-left 0.3s;
 }
 
@@ -39,7 +39,7 @@
 
 /* ===================== CARDS ===================== */
 .admin-card {
-  background: linear-gradient(135deg, #0f261a 0%, #122e1f 100%);
+  background: linear-gradient(135deg, #161c0c 0%, #1c2410 100%);
   border: 1px solid rgba(46, 125, 50, 0.12);
   border-radius: 16px;
   padding: 22px;
@@ -55,7 +55,7 @@
 }
 
 .stat-card {
-  background: linear-gradient(135deg, #0f261a, #122e1f);
+  background: linear-gradient(135deg, #161c0c, #1c2410);
   border: 1px solid rgba(46, 125, 50, 0.12);
   border-radius: 16px;
   padding: 22px;
@@ -82,10 +82,10 @@
   flex-shrink: 0;
 }
 
-.stat-icon.blue   { background: linear-gradient(135deg, #2e7d32, #43a047); }
-.stat-icon.green  { background: linear-gradient(135deg, #1b5e20, #2e7d32); }
-.stat-icon.purple { background: linear-gradient(135deg, #e65100, #f57c00); }
-.stat-icon.orange { background: linear-gradient(135deg, #f57c00, #ffa726); }
+.stat-icon.blue   { background: linear-gradient(135deg, #5a8a1a, #6a9a2a); }
+.stat-icon.green  { background: linear-gradient(135deg, #3d5e10, #5a8a1a); }
+.stat-icon.purple { background: linear-gradient(135deg, #F87154, #fa8a6a); }
+.stat-icon.orange { background: linear-gradient(135deg, #fa8a6a, #ffa726); }
 .stat-icon.red    { background: linear-gradient(135deg, #c62828, #e53935); }
 
 .stat-info { flex: 1; }
@@ -99,7 +99,7 @@
 
 .stat-label {
   font-size: 13px;
-  color: #81c784;
+  color: #E7F1A8;
   margin-top: 4px;
   font-weight: 500;
 }
@@ -128,7 +128,7 @@
   overflow-x: auto;
   border-radius: 16px;
   border: 1px solid rgba(46, 125, 50, 0.1);
-  background: #0a1a0f;
+  background: #0f1408;
 }
 
 .admin-table {
@@ -139,7 +139,7 @@
 
 .admin-table thead th {
   background: rgba(46, 125, 50, 0.18);
-  color: #a5d6a7;
+  color: #E7F1A8;
   font-weight: 600;
   padding: 14px 16px;
   text-align: left;
@@ -175,10 +175,10 @@
   letter-spacing: 0.5px;
 }
 
-.badge-success  { background: rgba(46,125,50,0.2);  color: #81c784; border: 1px solid rgba(46,125,50,0.35); }
+.badge-success  { background: rgba(46,125,50,0.2);  color: #E7F1A8; border: 1px solid rgba(46,125,50,0.35); }
 .badge-warning  { background: rgba(230,81,0,0.2);   color: #ffab91; border: 1px solid rgba(230,81,0,0.35); }
 .badge-danger   { background: rgba(198,40,40,0.2);  color: #ef9a9a; border: 1px solid rgba(198,40,40,0.35); }
-.badge-info     { background: rgba(46,125,50,0.15); color: #a5d6a7; border: 1px solid rgba(46,125,50,0.3); }
+.badge-info     { background: rgba(46,125,50,0.15); color: #E7F1A8; border: 1px solid rgba(46,125,50,0.3); }
 
 /* ===================== STATUS SELECT ===================== */
 .admin-status-select {
@@ -203,13 +203,13 @@
   background-position: right 8px center;
 }
 
-.admin-status-select.badge-success { background-color: rgba(46,125,50,0.15); color: #81c784; border-color: rgba(46,125,50,0.35); }
+.admin-status-select.badge-success { background-color: rgba(46,125,50,0.15); color: #E7F1A8; border-color: rgba(46,125,50,0.35); }
 .admin-status-select.badge-warning { background-color: rgba(230,81,0,0.15);  color: #ffab91; border-color: rgba(230,81,0,0.35); }
-.admin-status-select.badge-info    { background-color: rgba(46,125,50,0.12); color: #a5d6a7; border-color: rgba(46,125,50,0.3); }
+.admin-status-select.badge-info    { background-color: rgba(46,125,50,0.12); color: #E7F1A8; border-color: rgba(46,125,50,0.3); }
 .admin-status-select.badge-danger  { background-color: rgba(198,40,40,0.15); color: #ef9a9a; border-color: rgba(198,40,40,0.35); }
 
 .admin-status-select option {
-  background: #122e1f;
+  background: #1c2410;
   color: #e2e8f0;
   font-weight: 500;
 }
@@ -227,7 +227,7 @@
 }
 
 .admin-btn-primary {
-  background: linear-gradient(135deg, #e65100, #f57c00);
+  background: linear-gradient(135deg, #F87154, #fa8a6a);
   color: white;
 }
 
@@ -239,7 +239,7 @@
 
 .admin-btn-confirm {
   background: rgba(46,125,50,0.15);
-  color: #81c784;
+  color: #E7F1A8;
   border: 1px solid rgba(46,125,50,0.3);
 }
 
@@ -273,7 +273,7 @@
 }
 
 .admin-input:focus {
-  border-color: #43a047;
+  border-color: #6a9a2a;
   box-shadow: 0 0 0 3px rgba(46,125,50,0.2);
 }
 
@@ -291,7 +291,7 @@ select.admin-input {
 }
 
 select.admin-input option {
-  background: #122e1f;
+  background: #1c2410;
   color: #e2e8f0;
 }
 
@@ -310,7 +310,7 @@ select.admin-input option {
 
 /* ===================== CHART CONTAINER ===================== */
 .admin-chart-container {
-  background: linear-gradient(135deg, #0f261a, #122e1f);
+  background: linear-gradient(135deg, #161c0c, #1c2410);
   border: 1px solid rgba(46, 125, 50, 0.1);
   border-radius: 16px;
   padding: 22px;
@@ -320,7 +320,7 @@ select.admin-input option {
 .admin-chart-title {
   font-size: 16px;
   font-weight: 600;
-  color: #a5d6a7;
+  color: #E7F1A8;
   margin-bottom: 16px;
 }
 
@@ -351,7 +351,7 @@ select.admin-input option {
 }
 
 .admin-search:focus {
-  border-color: #43a047;
+  border-color: #6a9a2a;
   box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.18);
   background-color: rgba(46, 125, 50, 0.08);
 }
@@ -374,7 +374,7 @@ select.admin-input option {
   overflow-x: auto;
   border-radius: 16px;
   border: 1px solid rgba(46, 125, 50, 0.1);
-  background: #0a1a0f;
+  background: #0f1408;
 }
 
 /* ===================== SMALL ACTION BUTTONS ===================== */
@@ -391,7 +391,7 @@ select.admin-input option {
 
 .admin-btn-edit {
   background: rgba(46, 125, 50, 0.15);
-  color: #81c784;
+  color: #E7F1A8;
   border: 1px solid rgba(46, 125, 50, 0.3);
 }
 
@@ -413,7 +413,7 @@ select.admin-input option {
 
 /* ===================== FORMS ===================== */
 .admin-form {
-  background: linear-gradient(135deg, #0f261a 0%, #122e1f 100%);
+  background: linear-gradient(135deg, #161c0c 0%, #1c2410 100%);
   border: 1px solid rgba(46, 125, 50, 0.1);
   border-radius: 16px;
   padding: 22px;
@@ -436,7 +436,7 @@ select.admin-input option {
 .admin-field label {
   font-size: 12px;
   font-weight: 600;
-  color: #81c784;
+  color: #E7F1A8;
   text-transform: uppercase;
   letter-spacing: 0.6px;
 }
@@ -455,7 +455,7 @@ select.admin-input option {
 
 .admin-field input:focus,
 .admin-field select:focus {
-  border-color: #43a047;
+  border-color: #6a9a2a;
   box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.18);
 }
 
@@ -467,6 +467,6 @@ select.admin-input option {
 .admin-loading {
   text-align: center;
   padding: 3rem;
-  color: #81c784;
+  color: #E7F1A8;
   font-size: 15px;
 }

@@ -9,7 +9,7 @@ function AboutContent() {
           <div className="row g-5 align-items-center">
 
             <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-              <h1 className="display-5 mb-4" style={{ color: "#2e7d32", fontWeight: 800 }}>
+              <h1 className="display-5 mb-4" style={{ color: "#5a8a1a", fontWeight: 800 }}>
                 About CellQuest
               </h1>
 
@@ -57,13 +57,13 @@ function AboutContent() {
       {/* About CellQuest End */}
 
       {/* Philosophy & Quality Commitment Section */}
-      <div className="container-fluid py-5" style={{ background: "linear-gradient(135deg, #1b5e20, #2e7d32)" }}>
+      <div className="container-fluid py-5" style={{ background: "linear-gradient(135deg, #3d5e10, #5a8a1a)" }}>
         <div className="container">
           <div className="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
             <h2 className="display-6 text-white mb-2" style={{ fontWeight: 700 }}>
               Our Philosophy & Quality Commitment
             </h2>
-            <div style={{ width: "80px", height: "3px", background: "#e65100", margin: "0 auto", borderRadius: "3px" }}></div>
+            <div style={{ width: "80px", height: "3px", background: "#F87154", margin: "0 auto", borderRadius: "3px" }}></div>
           </div>
 
           <div className="row g-4">
@@ -77,7 +77,7 @@ function AboutContent() {
               { icon: "bi-house-door", text: "Seamless home sample collection designed for convenience, comfort, and reliability" },
             ].map((item, idx) => (
               <div key={idx} className="col-lg-6 wow fadeInUp" data-wow-delay={`${0.1 + idx * 0.1}s`}>
-                <div className="d-flex align-items-start gap-3 p-3 rounded" style={{ background: "rgba(255,255,255,0.1)", borderLeft: "3px solid #e65100" }}>
+                <div className="d-flex align-items-start gap-3 p-3 rounded" style={{ background: "rgba(255,255,255,0.1)", borderLeft: "3px solid #F87154" }}>
                   <i className={`bi ${item.icon} fs-3 text-white`} style={{ minWidth: "30px" }}></i>
                   <p className="text-white mb-0" style={{ fontSize: "1rem", lineHeight: 1.7 }}>
                     {item.text}

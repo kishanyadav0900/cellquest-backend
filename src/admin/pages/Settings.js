@@ -152,7 +152,7 @@ function Settings() {
         <div className="admin-card">
           <div className="admin-chart-title">🔐 Change Your Password</div>
           <p style={{ color: "#64748b", fontSize: "13px", marginBottom: "20px", lineHeight: 1.6 }}>
-            Current email: <strong style={{ color: "#81c784" }}>{current.email}</strong>
+            Current email: <strong style={{ color: "#E7F1A8" }}>{current.email}</strong>
           </p>
 
           {statusBox(status)}
@@ -335,7 +335,7 @@ function Settings() {
                         width: "36px",
                         height: "36px",
                         borderRadius: "50%",
-                        background: `linear-gradient(135deg, ${["#2e7d32","#1b5e20","#e65100","#c62828","#43a047","#f57c00"][i % 6]}, ${["#43a047","#2e7d32","#f57c00","#e53935","#66bb6a","#ffa726"][i % 6]})`,
+                        background: `linear-gradient(135deg, ${["#5a8a1a","#3d5e10","#F87154","#c62828","#6a9a2a","#fa8a6a"][i % 6]}, ${["#6a9a2a","#5a8a1a","#fa8a6a","#e53935","#8ab43a","#ffa726"][i % 6]})`,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",

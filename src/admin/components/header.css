@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   height: 64px;
-  background: linear-gradient(135deg, #0a1a0f 0%, #0d2214 50%, #112a18 100%);
+  background: linear-gradient(135deg, #0f1408 0%, #141b0a 50%, #1a210e 100%);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -73,7 +73,7 @@
 
 .header-clock {
   font-size: 14px;
-  color: #81c784;
+  color: #E7F1A8;
   font-family: 'Courier New', monospace;
   background: rgba(46, 125, 50, 0.1);
   padding: 6px 12px;
@@ -90,7 +90,7 @@
 .admin-avatar {
   width: 34px;
   height: 34px;
-  background: linear-gradient(135deg, #2e7d32, #43a047);
+  background: linear-gradient(135deg, #5a8a1a, #6a9a2a);
   border-radius: 50%;
   display: flex;
   align-items: center;

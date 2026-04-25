@@ -20,35 +20,35 @@ function Features2() {
       <div className="container-fluid py-5" style={{ background: "#fff" }}>
         <div className="container">
           <div className="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
-            <h6 style={{ color: "#e65100", fontWeight: 700, textTransform: "uppercase", letterSpacing: "2px", fontSize: "0.9rem" }}>
+            <h6 style={{ color: "#F87154", fontWeight: 700, textTransform: "uppercase", letterSpacing: "2px", fontSize: "0.9rem" }}>
               What We Offer
             </h6>
-            <h1 className="display-5 mb-3" style={{ fontWeight: 800, color: "#1b5e20" }}>
+            <h1 className="display-5 mb-3" style={{ fontWeight: 800, color: "#3d5e10" }}>
               Our Service Spectrum
             </h1>
-            <div style={{ width: "80px", height: "3px", background: "#e65100", margin: "0 auto", borderRadius: "3px" }}></div>
+            <div style={{ width: "80px", height: "3px", background: "#F87154", margin: "0 auto", borderRadius: "3px" }}></div>
           </div>
 
           <div className="row g-4">
             {services.map((svc, idx) => (
               <div key={idx} className="col-lg-6 wow fadeInUp" data-wow-delay={`${0.1 + (idx % 4) * 0.1}s`}>
                 <div className="d-flex align-items-start gap-3 p-4 rounded-3 h-100" style={{
-                  background: idx % 2 === 0 ? "#f1f8e9" : "#fff3e0",
+                  background: idx % 2 === 0 ? "#E7F1A8" : "#FFFFDD",
                   border: "1px solid",
-                  borderColor: idx % 2 === 0 ? "#c8e6c9" : "#ffe0b2",
+                  borderColor: idx % 2 === 0 ? "#E7F1A8" : "#fdd",
                   transition: "transform 0.2s, box-shadow 0.2s",
                 }}>
                   <div className="flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle" style={{
                     width: "50px",
                     height: "50px",
-                    background: idx % 2 === 0 ? "#2e7d32" : "#e65100",
+                    background: idx % 2 === 0 ? "#5a8a1a" : "#F87154",
                     color: "#fff",
                     fontSize: "1.3rem"
                   }}>
                     <i className={`bi ${svc.icon}`}></i>
                   </div>
                   <div>
-                    <h5 className="mb-2" style={{ fontWeight: 700, color: "#1b5e20" }}>{svc.title}</h5>
+                    <h5 className="mb-2" style={{ fontWeight: 700, color: "#3d5e10" }}>{svc.title}</h5>
                     <p className="mb-0" style={{ color: "#555", lineHeight: 1.6, fontSize: "0.95rem" }}>{svc.desc}</p>
                   </div>
                 </div>
@@ -59,7 +59,7 @@ function Features2() {
           {/* Official Partners */}
           <div className="mt-5 pt-4 wow fadeInUp" data-wow-delay="0.3s">
             <div className="text-center mb-4">
-              <span className="px-4 py-2 rounded-pill text-white fw-bold" style={{ background: "linear-gradient(135deg, #e65100, #f57c00)", fontSize: "1rem" }}>
+              <span className="px-4 py-2 rounded-pill text-white fw-bold" style={{ background: "linear-gradient(135deg, #F87154, #fa8a6a)", fontSize: "1rem" }}>
                 CellQuest Official Partners
               </span>
             </div>
