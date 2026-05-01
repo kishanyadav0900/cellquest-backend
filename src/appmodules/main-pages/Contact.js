@@ -58,7 +58,7 @@ function Contact() {
 
               <div className="col-lg-6">
                 <a
-                  href="tel:+918059565582"
+                  href="tel:+919990155907"
                   className="d-flex justify-content-lg-center bg-primary p-4 text-decoration-none"
                 >
                   <div className="icon-box-light flex-shrink-0">
@@ -67,7 +67,7 @@ function Contact() {
 
                   <div className="ms-3">
                     <h5 className="text-white">Call Us</h5>
-                    <h2 className="text-white mb-0">+91 805 956 5582</h2>
+                    <h2 className="text-white mb-0">+91 99901 55907</h2>
                   </div>
                 </a>
               </div>

@@ -24,7 +24,7 @@ function Footer() {
                     <i className="fa fa-map-marker-alt me-2 text-primary"></i>Kirti Nagar, Sec 15 Part 1, Gurgaon
                   </p>
                   <p className="mb-0">
-                    <i className="fa fa-phone-alt me-2 text-primary"></i><a href="tel:+918059565582" className="text-white-50 text-decoration-none">+91 805 956 5582</a>
+                    <i className="fa fa-phone-alt me-2 text-primary"></i><a href="tel:+919990155907" className="text-white-50 text-decoration-none">+91 99901 55907</a>
                   </p>
                   <p className="mb-0">
                     <i className="fa fa-envelope me-2 text-primary"></i><a href="mailto:cellquestindia@gmail.com" className="text-white-50 text-decoration-none">cellquestindia@gmail.com</a>

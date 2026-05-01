@@ -104,7 +104,7 @@ function Doctors() {
             </div>
             <div className="login-field">
               <label>Phone *</label>
-              <input className="admin-input" required value={form.phone}     onChange={(e) => setForm({ ...form, phone: e.target.value })}     placeholder="+91 XXXXX XXXXX" />
+              <input className="admin-input" required value={form.phone}     onChange={(e) => setForm({ ...form, phone: e.target.value })}     placeholder="+91 99901 55907" />
             </div>
             <div className="login-field">
               <label>Email *</label>

@@ -120,7 +120,7 @@ function Patients() {
                 <option>Male</option><option>Female</option><option>Other</option>
               </select>
             </div>
-            <div className="pf"><label>Phone *</label><input className="admin-input" required value={form.phone}  onChange={(e) => setForm({ ...form, phone: e.target.value })}  placeholder="+91 XXXXX XXXXX" /></div>
+            <div className="pf"><label>Phone *</label><input className="admin-input" required value={form.phone}  onChange={(e) => setForm({ ...form, phone: e.target.value })}  placeholder="+91 99901 55907" /></div>
             <div className="pf"><label>Test Name *</label><input className="admin-input" required value={form.test}   onChange={(e) => setForm({ ...form, test: e.target.value })}   placeholder="e.g. Blood Count" /></div>
             <div className="pf">
               <label>Referring Doctor *</label>

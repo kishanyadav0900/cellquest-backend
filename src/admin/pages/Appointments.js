@@ -145,7 +145,7 @@ Ist & 2nd floor, Plot no-5, Kirti Nagar
 Sec 15 Part 1, Near Bindle Colour Lab
 Gurgaon, Haryana 122001
 
-For any queries or rescheduling, contact us at: +91 XXXXX XXXXX
+For any queries or rescheduling, contact us at: +91 99901 55907
 
 We look forward to serving you.
 
@@ -186,7 +186,7 @@ A new patient appointment has been scheduled. Please find the details below:
 
 ℹ️ Please ensure you are available at the scheduled time and review any prior medical history if available.
 
-For any queries, please contact the lab at: +91 XXXXX XXXXX
+For any queries, please contact the lab at: +91 99901 55907
 
 Best regards,
 Cell Quest India – Admin`;
@@ -252,7 +252,7 @@ Cell Quest India – Admin`;
           <div className="admin-chart-title">{editId ? "✏️ Edit Appointment" : "➕ Book New Appointment"}</div>
           <form onSubmit={handleSubmit} style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "14px" }}>
             <div className="af"><label>Patient Name *</label><input className="admin-input" required value={form.patient} onChange={(e) => setForm({ ...form, patient: e.target.value })} placeholder="Full name" /></div>
-            <div className="af"><label>Phone *</label><input className="admin-input" required value={form.phone}   onChange={(e) => setForm({ ...form, phone: e.target.value })}   placeholder="+91 XXXXX XXXXX" /></div>
+            <div className="af"><label>Phone *</label><input className="admin-input" required value={form.phone}   onChange={(e) => setForm({ ...form, phone: e.target.value })}   placeholder="+91 99901 55907" /></div>
             <div className="af"><label>Email *</label><input className="admin-input" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="patient@gmail.com" /></div>
             <div className="af"><label>Test Name *</label><input className="admin-input" required value={form.test}    onChange={(e) => setForm({ ...form, test: e.target.value })}    placeholder="e.g. Blood Count" /></div>
             <div className="af">
@@ -339,27 +339,30 @@ Cell Quest India – Admin`;
                     </select>
                   </td>
                   <td>
-                    <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+                    <div className="apt-actions">
                       {currentRole === "admin" && (
-                        <button className="admin-btn admin-btn-primary" style={{ padding: "5px 10px", fontSize: "11px" }} onClick={() => handleEdit(a)}>Edit</button>
+                        <button className="apt-action-btn apt-btn-edit" onClick={() => handleEdit(a)} title="Edit appointment">
+                          ✏️ Edit
+                        </button>
                       )}
                       <button
-                        className="admin-btn admin-btn-confirm"
-                        style={{ padding: "5px 10px", fontSize: "11px", opacity: (!a.email || !a.doctor || a.doctor === "To be assigned") ? 0.5 : 1 }}
+                        className={`apt-action-btn apt-btn-patient ${(!a.email || !a.doctor || a.doctor === "To be assigned") ? "apt-btn-disabled" : ""}`}
                         onClick={() => handleSendConfirmation(a)}
-                        title={!a.email ? "Add email first" : (!a.doctor || a.doctor === "To be assigned") ? "Assign doctor first" : "Send patient confirmation email"}
+                        title={!a.email ? "Add email first" : (!a.doctor || a.doctor === "To be assigned") ? "Assign doctor first" : "Send patient confirmation"}
                       >
                         📧 Patient
                       </button>
                       <button
-                        style={{ background: "linear-gradient(135deg, #2563eb, #3b82f6)", color: "#fff", border: "none", padding: "5px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: 600, cursor: "pointer", opacity: (!a.doctor || a.doctor === "To be assigned") ? 0.5 : 1 }}
+                        className={`apt-action-btn apt-btn-doctor ${(!a.doctor || a.doctor === "To be assigned") ? "apt-btn-disabled" : ""}`}
                         onClick={() => handleSendDoctorEmail(a)}
-                        title={!a.doctor || a.doctor === "To be assigned" ? "Assign a doctor first" : "Email appointment details to the doctor"}
+                        title={!a.doctor || a.doctor === "To be assigned" ? "Assign a doctor first" : "Email details to doctor"}
                       >
                         📧 Doctor
                       </button>
                       {currentRole === "admin" && (
-                        <button className="admin-btn admin-btn-danger" style={{ padding: "5px 10px", fontSize: "11px" }} onClick={() => handleDelete(a.id)}>Delete</button>
+                        <button className="apt-action-btn apt-btn-delete" onClick={() => handleDelete(a.id)} title="Delete appointment">
+                          🗑️ Delete
+                        </button>
                       )}
                     </div>
                   </td>
@@ -373,8 +376,57 @@ Cell Quest India – Admin`;
       <style>{`
         .af { display: flex; flex-direction: column; gap: 6px; }
         .af label { font-size: 12px; font-weight: 600; color: #c8d6e5; text-transform: uppercase; letter-spacing: 0.7px; }
+        .apt-actions {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 6px;
+          min-width: 180px;
+        }
+        .apt-action-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+          padding: 6px 10px;
+          border-radius: 8px;
+          font-size: 11px;
+          font-weight: 600;
+          cursor: pointer;
+          border: 1px solid transparent;
+          transition: all 0.2s ease;
+          white-space: nowrap;
+        }
+        .apt-btn-edit {
+          background: rgba(90,138,26,0.12);
+          color: #E7F1A8;
+          border-color: rgba(90,138,26,0.3);
+        }
+        .apt-btn-edit:hover { background: rgba(90,138,26,0.25); }
+        .apt-btn-patient {
+          background: rgba(248,113,84,0.12);
+          color: #fca5a5;
+          border-color: rgba(248,113,84,0.25);
+        }
+        .apt-btn-patient:hover { background: rgba(248,113,84,0.25); }
+        .apt-btn-doctor {
+          background: rgba(59,130,246,0.12);
+          color: #93c5fd;
+          border-color: rgba(59,130,246,0.25);
+        }
+        .apt-btn-doctor:hover { background: rgba(59,130,246,0.25); }
+        .apt-btn-delete {
+          background: rgba(220,38,38,0.1);
+          color: #fca5a5;
+          border-color: rgba(220,38,38,0.2);
+        }
+        .apt-btn-delete:hover { background: rgba(220,38,38,0.22); }
+        .apt-btn-disabled {
+          opacity: 0.4;
+          cursor: not-allowed;
+        }
         @media (max-width: 768px) {
           form[style*="grid-template-columns: 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
+          .apt-actions { grid-template-columns: 1fr; }
         }
       `}</style>
     </div>
