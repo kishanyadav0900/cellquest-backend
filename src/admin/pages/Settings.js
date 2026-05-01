@@ -13,10 +13,12 @@ function Settings() {
 
   // ─── User Management State ───
   const [users, setUsers] = useState([]);
-  const [userForm, setUserForm] = useState({ email: "", password: "" });
+  const [userForm, setUserForm] = useState({ email: "", password: "", role: "viewer" });
   const [showUserForm, setShowUserForm] = useState(false);
   const [userStatus, setUserStatus] = useState(null);
   const [showUserPw, setShowUserPw] = useState(false);
+  const _sr = localStorage.getItem("admin-role");
+  const currentRole = _sr || (localStorage.getItem("admin-token") ? "admin" : "viewer");
 
   // Load current credentials & users on mount
   useEffect(() => {
@@ -37,7 +39,7 @@ function Settings() {
     try {
       const { data, error } = await supabase
         .from("admin_users")
-        .select("id, email")
+        .select("id, email, role")
         .order("id", { ascending: true });
       if (error) throw error;
       setUsers(data || []);
@@ -98,11 +100,11 @@ function Settings() {
     try {
       const { error } = await supabase
         .from("admin_users")
-        .insert({ email: userForm.email.trim(), password_hash: userForm.password });
+        .insert({ email: userForm.email.trim(), password_hash: userForm.password, role: userForm.role });
       if (error) throw error;
 
       setUserStatus({ type: "success", message: `✅ User ${userForm.email} added successfully!` });
-      setUserForm({ email: "", password: "" });
+      setUserForm({ email: "", password: "", role: "viewer" });
       setShowUserForm(false);
       fetchUsers();
     } catch (err) {
@@ -246,6 +248,7 @@ function Settings() {
         </div>
 
         {/* ─── User Management Card ─── */}
+        {currentRole === "admin" && (
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           <div className="admin-card">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
@@ -301,6 +304,17 @@ function Settings() {
                         </button>
                       </div>
                     </div>
+                    <div className="sf-field" style={{ flex: "1", minWidth: "100px" }}>
+                      <label>Role *</label>
+                      <select 
+                        className="admin-input" 
+                        value={userForm.role}
+                        onChange={(e) => setUserForm({ ...userForm, role: e.target.value })}
+                      >
+                        <option value="viewer">Viewer (Read-only)</option>
+                        <option value="admin">Admin (Full Access)</option>
+                      </select>
+                    </div>
                   </div>
                   <button
                     type="submit"
@@ -351,8 +365,8 @@ function Settings() {
                       <div style={{ fontSize: "14px", fontWeight: 600, color: "#e2e8f0" }}>
                         {u.email}
                       </div>
-                      <div style={{ fontSize: "11px", color: "#4a5568" }}>
-                        {i === 0 ? "Primary Admin" : "Employee"}
+                      <div style={{ fontSize: "11px", color: "#4a5568", textTransform: "capitalize" }}>
+                        {u.role || "viewer"}
                       </div>
                     </div>
                   </div>
@@ -392,6 +406,7 @@ function Settings() {
             </ul>
           </div>
         </div>
+        )}
       </div>
 
       <style>{`

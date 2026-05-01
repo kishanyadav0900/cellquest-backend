@@ -43,7 +43,7 @@ function AboutContent() {
                       <i className="bi bi-award text-dark"></i>
                     </div>
                     <h1 className="display-1 text-white mb-0">
-                      <CountUp end={25} duration={7} />
+                      <CountUp end={15} duration={7} />
                     </h1>
                     <small className="fs-5 text-white">Years Experience</small>
                   </div>

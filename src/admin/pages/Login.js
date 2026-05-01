@@ -31,8 +31,9 @@ function Login() {
     await new Promise((r) => setTimeout(r, 600));
 
     try {
-      const { token } = await api.auth.login({ email: form.email.trim(), password: form.password });
+      const { token, role } = await api.auth.login({ email: form.email.trim(), password: form.password });
       localStorage.setItem("admin-token", token);
+      localStorage.setItem("admin-role", role);
       navigate("/admin", { replace: true });
     } catch (err) {
       setError(err.message || "Invalid email or password. Please try again.");

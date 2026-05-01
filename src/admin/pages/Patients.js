@@ -11,6 +11,8 @@ function Patients() {
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({ name: "", age: "", gender: "Male", phone: "", test: "", doctor: "" });
   const [editId, setEditId] = useState(null);
+  const _sr = localStorage.getItem("admin-role");
+  const currentRole = _sr || (localStorage.getItem("admin-token") ? "admin" : "viewer");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -96,12 +98,14 @@ function Patients() {
           <option value="In Progress">In Progress</option>
           <option value="Pending">Pending</option>
         </select>
-        <button
-          className="admin-btn admin-btn-primary"
-          onClick={() => { setShowForm(true); setEditId(null); setForm({ name: "", age: "", gender: "Male", phone: "", test: "", doctor: "" }); }}
-        >
-          + Add Patient
-        </button>
+        {currentRole === "admin" && (
+          <button
+            className="admin-btn admin-btn-primary"
+            onClick={() => { setShowForm(true); setEditId(null); setForm({ name: "", age: "", gender: "Male", phone: "", test: "", doctor: "" }); }}
+          >
+            + Add Patient
+          </button>
+        )}
       </div>
 
       {showForm && (
@@ -159,12 +163,14 @@ function Patients() {
                   <td>{p.doctor}</td>
                   <td>{p.date}</td>
                   <td><span className={`admin-badge ${statusClass[p.status]}`}>{p.status}</span></td>
-                  <td>
-                    <div style={{ display: "flex", gap: "8px" }}>
-                      <button className="admin-btn admin-btn-primary" style={{ padding: "5px 12px", fontSize: "12px" }} onClick={() => handleEdit(p)}>Edit</button>
-                      <button className="admin-btn admin-btn-danger"  style={{ padding: "5px 12px", fontSize: "12px" }} onClick={() => handleDelete(p.id)}>Delete</button>
-                    </div>
-                  </td>
+                  {currentRole === "admin" && (
+                    <td>
+                      <div style={{ display: "flex", gap: "8px" }}>
+                        <button className="admin-btn admin-btn-primary" style={{ padding: "5px 12px", fontSize: "12px" }} onClick={() => handleEdit(p)}>Edit</button>
+                        <button className="admin-btn admin-btn-danger"  style={{ padding: "5px 12px", fontSize: "12px" }} onClick={() => handleDelete(p.id)}>Delete</button>
+                      </div>
+                    </td>
+                  )}
                 </tr>
               ))
             )}

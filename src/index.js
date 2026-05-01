@@ -31,6 +31,7 @@ import AdminPatients     from "./admin/pages/Patients";
 import AdminAppointments from "./admin/pages/Appointments";
 import AdminSettings     from "./admin/pages/Settings";
 import AdminTestPrices   from "./admin/pages/TestPrices";
+import AdminUserAccess   from "./admin/pages/UserAccess";
 
 function App() {
 
@@ -108,6 +109,7 @@ function App() {
           <Route path="patients"     element={<AdminPatients />} />
           <Route path="appointments" element={<AdminAppointments />} />
           <Route path="test-prices"   element={<AdminTestPrices />} />
+          <Route path="users"         element={<AdminUserAccess />} />
           <Route path="settings"     element={<AdminSettings />} />
         </Route>
       </Routes>

@@ -15,6 +15,8 @@ function Appointments() {
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({ patient: "", phone: "", email: "", test: "", doctor: "", date: "", time: TIMES[0], status: "Pending" });
   const [editId, setEditId] = useState(null);
+  const _sr = localStorage.getItem("admin-role");
+  const currentRole = _sr || (localStorage.getItem("admin-token") ? "admin" : "viewer");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -155,6 +157,44 @@ Team Cell Quest India`;
     window.open(gmailUrl, "_blank");
   };
 
+  // ── Send email to Doctor ──
+  const handleSendDoctorEmail = (apt) => {
+    if (!apt.doctor || apt.doctor === "To be assigned") {
+      alert("Please assign a doctor to this appointment first.");
+      return;
+    }
+    const doctor = doctors.find(d => d.name === apt.doctor);
+    const doctorEmail = doctor?.email;
+    if (!doctorEmail) {
+      alert(`No email found for Dr. ${apt.doctor}.\n\nPlease add the doctor's email in the Doctors section first.`);
+      return;
+    }
+
+    const subject = `Patient Appointment Details – ${apt.patient} | ${apt.test}`;
+    const body =
+`Dear Dr. ${apt.doctor},
+
+A new patient appointment has been scheduled. Please find the details below:
+
+👤 Patient Name: ${apt.patient}
+📞 Patient Contact: ${apt.phone}
+📧 Patient Email: ${apt.email || "N/A"}
+
+🔬 Test Name: ${apt.test}
+📅 Date: ${apt.date}
+🕐 Time: ${apt.time}
+
+ℹ️ Please ensure you are available at the scheduled time and review any prior medical history if available.
+
+For any queries, please contact the lab at: +91 XXXXX XXXXX
+
+Best regards,
+Cell Quest India – Admin`;
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(doctorEmail)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(gmailUrl, "_blank");
+  };
+
   return (
     <div>
       <h1 className="admin-page-title">📅 Appointments</h1>
@@ -197,12 +237,14 @@ Team Cell Quest India`;
           <option>Completed</option>
           <option>Cancelled</option>
         </select>
-        <button
-          className="admin-btn admin-btn-primary"
-          onClick={() => { setShowForm(true); setEditId(null); setForm({ patient: "", phone: "", email: "", test: "", doctor: "", date: "", time: TIMES[0], status: "Pending" }); }}
-        >
-          + Book Appointment
-        </button>
+        {currentRole === "admin" && (
+          <button
+            className="admin-btn admin-btn-primary"
+            onClick={() => { setShowForm(true); setEditId(null); setForm({ patient: "", phone: "", email: "", test: "", doctor: "", date: "", time: TIMES[0], status: "Pending" }); }}
+          >
+            + Book Appointment
+          </button>
+        )}
       </div>
 
       {showForm && (
@@ -298,16 +340,27 @@ Team Cell Quest India`;
                   </td>
                   <td>
                     <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
-                      <button className="admin-btn admin-btn-primary" style={{ padding: "5px 10px", fontSize: "11px" }} onClick={() => handleEdit(a)}>Edit</button>
+                      {currentRole === "admin" && (
+                        <button className="admin-btn admin-btn-primary" style={{ padding: "5px 10px", fontSize: "11px" }} onClick={() => handleEdit(a)}>Edit</button>
+                      )}
                       <button
                         className="admin-btn admin-btn-confirm"
                         style={{ padding: "5px 10px", fontSize: "11px", opacity: (!a.email || !a.doctor || a.doctor === "To be assigned") ? 0.5 : 1 }}
                         onClick={() => handleSendConfirmation(a)}
-                        title={!a.email ? "Add email first" : (!a.doctor || a.doctor === "To be assigned") ? "Assign doctor first" : "Send confirmation via Gmail"}
+                        title={!a.email ? "Add email first" : (!a.doctor || a.doctor === "To be assigned") ? "Assign doctor first" : "Send patient confirmation email"}
                       >
-                        📧 Send
+                        📧 Patient
                       </button>
-                      <button className="admin-btn admin-btn-danger" style={{ padding: "5px 10px", fontSize: "11px" }} onClick={() => handleDelete(a.id)}>Delete</button>
+                      <button
+                        style={{ background: "linear-gradient(135deg, #2563eb, #3b82f6)", color: "#fff", border: "none", padding: "5px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: 600, cursor: "pointer", opacity: (!a.doctor || a.doctor === "To be assigned") ? 0.5 : 1 }}
+                        onClick={() => handleSendDoctorEmail(a)}
+                        title={!a.doctor || a.doctor === "To be assigned" ? "Assign a doctor first" : "Email appointment details to the doctor"}
+                      >
+                        📧 Doctor
+                      </button>
+                      {currentRole === "admin" && (
+                        <button className="admin-btn admin-btn-danger" style={{ padding: "5px 10px", fontSize: "11px" }} onClick={() => handleDelete(a.id)}>Delete</button>
+                      )}
                     </div>
                   </td>
                 </tr>

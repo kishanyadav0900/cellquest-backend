@@ -71,5 +71,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 =======
 # cell-quest-india
-Cell Quest India is a laboratory service management web application developed to simplify and digitize lab operations. The platform allows users to explore available laboratory tests, submit sample requests, and receive updates about their reports. The system is designed to provide an easy and efficient interface for managing lab .
+cellquestindia is a laboratory service management web application developed to simplify and digitize lab operations. The platform allows users to explore available laboratory tests, submit sample requests, and receive updates about their reports. The system is designed to provide an easy and efficient interface for managing lab .
 >>>>>>> 9bd5c94822e85e7ee68358407959e25151ff5820

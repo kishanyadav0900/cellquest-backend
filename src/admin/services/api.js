@@ -25,11 +25,25 @@ export const api = {
         .single();
       
       if (error || !data) throw new Error("Invalid email or password");
-      return { token: btoa(`admin:${Date.now()}`) };
+      // role may be null for accounts created before RBAC was added → treat as admin
+      const role = data.role || "admin";
+      return { token: btoa(`admin:${data.email}:${Date.now()}`), role };
     },
     getCredentials: async () => {
       enforceSession();
-      const { data, error } = await supabase.from("admin_users").select("email").single();
+      const { data, error } = await supabase.from("admin_users").select("email, role").single();
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    getAllUsers: async () => {
+      enforceSession();
+      const { data, error } = await supabase.from("admin_users").select("id, email, role").order("id", { ascending: true });
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    createUser: async (user) => {
+      enforceSession();
+      const { data, error } = await supabase.from("admin_users").insert(user).select().single();
       if (error) throw new Error(error.message);
       return data;
     },
@@ -151,6 +165,32 @@ export const api = {
     delete: async (id) => {
       enforceSession();
       const { error } = await supabase.from("appointments").delete().eq("id", id);
+      if (error) throw new Error(error.message);
+      return true;
+    },
+  },
+  tests: {
+    getAll: async () => {
+      // Allow public access for frontend fetching
+      const { data, error } = await supabase.from("test_prices").select("*").order("id", { ascending: true });
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    create: async (test) => {
+      enforceSession();
+      const { data, error } = await supabase.from("test_prices").insert(test).select().single();
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    update: async (test) => {
+      enforceSession();
+      const { data, error } = await supabase.from("test_prices").update(test).eq("id", test.id).select().single();
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    delete: async (id) => {
+      enforceSession();
+      const { error } = await supabase.from("test_prices").delete().eq("id", id);
       if (error) throw new Error(error.message);
       return true;
     },

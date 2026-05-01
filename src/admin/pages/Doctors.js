@@ -7,6 +7,8 @@ function Doctors() {
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({ name: "", specialty: "", phone: "", email: "" });
   const [editId, setEditId] = useState(null);
+  const _sr = localStorage.getItem("admin-role");
+  const currentRole = _sr || (localStorage.getItem("admin-token") ? "admin" : "viewer");
 
   useEffect(() => {
     const fetchDoctors = async () => {
@@ -77,12 +79,14 @@ function Doctors() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button
-          className="admin-btn admin-btn-primary"
-          onClick={() => { setShowForm(true); setEditId(null); setForm({ name: "", specialty: "", phone: "", email: "" }); }}
-        >
-          + Add Doctor
-        </button>
+        {currentRole === "admin" && (
+          <button
+            className="admin-btn admin-btn-primary"
+            onClick={() => { setShowForm(true); setEditId(null); setForm({ name: "", specialty: "", phone: "", email: "" }); }}
+          >
+            + Add Doctor
+          </button>
+        )}
       </div>
 
       {/* Add / Edit Form */}
@@ -122,7 +126,7 @@ function Doctors() {
         <table className="admin-table">
           <thead>
             <tr>
-              <th>#</th><th>Name</th><th>Specialty</th><th>Phone</th><th>Email</th><th>Status</th><th>Joined</th><th>Actions</th>
+              <th>#</th><th>Name</th><th>Specialty</th><th>Phone</th><th>Email</th><th>Status</th><th>Joined</th>{currentRole === "admin" && <th>Actions</th>}
             </tr>
           </thead>
           <tbody>
@@ -140,12 +144,14 @@ function Doctors() {
                   <td style={{ color: "#64748b" }}>{doc.email}</td>
                   <td><span className={`admin-badge ${statusClass[doc.status]}`}>{doc.status}</span></td>
                   <td>{doc.joined}</td>
-                  <td>
-                    <div style={{ display: "flex", gap: "8px" }}>
-                      <button className="admin-btn admin-btn-primary" style={{ padding: "5px 12px", fontSize: "12px" }} onClick={() => handleEdit(doc)}>Edit</button>
-                      <button className="admin-btn admin-btn-danger"  style={{ padding: "5px 12px", fontSize: "12px" }} onClick={() => handleDelete(doc.id)}>Delete</button>
-                    </div>
-                  </td>
+                  {currentRole === "admin" && (
+                    <td>
+                      <div style={{ display: "flex", gap: "8px" }}>
+                        <button className="admin-btn admin-btn-primary" style={{ padding: "5px 12px", fontSize: "12px" }} onClick={() => handleEdit(doc)}>Edit</button>
+                        <button className="admin-btn admin-btn-danger"  style={{ padding: "5px 12px", fontSize: "12px" }} onClick={() => handleDelete(doc.id)}>Delete</button>
+                      </div>
+                    </td>
+                  )}
                 </tr>
               ))
             )}

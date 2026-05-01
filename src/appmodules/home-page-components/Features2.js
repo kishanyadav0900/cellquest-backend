@@ -55,61 +55,7 @@ function Features2() {
             ))}
           </div>
 
-          {/* Official Partners */}
-          {/* Official Partners */}
-          <div className="mt-5 pt-4 wow fadeInUp" data-wow-delay="0.3s">
-            <div className="text-center mb-4">
-              <span className="px-4 py-2 rounded-pill text-white fw-bold" style={{ background: "linear-gradient(135deg, #F87154, #fa8a6a)", fontSize: "1rem" }}>
-                CellQuest Official Partners
-              </span>
-            </div>
-
-            {/* Scrolling Logo Marquee */}
-            <div style={{ overflow: "hidden", position: "relative", padding: "20px 0" }}>
-              {/* Fade edges */}
-              <div style={{ position: "absolute", top: 0, left: 0, width: "80px", height: "100%", background: "linear-gradient(to right, #fff, transparent)", zIndex: 2 }}></div>
-              <div style={{ position: "absolute", top: 0, right: 0, width: "80px", height: "100%", background: "linear-gradient(to left, #fff, transparent)", zIndex: 2 }}></div>
-
-              <div style={{
-                display: "flex",
-                animation: "partnerScroll 20s linear infinite",
-                width: "fit-content",
-              }}>
-                {/* Duplicate logos for seamless loop */}
-                {[...Array(2)].map((_, setIdx) => (
-                  [1,2,3,4,5,6,7,8,9].map((num) => (
-                    <div key={`${setIdx}-${num}`} style={{
-                      flex: "0 0 auto",
-                      padding: "0 30px",
-                      display: "flex",
-                      alignItems: "center",
-                    }}>
-                      <img
-                        src={`/partners/${num}.png`}
-                        alt={`Partner ${num}`}
-                        style={{
-                          height: "50px",
-                          objectFit: "contain",
-                          filter: "grayscale(30%)",
-                          opacity: 0.85,
-                          transition: "all 0.3s",
-                        }}
-                        onMouseEnter={e => { e.target.style.filter = "grayscale(0%)"; e.target.style.opacity = "1"; e.target.style.transform = "scale(1.1)"; }}
-                        onMouseLeave={e => { e.target.style.filter = "grayscale(30%)"; e.target.style.opacity = "0.85"; e.target.style.transform = "scale(1)"; }}
-                      />
-                    </div>
-                  ))
-                ))}
-              </div>
-            </div>
-
-            <style>{`
-              @keyframes partnerScroll {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-              }
-            `}</style>
-          </div>
+          {/* Official Partners Removed from here */}
 
         </div>
       </div>

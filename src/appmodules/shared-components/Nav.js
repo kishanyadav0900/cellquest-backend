@@ -43,64 +43,17 @@ function Nav() {
             </div>
             {/* Spinner End */}
 
-            {/* Topbar Start */}
-            <div className="container-fluid py-2 d-none d-lg-flex">
-                <div className="container">
-                    <div className="d-flex justify-content-between">
-                        <div>
-                            <small className="me-3">
-                                <i className="fa fa-map-marker-alt me-2"></i>
-                                Ist and 2nd floor, plot no -5, Kirti Nagar, Sec 15 Part 1,
-                                Near Bindle Colour lab, Gurgaon Haryana 122001
-                            </small>
 
-                            <small className="me-3">
-                                <i className="fa fa-clock me-2"></i>
-                                Mon-Sat 08am-10pm, Sun Closed
-                            </small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* Topbar End */}
-
-            {/* Brand Start */}
-            <div className="container-fluid d-none d-lg-flex pt-4 pb-5" style={{ background: "#FFFFDD", borderBottom: "2px solid #E7F1A8" }}>
-                <div className="container pb-2">
-                    <div className="d-flex align-items-center justify-content-between">
-
-                        <div className="d-flex align-items-center">
-                            <i className="bi bi-telephone-inbound fs-2" style={{ color: "#5a8a1a" }}></i>
-                            <div className="ms-3">
-                                <h5 className="mb-0" style={{ color: "#333" }}>Call Now</h5>
-                                <a href="tel:+918059565582" className="text-decoration-none" style={{ color: "#F87154", fontWeight: 600 }}>+91 805 956 5582</a>
-                            </div>
-                        </div>
-
-                        <NavLink to="/" className="navbar-brand">
-                            <img src="/cellquest-logo.png" alt="Cell Quest India Logo" style={{ height: "60px", objectFit: "contain" }} />
-                        </NavLink>
-
-                        <div className="d-flex align-items-center">
-                            <i className="bi bi-envelope fs-2" style={{ color: "#5a8a1a" }}></i>
-                            <div className="ms-3">
-                                <h5 className="mb-0" style={{ color: "#333" }}>Mail Now</h5>
-                                <a href="mailto:cellquestindia@gmail.com" className="text-decoration-none" style={{ color: "#F87154", fontWeight: 600 }}>cellquestindia@gmail.com</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            {/* Brand End */}
 
             {/* Navbar Start */}
-            <div className="container-fluid sticky-top">
-                <div className="container">
-                    <nav className="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3">
+            <div className="container-fluid sticky-top p-0 glass-nav shadow-sm">
+                
+                {/* Main Nav Row */}
+                <div className="container-fluid px-0 px-lg-3">
+                    <nav className="navbar navbar-expand-lg navbar-light py-2 px-3">
 
-                        <NavLink to="/" className="navbar-brand d-lg-none">
-                            <img src="/cellquest-logo.png" alt="Cell Quest India Logo" style={{ height: "45px", objectFit: "contain" }} />
+                        <NavLink to="/" className="navbar-brand me-4">
+                            <img src="/cellquest-logo.png" alt="cellquestindia Logo" style={{ height: "55px", objectFit: "contain" }} />
                         </NavLink>
 
                         <button
@@ -114,16 +67,13 @@ function Nav() {
 
                         <div className="collapse navbar-collapse" id="navbarCollapse">
 
-                            <div className="navbar-nav">
-
+                            <div className="navbar-nav mx-auto text-center">
                                 <NavLink to="/" className={activeLink}>
                                     Home
                                 </NavLink>
-
                                 <NavLink to="/about" className={activeLink}>
                                     About
                                 </NavLink>
-
                                 <NavLink to="/service" className={activeLink}>
                                     Services
                                 </NavLink>
@@ -137,56 +87,23 @@ function Nav() {
                                     >
                                         Pages
                                     </button>
-
-                                    <div className="dropdown-menu bg-light m-0">
-
-                                        <NavLink to="/feature" className="dropdown-item">
-                                            Features
-                                        </NavLink>
-
-                                        <NavLink to="/team" className="dropdown-item">
-                                            Our Team
-                                        </NavLink>
-
-                                        {/* <NavLink to="/testimonial" className="dropdown-item">
-                                            Testimonial
-                                        </NavLink> */}
-
-                                        <NavLink to="/appoinment" className="dropdown-item">
-                                            Appointment
-                                        </NavLink>
-
-                                        {/* <NavLink to="/notfound" className="dropdown-item">
-                                            404 Page
-                                        </NavLink> */}
-
+                                    <div className="dropdown-menu border-0 shadow-sm m-0 text-center text-lg-start">
+                                        <NavLink to="/feature" className="dropdown-item">Features</NavLink>
+                                        <NavLink to="/team" className="dropdown-item">Our Team</NavLink>
+                                        <NavLink to="/appoinment" className="dropdown-item">Appointment</NavLink>
                                     </div>
                                 </div>
 
                                 <NavLink to="/contact" className={activeLink}>
                                     Contact
                                 </NavLink>
-
                             </div>
 
-                            <div className="ms-auto d-none d-lg-flex">
-
-                                <a className="btn btn-sm-square btn-primary ms-2" href="https://facebook.com" target="_blank" rel="noreferrer">
-                                    <i className="fab fa-facebook-f"></i>
-                                </a>
-
-                                <a className="btn btn-sm-square btn-primary ms-2" href="https://twitter.com" target="_blank" rel="noreferrer">
-                                    <i className="fab fa-twitter"></i>
-                                </a>
-
-                                <a className="btn btn-sm-square btn-primary ms-2" href="https://linkedin.com" target="_blank" rel="noreferrer">
-                                    <i className="fab fa-linkedin-in"></i>
-                                </a>
-
-                                <a className="btn btn-sm-square btn-primary ms-2" href="https://youtube.com" target="_blank" rel="noreferrer">
-                                    <i className="fab fa-youtube"></i>
-                                </a>
-
+                            {/* Contact Info on Right */}
+                            <div className="ms-auto d-none d-xl-flex flex-column justify-content-center text-start" style={{ fontSize: "0.85rem", color: "#444", lineHeight: "1.4" }}>
+                                <div><i className="fa fa-envelope text-primary me-2"></i><a href="mailto:cellquestindia@gmail.com" className="text-decoration-none text-dark fw-medium">cellquestindia@gmail.com</a></div>
+                                <div><i className="fa fa-phone-alt text-primary me-2"></i><a href="tel:+918059565582" className="text-decoration-none text-dark fw-medium">+91 805 956 5582</a></div>
+                                <div><i className="fa fa-clock text-primary me-2"></i><span className="fw-medium text-dark">10AM - 7PM</span></div>
                             </div>
 
                         </div>
