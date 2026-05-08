@@ -804,6 +804,92 @@ h1,h2,h3,h4,h5{
     scroll-behavior: smooth;
 }
 
+/* Catalog test icon badges inside cards */
+.catalog-test-icon-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f0f7e4;
+    color: #2d6a4f;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    border: 1px solid #d4e8c0;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.catalog-test-icon-badge:hover {
+    background: #d4e8c0;
+    transform: translateY(-1px);
+}
+
+/* Custom scrollbar for package profiles */
+.package-profiles-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+.package-profiles-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+.package-profiles-scroll::-webkit-scrollbar-thumb {
+    background: #c1d5a7;
+    border-radius: 4px;
+}
+.package-profiles-scroll::-webkit-scrollbar-thumb:hover {
+    background: #a3c27e;
+}
+
+/* Slider Navigation Buttons */
+.slider-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    background-color: var(--bs-primary);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 10;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-nav-btn:hover {
+    background-color: #2d6a4f;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-nav-prev {
+    left: -20px;
+}
+
+.slider-nav-next {
+    right: -20px;
+}
+
+@media (max-width: 768px) {
+    .slider-nav-btn {
+        display: none;
+    }
+    .test-card {
+        min-width: 280px;
+        width: 85vw;
+        max-width: none;
+    }
+}
+
+.admin-table-wrap {
+    overflow-x: auto;
+    width: 100%;
+}
 .glass-nav { backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); background-color: #daeaef; border-bottom: 1px solid rgba(255, 255, 255, 0.125); transition: 0.5s; }
 
 

@@ -29,13 +29,13 @@ function AboutContent() {
             <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
               <div className="row g-3">
                 <div className="col-6">
-                  <img className="img-fluid rounded" src="/about-1.jpg" alt="Lab Equipment" style={{ objectFit: "cover", height: "100%", width: "100%" }} />
+                  <img className="img-fluid rounded" src="/about-1.jpeg" alt="Lab Equipment" style={{ objectFit: "cover", height: "100%", width: "100%" }} />
                 </div>
                 <div className="col-6">
-                  <img className="img-fluid rounded" src="/about-2.jpg" alt="Microscope Analysis" style={{ objectFit: "cover", height: "100%", width: "100%" }} />
+                  <img className="img-fluid rounded" src="/about-2.jpeg" alt="Microscope Analysis" style={{ objectFit: "cover", height: "100%", width: "100%" }} />
                 </div>
                 <div className="col-6">
-                  <img className="img-fluid rounded" src="/about-3.jpg" alt="Scientist at Work" style={{ objectFit: "cover", height: "100%", width: "100%" }} />
+                  <img className="img-fluid rounded" src="/about-3.jpeg" alt="Scientist at Work" style={{ objectFit: "cover", height: "100%", width: "100%" }} />
                 </div>
                 <div className="col-6">
                   <div className="bg-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center rounded" style={{ minHeight: "160px" }}>

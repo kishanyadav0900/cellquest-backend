@@ -23,6 +23,28 @@ function AppoinmentContent() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const [packages, setPackages] = useState([]);
+  const [profiles, setProfiles] = useState([]);
+  const [testsList, setTestsList] = useState([]);
+
+  useEffect(() => {
+    const fetchCatalog = async () => {
+      try {
+        const [pkRes, pRes, tRes] = await Promise.all([
+          supabase.from("packages").select("name").order("name"),
+          supabase.from("profiles").select("name").order("name"),
+          supabase.from("tests").select("name").order("name"),
+        ]);
+        setPackages(pkRes.data || []);
+        setProfiles(pRes.data || []);
+        setTestsList(tRes.data || []);
+      } catch (e) {
+        console.error("Error fetching catalog", e);
+      }
+    };
+    fetchCatalog();
+  }, []);
+
   // Update test field if URL param changes (e.g. navigating from a test card)
   useEffect(() => {
     if (prefilledTest) {
@@ -191,8 +213,25 @@ function AppoinmentContent() {
 
                     <div className="col-sm-6">
                       <div className="form-floating">
-                        <input type="text" className="form-control" id="test" name="test" placeholder="Test Name" required value={form.test} onChange={handleChange} />
-                        <label htmlFor="test">Test Name *</label>
+                        <select className="form-select" id="test" name="test" required value={form.test} onChange={handleChange}>
+                          <option value="" disabled>Select a Package, Profile, or Test</option>
+                          {packages.length > 0 && (
+                            <optgroup label="📦 Health Packages">
+                              {packages.map(p => <option key={`pkg-${p.name}`} value={p.name}>{p.name}</option>)}
+                            </optgroup>
+                          )}
+                          {profiles.length > 0 && (
+                            <optgroup label="📋 Test Profiles">
+                              {profiles.map(p => <option key={`pro-${p.name}`} value={p.name}>{p.name}</option>)}
+                            </optgroup>
+                          )}
+                          {testsList.length > 0 && (
+                            <optgroup label="🧪 Individual Tests">
+                              {testsList.map(t => <option key={`test-${t.name}`} value={t.name}>{t.name}</option>)}
+                            </optgroup>
+                          )}
+                        </select>
+                        <label htmlFor="test">Select Test / Package *</label>
                       </div>
                     </div>
 

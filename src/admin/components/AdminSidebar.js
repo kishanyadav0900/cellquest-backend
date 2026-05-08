@@ -17,7 +17,7 @@ const navLinks = [
   { to: "/admin/doctors", label: "Doctors", icon: <FaUserMd /> },
   { to: "/admin/patients", label: "Patients", icon: <FaProcedures /> },
   { to: "/admin/appointments", label: "Appointments", icon: <FaCalendarCheck /> },
-  { to: "/admin/test-prices", label: "Test Catalog", icon: <FaFlask /> },
+  { to: "/admin/test-prices", label: "Lab Catalog", icon: <FaFlask /> },
   { to: "/admin/users", label: "User Access", icon: <FaUsers /> },
   { to: "/admin/settings", label: "Settings", icon: <FaCog /> },
 ];

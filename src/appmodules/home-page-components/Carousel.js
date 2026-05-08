@@ -16,7 +16,7 @@ function Carousel(){
                                 <div className="col-lg-7 text-start">
                                     <h1 className="display-1 text-white animated slideInRight mb-3" style={{ fontSize: "clamp(2.5rem, 5vw, 5rem)" }}>Advanced Diagnostic Laboratory Center</h1>
                                     <p className="mb-5 animated slideInRight">Welcome to cellquestindia. We provide highly accurate, timely, and reliable pathology and biochemistry testing services. Your health and safety are our top priority.</p>
-                                    <Link to="" className="btn btn-primary py-3 px-5 animated slideInRight">Explore More</Link>
+                                    <a href="#services-section" className="btn btn-primary py-3 px-5 animated slideInRight">Book Test</a>
                                 </div>
                             </div>
                         </div>
@@ -30,7 +30,7 @@ function Carousel(){
                                 <div className="col-lg-7 text-end">
                                     <h1 className="display-1 text-white animated slideInLeft mb-3" style={{ fontSize: "clamp(2.5rem, 5vw, 5rem)" }}>Expert Doctors & Trained Technicians</h1>
                                     <p className="mb-5 animated slideInLeft">Our laboratory is equipped with state-of-the-art machines and guided by highly experienced medical professionals, ensuring every test report is precise and dependable.</p>
-                                    <Link to="" className="btn btn-primary py-3 px-5 animated slideInLeft">Explore More</Link>
+                                    <a href="#services-section" className="btn btn-primary py-3 px-5 animated slideInLeft">Book Test</a>
                                 </div>
                             </div>
                         </div>

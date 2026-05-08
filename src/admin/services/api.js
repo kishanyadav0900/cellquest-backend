@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 
-const SUPABASE_URL = "https://rfpqwypgpminypfukarq.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJmcHF3eXBncG1pbnlwZnVrYXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4NzUwOTIsImV4cCI6MjA5MjQ1MTA5Mn0.7gncRErAR362iG1WZBUK1R0lQ8waaJbRgFkPWxJ6cNQ";
+const SUPABASE_URL = process.env.REACT_APP_SUPABASE_URL;
+const SUPABASE_ANON_KEY = process.env.REACT_APP_SUPABASE_ANON_KEY;
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -169,9 +169,9 @@ export const api = {
       return true;
     },
   },
+  // Legacy — kept for backward compat
   tests: {
     getAll: async () => {
-      // Allow public access for frontend fetching
       const { data, error } = await supabase.from("test_prices").select("*").order("id", { ascending: true });
       if (error) throw new Error(error.message);
       return data;
@@ -191,6 +191,119 @@ export const api = {
     delete: async (id) => {
       enforceSession();
       const { error } = await supabase.from("test_prices").delete().eq("id", id);
+      if (error) throw new Error(error.message);
+      return true;
+    },
+  },
+
+  // ═══════════════ NEW: Lab Catalog (Tests → Profiles → Packages) ═══════════════
+
+  labTests: {
+    getAll: async () => {
+      const { data, error } = await supabase.from("tests").select("*").order("name", { ascending: true });
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    create: async (test) => {
+      enforceSession();
+      const { data, error } = await supabase.from("tests").insert(test).select().single();
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    update: async (test) => {
+      enforceSession();
+      const { id, ...rest } = test;
+      const { data, error } = await supabase.from("tests").update(rest).eq("id", id).select().single();
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    delete: async (id) => {
+      enforceSession();
+      const { error } = await supabase.from("tests").delete().eq("id", id);
+      if (error) throw new Error(error.message);
+      return true;
+    },
+  },
+
+  profiles: {
+    getAll: async () => {
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("*, profile_tests(test_id, tests(*))")
+        .order("name", { ascending: true });
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    create: async (profile) => {
+      enforceSession();
+      const { testIds, ...rest } = profile;
+      const { data, error } = await supabase.from("profiles").insert(rest).select().single();
+      if (error) throw new Error(error.message);
+      if (testIds && testIds.length > 0) {
+        const links = testIds.map(tid => ({ profile_id: data.id, test_id: tid }));
+        await supabase.from("profile_tests").insert(links);
+      }
+      return data;
+    },
+    update: async (profile) => {
+      enforceSession();
+      const { id, testIds, ...rest } = profile;
+      const { data, error } = await supabase.from("profiles").update(rest).eq("id", id).select().single();
+      if (error) throw new Error(error.message);
+      if (testIds !== undefined) {
+        await supabase.from("profile_tests").delete().eq("profile_id", id);
+        if (testIds.length > 0) {
+          const links = testIds.map(tid => ({ profile_id: id, test_id: tid }));
+          await supabase.from("profile_tests").insert(links);
+        }
+      }
+      return data;
+    },
+    delete: async (id) => {
+      enforceSession();
+      const { error } = await supabase.from("profiles").delete().eq("id", id);
+      if (error) throw new Error(error.message);
+      return true;
+    },
+  },
+
+  packages: {
+    getAll: async () => {
+      const { data, error } = await supabase
+        .from("packages")
+        .select("*, package_profiles(profile_id, profiles(*, profile_tests(test_id, tests(*))))")
+        .order("name", { ascending: true });
+      if (error) throw new Error(error.message);
+      return data;
+    },
+    create: async (pkg) => {
+      enforceSession();
+      const { profileIds, ...rest } = pkg;
+      const { data, error } = await supabase.from("packages").insert(rest).select().single();
+      if (error) throw new Error(error.message);
+      if (profileIds && profileIds.length > 0) {
+        const links = profileIds.map(pid => ({ package_id: data.id, profile_id: pid }));
+        await supabase.from("package_profiles").insert(links);
+      }
+      return data;
+    },
+    update: async (pkg) => {
+      enforceSession();
+      const { id, profileIds, ...rest } = pkg;
+      const { data, error } = await supabase.from("packages").update(rest).eq("id", id).select().single();
+      if (error) throw new Error(error.message);
+      if (profileIds !== undefined) {
+        await supabase.from("package_profiles").delete().eq("package_id", id);
+        if (profileIds.length > 0) {
+          const links = profileIds.map(pid => ({ package_id: id, profile_id: pid }));
+          await supabase.from("package_profiles").insert(links);
+        }
+      }
+      return data;
+    },
+    delete: async (id) => {
+      enforceSession();
+      const { error } = await supabase.from("packages").delete().eq("id", id);
       if (error) throw new Error(error.message);
       return true;
     },
