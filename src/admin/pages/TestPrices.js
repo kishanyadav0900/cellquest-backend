@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { api } from "../services/api";
 
-const ICONS = ['🧪','🩸','💉','🔬','💊','☀️','🫀','🦴','🧬','🔎','📋','📦'];
+const ICONS = ['🧪','🩸','💉','🔬','💊','☀️','🫀','🦴','🧬','🔎','📋','📦','🫁','🧠','🦷','👁️','👂','👃','👅','💧','🦋','🧍','🩺','🦠','⚕️'];
 const FASTING_OPTS = ['No Fasting Required','8 hrs Fasting Required','10 hrs Fasting Required','12 hrs Fasting Required','10-12 hrs Fasting Required'];
 const REC_OPTS = ['Everyone','Male','Female','Pregnant Women','Senior Citizens'];
 
@@ -151,27 +151,23 @@ function TestPrices() {
             {editingId && <span style={{ fontSize: "12px", background: "rgba(99,102,241,0.15)", color: "#a5b4fc", padding: "4px 12px", borderRadius: "20px" }}>Editing</span>}
           </div>
           <form onSubmit={handleSave}>
-            {/* Row 1: Name, Icon, Category/Desc */}
-            <div style={{ display: "grid", gridTemplateColumns: tab === "tests" ? "2fr auto 1fr" : "2fr auto 2fr", gap: "14px", marginBottom: "14px" }}>
+            {/* Row 1: Name, Icon, Description */}
+            <div style={{ display: "grid", gridTemplateColumns: "2fr auto 2fr", gap: "14px", marginBottom: "14px" }}>
               <div className="sf-field">
                 <label>Name *</label>
                 <input className="admin-input" required value={form.name || ""} onChange={e => setForm({ ...form, name: e.target.value })} placeholder={tab === "tests" ? "e.g. CBC" : tab === "profiles" ? "e.g. Thyroid Profile" : "e.g. CellQ Premium"} />
               </div>
               <div className="sf-field">
                 <label>Icon</label>
-                <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", maxWidth: "200px" }}>
+                <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", width: "220px" }}>
                   {ICONS.map(ic => (
                     <button type="button" key={ic} onClick={() => setForm({ ...form, icon: ic })} style={{ width: "32px", height: "32px", borderRadius: "8px", border: form.icon === ic ? "2px solid #6a9a2a" : "1px solid rgba(255,255,255,0.1)", background: form.icon === ic ? "rgba(90,138,26,0.3)" : "rgba(255,255,255,0.05)", fontSize: "16px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>{ic}</button>
                   ))}
                 </div>
               </div>
               <div className="sf-field">
-                <label>{tab === "tests" ? "Category" : "Description"}</label>
-                {tab === "tests" ? (
-                  <input className="admin-input" value={form.category || ""} onChange={e => setForm({ ...form, category: e.target.value })} placeholder="e.g. Hematology" />
-                ) : (
-                  <input className="admin-input" value={form.description || ""} onChange={e => setForm({ ...form, description: e.target.value })} placeholder="Short description" />
-                )}
+                <label>Description</label>
+                <textarea className="admin-input" style={{ resize: "vertical", minHeight: "80px" }} value={form.description || ""} onChange={e => setForm({ ...form, description: e.target.value })} placeholder="Short description for Know More section" />
               </div>
             </div>
 
@@ -183,7 +179,7 @@ function TestPrices() {
             </div>
 
             {/* Row 3: Details */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "14px", marginBottom: "14px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: tab === "tests" ? "1fr 1fr 1fr 1fr" : "1fr 1fr 1fr", gap: "14px", marginBottom: "14px" }}>
               <div className="sf-field"><label>Report Time</label><input className="admin-input" value={form.report_time || ""} onChange={e => setForm({ ...form, report_time: e.target.value })} placeholder="e.g. Same Day" /></div>
               <div className="sf-field"><label>Fasting</label>
                 <select className="admin-input" value={form.fasting_rule || "No Fasting Required"} onChange={e => setForm({ ...form, fasting_rule: e.target.value })}>
@@ -195,6 +191,9 @@ function TestPrices() {
                   {REC_OPTS.map(o => <option key={o}>{o}</option>)}
                 </select>
               </div>
+              {tab === "tests" && (
+                <div className="sf-field"><label>Category</label><input className="admin-input" value={form.category || ""} onChange={e => setForm({ ...form, category: e.target.value })} placeholder="e.g. Hematology" /></div>
+              )}
             </div>
 
             {/* Multi-select for Profiles/Packages */}

@@ -74,7 +74,9 @@ function Contact() {
 
               <div className="col-lg-6">
                 <a
-                  href="mailto:cellquestindia@gmail.com"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=cellquestindia@gmail.com&su=Inquiry%20from%20Website"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="d-flex justify-content-lg-center bg-primary p-4 text-decoration-none"
                 >
                   <div className="icon-box-light flex-shrink-0">

@@ -27,7 +27,7 @@ function Footer() {
                     <i className="fa fa-phone-alt me-2 text-primary"></i><a href="tel:+919990155907" className="text-white-50 text-decoration-none">+91 99901 55907</a>
                   </p>
                   <p className="mb-0">
-                    <i className="fa fa-envelope me-2 text-primary"></i><a href="mailto:cellquestindia@gmail.com" className="text-white-50 text-decoration-none">cellquestindia@gmail.com</a>
+                    <i className="fa fa-envelope me-2 text-primary"></i><a href="https://mail.google.com/mail/?view=cm&fs=1&to=cellquestindia@gmail.com&su=Inquiry%20from%20Website" target="_blank" rel="noopener noreferrer" className="text-white-50 text-decoration-none">cellquestindia@gmail.com</a>
                   </p>
               </div>
 

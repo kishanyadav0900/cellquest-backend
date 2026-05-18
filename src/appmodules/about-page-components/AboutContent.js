@@ -24,28 +24,33 @@ function AboutContent() {
               <p className="mb-4" style={{ fontSize: "1.05rem", lineHeight: 1.8, fontStyle: "italic", color: "#555" }}>
                 Our unwavering commitment to patient-centric excellence, scientific integrity, and operational efficiency enables us to provide superior care and dependable outcomes for every patient and healthcare partner.
               </p>
+              <div className="d-inline-flex align-items-center bg-primary rounded p-4 mt-2">
+                <div className="me-3" style={{ width: "60px", height: "60px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#fff", borderRadius: "50%" }}>
+                  <i className="bi bi-award text-primary fs-3"></i>
+                </div>
+                <div>
+                  <h2 className="text-white mb-0" style={{ fontWeight: 800 }}>
+                    <CountUp end={15} duration={7} />+
+                  </h2>
+                  <span className="fs-6 text-white fw-medium">Years Experience</span>
+                </div>
+              </div>
             </div>
 
             <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-              <div className="row g-3">
-                <div className="col-6">
-                  <img className="img-fluid rounded" src="/about-1.jpeg" alt="Lab Equipment" style={{ objectFit: "cover", height: "100%", width: "100%" }} />
-                </div>
-                <div className="col-6">
-                  <img className="img-fluid rounded" src="/about-2.jpeg" alt="Microscope Analysis" style={{ objectFit: "cover", height: "100%", width: "100%" }} />
-                </div>
-                <div className="col-6">
-                  <img className="img-fluid rounded" src="/about-3.jpeg" alt="Scientist at Work" style={{ objectFit: "cover", height: "100%", width: "100%" }} />
-                </div>
-                <div className="col-6">
-                  <div className="bg-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center rounded" style={{ minHeight: "160px" }}>
-                    <div className="icon-box-light">
-                      <i className="bi bi-award text-dark"></i>
-                    </div>
-                    <h1 className="display-1 text-white mb-0">
-                      <CountUp end={15} duration={7} />
-                    </h1>
-                    <small className="fs-5 text-white">Years Experience</small>
+              <div id="about-carousel" className="carousel slide carousel-fade rounded overflow-hidden shadow-sm" data-bs-ride="carousel" data-bs-interval="3000">
+                <div className="carousel-inner" style={{ height: "450px" }}>
+                  <div className="carousel-item active" style={{ height: "100%" }}>
+                    <img className="d-block w-100 h-100" src="/about-1.jpeg" alt="Lab Equipment" style={{ objectFit: "cover" }} />
+                  </div>
+                  <div className="carousel-item" style={{ height: "100%" }}>
+                    <img className="d-block w-100 h-100" src="/about-2.jpeg" alt="Microscope Analysis" style={{ objectFit: "cover" }} />
+                  </div>
+                  <div className="carousel-item" style={{ height: "100%" }}>
+                    <img className="d-block w-100 h-100" src="/about-3.jpeg" alt="Scientist at Work" style={{ objectFit: "cover" }} />
+                  </div>
+                  <div className="carousel-item" style={{ height: "100%" }}>
+                    <img className="d-block w-100 h-100" src="/about-4.jpeg" alt="Advanced Analyzer" style={{ objectFit: "cover" }} />
                   </div>
                 </div>
               </div>

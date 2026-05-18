@@ -59,7 +59,7 @@ function Team() {
                             }}>
                                 {/* Duplicate logos for seamless loop */}
                                 {[...Array(2)].map((_, setIdx) => (
-                                    [1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
+                                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                                         <div key={`${setIdx}-${num}`} style={{
                                             flex: "0 0 auto",
                                             padding: "0 30px",

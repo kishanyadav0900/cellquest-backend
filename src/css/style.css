@@ -717,7 +717,9 @@ h1,h2,h3,h4,h5{
 
 @media (max-width: 768px) {
     .test-card {
-        min-width: 300px;
+        min-width: unset;
+        width: 85vw;
+        max-width: 340px;
         padding: 20px;
     }
 }

@@ -7,6 +7,9 @@ function ServicesContent() {
   const [activeTab, setActiveTab] = useState("Tests");
   const [modalItem, setModalItem] = useState(null);
   const [openAccordions, setOpenAccordions] = useState({});
+  const [searchQuery, setSearchQuery] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const sliderRef = useRef(null);
 
   const [tests, setTests] = useState([]);
@@ -33,14 +36,28 @@ function ServicesContent() {
 
   useEffect(() => {
     if (sliderRef.current) sliderRef.current.scrollLeft = 0;
+    setSearchQuery("");
+    setCategoryFilter("");
   }, [activeTab]);
 
   const tabs = ["Tests", "Profiles", "Packages"];
+  const uniqueCategories = [...new Set(tests.map(t => t.category ? t.category.trim() : null).filter(Boolean))].sort();
 
   const getItems = () => {
-    if (activeTab === "Tests") return tests;
-    if (activeTab === "Profiles") return profiles;
-    return packages;
+    let items = [];
+    if (activeTab === "Tests") items = tests;
+    else if (activeTab === "Profiles") items = profiles;
+    else items = packages;
+
+    if (searchQuery) {
+      items = items.filter(item => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
+    }
+
+    if (activeTab === "Tests" && categoryFilter) {
+      items = items.filter(item => item.category === categoryFilter);
+    }
+
+    return items;
   };
 
   const getTestCount = (item) => {
@@ -100,13 +117,79 @@ function ServicesContent() {
         </div>
 
         {/* Tab Pills */}
-        <div className="d-flex flex-wrap justify-content-center mb-5 wow fadeInUp" data-wow-delay="0.2s">
+        <div className="d-flex flex-wrap justify-content-center mb-4 wow fadeInUp" data-wow-delay="0.2s">
           {tabs.map(t => (
             <button key={t} className={`btn rounded-pill px-4 py-2 m-2 fw-medium test-category-pill ${activeTab === t ? "active" : ""}`}
               onClick={() => { setActiveTab(t); setModalItem(null); }}>
               {t === "Tests" ? "🧪" : t === "Profiles" ? "📋" : "📦"} {t}
             </button>
           ))}
+        </div>
+
+        {/* Search & Filter */}
+        <div className="row justify-content-center mb-5 wow fadeInUp" data-wow-delay="0.25s">
+          <div className="col-md-8 col-lg-7">
+            <div className="d-flex flex-column flex-md-row gap-2 bg-white p-2 rounded-4 rounded-md-pill shadow-sm border" style={{ borderColor: "#e0e0e0" }}>
+              <div className="flex-grow-1 position-relative d-flex align-items-center">
+                <i className="bi bi-search position-absolute ms-4 text-muted"></i>
+                <input 
+                  type="text" 
+                  className="form-control border-0 bg-transparent" 
+                  placeholder={`Search ${activeTab.toLowerCase()} by name...`}
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  style={{ boxShadow: "none", paddingLeft: "3rem" }}
+                />
+              </div>
+              {activeTab === "Tests" && uniqueCategories.length > 0 && (
+                <div style={{ minWidth: "200px", position: "relative" }} className="border-top border-md-top-0 border-md-start pt-2 pt-md-0 ps-md-2 mt-2 mt-md-0 border-light">
+                  <div 
+                    className="d-flex justify-content-between align-items-center h-100 rounded-pill px-3"
+                    style={{ backgroundColor: "#f8f9fa", cursor: "pointer", color: "#555", fontWeight: 500, transition: "0.2s" }}
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  >
+                    <span className="text-truncate" style={{ maxWidth: "130px" }}>{categoryFilter || "All Organs"}</span>
+                    <i className={`bi bi-chevron-${isDropdownOpen ? 'up' : 'down'} text-primary`}></i>
+                  </div>
+                  
+                  {isDropdownOpen && (
+                    <>
+                      <div 
+                        style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 1040 }} 
+                        onClick={() => setIsDropdownOpen(false)} 
+                      />
+                      <div 
+                        className="position-absolute top-100 mt-2 bg-white rounded-4 shadow border-0 py-2" 
+                        style={{ right: 0, left: 0, zIndex: 1050, maxHeight: "300px", overflowY: "auto" }}
+                      >
+                        <div 
+                          className="px-4 py-2" 
+                          style={{ cursor: "pointer", backgroundColor: categoryFilter === "" ? "rgba(90,138,26,0.1)" : "transparent", color: categoryFilter === "" ? "#5a8a1a" : "#555", fontWeight: categoryFilter === "" ? 600 : 400, transition: "0.2s" }}
+                          onClick={() => { setCategoryFilter(""); setIsDropdownOpen(false); }}
+                          onMouseOver={(e) => { if(categoryFilter !== "") e.target.style.backgroundColor = "#f8f9fa" }}
+                          onMouseOut={(e) => { if(categoryFilter !== "") e.target.style.backgroundColor = "transparent" }}
+                        >
+                          All Organs
+                        </div>
+                        {uniqueCategories.map(c => (
+                          <div 
+                            key={c}
+                            className="px-4 py-2"
+                            style={{ cursor: "pointer", backgroundColor: categoryFilter === c ? "rgba(90,138,26,0.1)" : "transparent", color: categoryFilter === c ? "#5a8a1a" : "#555", fontWeight: categoryFilter === c ? 600 : 400, transition: "0.2s" }}
+                            onClick={() => { setCategoryFilter(c); setIsDropdownOpen(false); }}
+                            onMouseOver={(e) => { if(categoryFilter !== c) e.target.style.backgroundColor = "#f8f9fa" }}
+                            onMouseOut={(e) => { if(categoryFilter !== c) e.target.style.backgroundColor = "transparent" }}
+                          >
+                            {c}
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
 
         {/* Cards Slider */}
