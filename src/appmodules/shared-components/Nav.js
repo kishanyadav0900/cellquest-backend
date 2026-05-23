@@ -99,11 +99,16 @@ function Nav() {
                                 </NavLink>
                             </div>
 
-                            {/* Contact Info on Right */}
-                            <div className="ms-auto d-none d-xl-flex flex-column justify-content-center text-start" style={{ fontSize: "0.85rem", color: "#444", lineHeight: "1.4" }}>
-                                <div><i className="fa fa-envelope text-primary me-2"></i><a href="https://mail.google.com/mail/?view=cm&fs=1&to=cellquestindia@gmail.com&su=Inquiry%20from%20Website" target="_blank" rel="noopener noreferrer" className="text-decoration-none text-dark fw-medium">cellquestindia@gmail.com</a></div>
-                                <div><i className="fa fa-phone-alt text-primary me-2"></i><a href="tel:+919990155907" className="text-decoration-none text-dark fw-medium">+91 99901 55907</a></div>
-                                <div><i className="fa fa-clock text-primary me-2"></i><span className="fw-medium text-dark">10AM - 7PM</span></div>
+                            <div className="ms-auto d-flex align-items-center">
+                                {/* Contact Info on Right */}
+                                <div className="d-none d-xl-flex flex-column justify-content-center text-start me-4" style={{ fontSize: "0.85rem", color: "#444", lineHeight: "1.4" }}>
+                                    <div><i className="fa fa-envelope text-primary me-2"></i><a href="https://mail.google.com/mail/?view=cm&fs=1&to=cellquestindia@gmail.com&su=Inquiry%20from%20Website" target="_blank" rel="noopener noreferrer" className="text-decoration-none text-dark fw-medium">cellquestindia@gmail.com</a></div>
+                                    <div><i className="fa fa-phone-alt text-primary me-2"></i><a href="tel:+919990155907" className="text-decoration-none text-dark fw-medium">+91 99901 55907</a></div>
+                                    <div><i className="fa fa-clock text-primary me-2"></i><span className="fw-medium text-dark">10AM - 7PM</span></div>
+                                </div>
+                                <a href="https://lims-alpha.elabpro.in/login" target="_blank" rel="noopener noreferrer" className="btn btn-primary rounded-pill px-4 fw-bold" style={{ paddingTop: "8px", paddingBottom: "8px" }}>
+                                    Login <i className="fa fa-arrow-right ms-2"></i>
+                                </a>
                             </div>
 
                         </div>

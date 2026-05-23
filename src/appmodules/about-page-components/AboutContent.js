@@ -38,7 +38,7 @@ function AboutContent() {
             </div>
 
             <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-              <div id="about-carousel" className="carousel slide carousel-fade rounded overflow-hidden shadow-sm" data-bs-ride="carousel" data-bs-interval="3000">
+              <div id="about-carousel" className="carousel slide carousel-fade rounded overflow-hidden shadow-sm" data-bs-ride="carousel" data-bs-interval="2000">
                 <div className="carousel-inner" style={{ height: "450px" }}>
                   <div className="carousel-item active" style={{ height: "100%" }}>
                     <img className="d-block w-100 h-100" src="/about-1.jpeg" alt="Lab Equipment" style={{ objectFit: "cover" }} />
@@ -53,6 +53,18 @@ function AboutContent() {
                     <img className="d-block w-100 h-100" src="/about-4.jpeg" alt="Advanced Analyzer" style={{ objectFit: "cover" }} />
                   </div>
                 </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#about-carousel" data-bs-slide="prev" style={{ width: "10%", opacity: 1 }}>
+                  <div style={{ backgroundColor: "#fff", width: "35px", height: "35px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 6px rgba(0,0,0,0.15)" }}>
+                    <i className="bi bi-chevron-left text-dark fs-6"></i>
+                  </div>
+                  <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#about-carousel" data-bs-slide="next" style={{ width: "10%", opacity: 1 }}>
+                  <div style={{ backgroundColor: "#fff", width: "35px", height: "35px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 6px rgba(0,0,0,0.15)" }}>
+                    <i className="bi bi-chevron-right text-dark fs-6"></i>
+                  </div>
+                  <span className="visually-hidden">Next</span>
+                </button>
               </div>
             </div>
 
