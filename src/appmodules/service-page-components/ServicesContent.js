@@ -4,6 +4,10 @@ import { supabase } from "../../admin/services/api";
 
 const renderIcon = (iconStr) => {
   if (!iconStr) return null;
+  if (iconStr.startsWith("icons8:")) {
+    const name = iconStr.replace("icons8:", "");
+    return <img src={`https://img.icons8.com/color/48/${name}.png`} alt={name} style={{ width: "1.2em", height: "1.2em", verticalAlign: "middle" }} />;
+  }
   if (iconStr.startsWith("google:")) {
     return <span className="material-symbols-outlined" style={{ fontSize: "inherit", verticalAlign: "middle" }}>{iconStr.replace("google:", "")}</span>;
   }
@@ -15,6 +19,7 @@ function ServicesContent() {
   const [activeTab, setActiveTab] = useState("Tests");
   const [modalItem, setModalItem] = useState(null);
   const [openAccordions, setOpenAccordions] = useState({});
+  const [openCardProfiles, setOpenCardProfiles] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -102,6 +107,13 @@ function ServicesContent() {
 
   const toggleAccordion = (idx) => {
     setOpenAccordions(prev => ({ ...prev, [idx]: !prev[idx] }));
+  };
+
+  const toggleCardProfile = (cardId, profId) => {
+    setOpenCardProfiles(prev => ({
+      ...prev,
+      [cardId]: prev[cardId] === profId ? null : profId
+    }));
   };
 
   const scrollSlider = (direction) => {
@@ -236,20 +248,29 @@ function ServicesContent() {
                     </span>
                     {activeTab === "Packages" ? (
                       <div className="package-profiles-scroll" style={{ maxHeight: "180px", overflowY: "auto", paddingRight: "5px" }}>
-                        {includedProfiles.map(prof => (
-                          <div key={prof.id} style={{ marginBottom: "8px" }}>
-                            <div style={{ fontWeight: 600, fontSize: "0.85rem", color: "#2d6a4f", marginBottom: "4px" }}>
-                              {renderIcon(prof.icon)} {prof.name}
+                        {includedProfiles.map(prof => {
+                          const isExpanded = openCardProfiles[item.id] === prof.id;
+                          return (
+                            <div key={prof.id} style={{ marginBottom: "8px", border: "1px solid #e0e0e0", borderRadius: "8px", overflow: "hidden" }}>
+                              <div 
+                                style={{ fontWeight: 600, fontSize: "0.85rem", color: isExpanded ? "#ffffff" : "#2d6a4f", backgroundColor: isExpanded ? "#2d6a4f" : "#f8f9fa", padding: "8px 10px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", transition: "0.2s" }}
+                                onClick={() => toggleCardProfile(item.id, prof.id)}
+                              >
+                                <span>{renderIcon(prof.icon)} {prof.name}</span>
+                                <i className={`bi bi-chevron-${isExpanded ? 'up' : 'down'}`}></i>
+                              </div>
+                              {isExpanded && (
+                                <div className="d-flex flex-wrap gap-1" style={{ padding: "8px", backgroundColor: "#ffffff" }}>
+                                  {(prof.profile_tests || []).map(pt => pt.tests).filter(Boolean).map(t => (
+                                    <span key={t.id} className="catalog-test-icon-badge" style={{ fontSize: "0.75rem", padding: "3px 8px" }}>
+                                      {renderIcon(t.icon)} {t.name}
+                                    </span>
+                                  ))}
+                                </div>
+                              )}
                             </div>
-                            <div className="d-flex flex-wrap gap-1" style={{ paddingLeft: "8px" }}>
-                              {(prof.profile_tests || []).map(pt => pt.tests).filter(Boolean).map(t => (
-                                <span key={t.id} className="catalog-test-icon-badge">
-                                  {renderIcon(t.icon)} {t.name}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
+                          );
+                        })}
                       </div>
                     ) : (
                       <div className="d-flex flex-wrap gap-1">

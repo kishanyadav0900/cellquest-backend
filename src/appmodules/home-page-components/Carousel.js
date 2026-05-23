@@ -16,7 +16,6 @@ function Carousel(){
                                 <div className="col-lg-7 text-start">
                                     <h1 className="display-1 text-white animated slideInRight mb-3" style={{ fontSize: "clamp(2.5rem, 5vw, 5rem)" }}>Advanced Diagnostic Laboratory Center</h1>
                                     <p className="mb-5 animated slideInRight">Welcome to cellquestindia. We provide highly accurate, timely, and reliable pathology and biochemistry testing services. Your health and safety are our top priority.</p>
-                                    <a href="#services-section" className="btn btn-primary py-3 px-5 animated slideInRight">Book Test</a>
                                 </div>
                             </div>
                         </div>
@@ -30,13 +29,18 @@ function Carousel(){
                                 <div className="col-lg-7 text-end">
                                     <h1 className="display-1 text-white animated slideInLeft mb-3" style={{ fontSize: "clamp(2.5rem, 5vw, 5rem)" }}>Expert Doctors & Trained Technicians</h1>
                                     <p className="mb-5 animated slideInLeft">Our laboratory is equipped with state-of-the-art machines and guided by highly experienced medical professionals, ensuring every test report is precise and dependable.</p>
-                                    <a href="#services-section" className="btn btn-primary py-3 px-5 animated slideInLeft">Book Test</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            {/* Fixed Book Test Button */}
+            <div className="position-absolute w-100 d-flex justify-content-center" style={{ bottom: '8%', zIndex: 15, pointerEvents: 'none' }}>
+                <a href="#services-section" className="btn btn-primary py-3 px-5 fw-bold shadow-lg" style={{ pointerEvents: 'auto', borderRadius: '50px', fontSize: '1.2rem', transition: 'transform 0.2s' }} onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}>Book Test</a>
+            </div>
+
             <button className="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span className="visually-hidden">Previous</span>

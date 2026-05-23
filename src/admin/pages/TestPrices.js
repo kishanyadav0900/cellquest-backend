@@ -2,13 +2,17 @@ import React, { useState, useEffect } from "react";
 import { api } from "../services/api";
 
 const EMOJI_ICONS = ['🧪','🩸','💉','🔬','💊','☀️','🫀','🦴','🧬','🔎','📋','📦','🫁','🧠','🦷','👁️','👂','👃','👅','💧','🦋','🧍','🩺','🦠','⚕️'];
-const GOOGLE_ICONS = ['google:cardiology','google:pulmonology','google:neurology','google:gastroenterology','google:nephrology','google:hematology','google:orthopedics','google:dentistry','google:ophthalmology','google:dermatology','google:stethoscope','google:prescriptions','google:pill','google:vaccines','google:bloodtype','google:genetics','google:microbiology','google:radiology','google:ent','google:oncology'];
-const ICONS = [...EMOJI_ICONS, ...GOOGLE_ICONS];
+const ICONS8_ICONS = ['icons8:liver', 'icons8:kidney', 'icons8:stomach', 'icons8:heart-with-pulse', 'icons8:lungs', 'icons8:brain', 'icons8:test-tube', 'icons8:syringe', 'icons8:microscope', 'icons8:pill', 'icons8:stethoscope', 'icons8:caduceus', 'icons8:dna-helix', 'icons8:medical-doctor'];
+const ICONS = [...EMOJI_ICONS, ...ICONS8_ICONS];
 const FASTING_OPTS = ['No Fasting Required','8 hrs Fasting Required','10 hrs Fasting Required','12 hrs Fasting Required','10-12 hrs Fasting Required'];
 const REC_OPTS = ['Everyone','Male','Female','Pregnant Women','Senior Citizens'];
 
 const renderIcon = (iconStr) => {
   if (!iconStr) return null;
+  if (iconStr.startsWith("icons8:")) {
+    const name = iconStr.replace("icons8:", "");
+    return <img src={`https://img.icons8.com/color/48/${name}.png`} alt={name} style={{ width: "1.2em", height: "1.2em", verticalAlign: "middle" }} />;
+  }
   if (iconStr.startsWith("google:")) {
     return <span className="material-symbols-outlined" style={{ fontSize: "inherit", verticalAlign: "middle" }}>{iconStr.replace("google:", "")}</span>;
   }
