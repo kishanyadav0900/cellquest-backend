@@ -78,6 +78,12 @@ function App() {
       "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css";
     document.head.appendChild(bootstrapIcons);
 
+    // Google Material Symbols
+    const materialIcons = document.createElement("link");
+    materialIcons.rel = "stylesheet";
+    materialIcons.href = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0";
+    document.head.appendChild(materialIcons);
+
   }, []);
 
   return (

@@ -2,6 +2,14 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../admin/services/api";
 
+const renderIcon = (iconStr) => {
+  if (!iconStr) return null;
+  if (iconStr.startsWith("google:")) {
+    return <span className="material-symbols-outlined" style={{ fontSize: "inherit", verticalAlign: "middle" }}>{iconStr.replace("google:", "")}</span>;
+  }
+  return <span style={{ verticalAlign: "middle" }}>{iconStr}</span>;
+};
+
 function ServicesContent() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Tests");
@@ -212,7 +220,7 @@ function ServicesContent() {
                   {/* Header */}
                   <div className="d-flex justify-content-between align-items-start border-bottom pb-3 mb-3">
                     <div className="d-flex align-items-center gap-2">
-                      <span style={{ fontSize: "1.5rem" }}>{item.icon}</span>
+                      <span style={{ fontSize: "1.5rem" }}>{renderIcon(item.icon)}</span>
                       <h5 className="test-title m-0 pe-3">{item.name}</h5>
                     </div>
                     <div className="test-badge text-center rounded">
@@ -231,12 +239,12 @@ function ServicesContent() {
                         {includedProfiles.map(prof => (
                           <div key={prof.id} style={{ marginBottom: "8px" }}>
                             <div style={{ fontWeight: 600, fontSize: "0.85rem", color: "#2d6a4f", marginBottom: "4px" }}>
-                              {prof.icon} {prof.name}
+                              {renderIcon(prof.icon)} {prof.name}
                             </div>
                             <div className="d-flex flex-wrap gap-1" style={{ paddingLeft: "8px" }}>
                               {(prof.profile_tests || []).map(pt => pt.tests).filter(Boolean).map(t => (
                                 <span key={t.id} className="catalog-test-icon-badge">
-                                  {t.icon} {t.name}
+                                  {renderIcon(t.icon)} {t.name}
                                 </span>
                               ))}
                             </div>
@@ -247,7 +255,7 @@ function ServicesContent() {
                       <div className="d-flex flex-wrap gap-1">
                         {includedTests.slice(0, 8).map((t, i) => (
                           <span key={t.id || i} className="catalog-test-icon-badge">
-                            {t.icon} {t.name}
+                            {renderIcon(t.icon)} {t.name}
                           </span>
                         ))}
                         {includedTests.length > 8 && (
@@ -319,13 +327,13 @@ function ServicesContent() {
           <div className="know-more-overlay" onClick={() => setModalItem(null)}>
             <div className="know-more-modal" onClick={e => e.stopPropagation()}>
               <div className="d-flex justify-content-between align-items-center mb-4">
-                <h4 className="m-0 fw-bold">{modalItem.icon} {modalItem.name}</h4>
+                <h4 className="m-0 fw-bold">{renderIcon(modalItem.icon)} {modalItem.name}</h4>
                 <button className="btn btn-link text-dark fs-4 p-0" onClick={() => setModalItem(null)}>&times;</button>
               </div>
 
               {activeTab === "Tests" && (
                 <div className="text-center py-3">
-                  <div className="know-more-test-icon mx-auto mb-3" style={{ width: "60px", height: "60px", fontSize: "1.8rem" }}>{modalItem.icon}</div>
+                  <div className="know-more-test-icon mx-auto mb-3" style={{ width: "60px", height: "60px", fontSize: "1.8rem" }}>{renderIcon(modalItem.icon)}</div>
                   <h5 className="fw-bold">{modalItem.name}</h5>
                   <p className="text-muted">{modalItem.description}</p>
                   <div className="d-flex justify-content-center gap-4 mt-3 text-muted small">
@@ -346,7 +354,7 @@ function ServicesContent() {
                       return (
                         <div key={idx} className="know-more-accordion-item">
                           <div className="d-flex align-items-center py-3 px-2">
-                            <div className="know-more-test-icon me-3">{t.icon}</div>
+                            <div className="know-more-test-icon me-3">{renderIcon(t.icon)}</div>
                             <div>
                               <h6 className="m-0 fw-bold">{t.name}</h6>
                               <small className="text-muted">{t.description}</small>
@@ -369,7 +377,7 @@ function ServicesContent() {
                         <div className="d-flex align-items-center justify-content-between py-3 px-2" style={{ cursor: "pointer" }}
                           onClick={() => toggleAccordion(idx)}>
                           <div className="d-flex align-items-center">
-                            <div className="know-more-test-icon me-3">{prof.icon}</div>
+                            <div className="know-more-test-icon me-3">{renderIcon(prof.icon)}</div>
                             <div>
                               <h6 className="m-0 fw-bold">{prof.name}</h6>
                               <small className="text-primary">({(prof.profile_tests || []).length} Tests)</small>
@@ -382,7 +390,7 @@ function ServicesContent() {
                             <ul className="list-unstyled mb-0">
                               {(prof.profile_tests || []).map(pt => pt.tests).filter(Boolean).map((t, si) => (
                                 <li key={si} className="text-muted mb-1 d-flex align-items-center gap-2">
-                                  <span>{t.icon}</span> {t.name}
+                                  <span>{renderIcon(t.icon)}</span> {t.name}
                                   <span className="ms-auto" style={{ fontSize: "0.75rem" }}>₹{t.current_price}</span>
                                 </li>
                               ))}

@@ -29,30 +29,33 @@ function Features2() {
           </div>
 
           <div className="row g-4">
-            {services.map((svc, idx) => (
-              <div key={idx} className="col-lg-6 wow fadeInUp" data-wow-delay={`${0.1 + (idx % 4) * 0.1}s`}>
-                <div className="d-flex align-items-start gap-3 p-4 rounded-3 h-100" style={{
-                  background: idx % 2 === 0 ? "#E7F1A8" : "#FFFFDD",
-                  border: "1px solid",
-                  borderColor: idx % 2 === 0 ? "#E7F1A8" : "#fdd",
-                  transition: "transform 0.2s, box-shadow 0.2s",
-                }}>
-                  <div className="flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle" style={{
-                    width: "50px",
-                    height: "50px",
-                    background: idx % 2 === 0 ? "#5a8a1a" : "#F87154",
-                    color: "#fff",
-                    fontSize: "1.3rem"
+            {services.map((svc, idx) => {
+              const hashId = svc.title.replace(/\s+/g, '-').replace(/&/g, 'and').toLowerCase();
+              return (
+                <div key={idx} id={hashId} className="col-lg-6 wow fadeInUp" data-wow-delay={`${0.1 + (idx % 4) * 0.1}s`} style={{ scrollMarginTop: "120px" }}>
+                  <div className="d-flex align-items-start gap-3 p-4 rounded-3 h-100" style={{
+                    background: idx % 2 === 0 ? "#E7F1A8" : "#FFFFDD",
+                    border: "1px solid",
+                    borderColor: idx % 2 === 0 ? "#E7F1A8" : "#fdd",
+                    transition: "transform 0.2s, box-shadow 0.2s",
                   }}>
-                    <i className={`bi ${svc.icon}`}></i>
-                  </div>
-                  <div>
-                    <h5 className="mb-2" style={{ fontWeight: 700, color: "#3d5e10" }}>{svc.title}</h5>
-                    <p className="mb-0" style={{ color: "#555", lineHeight: 1.6, fontSize: "0.95rem" }}>{svc.desc}</p>
+                    <div className="flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle" style={{
+                      width: "50px",
+                      height: "50px",
+                      background: idx % 2 === 0 ? "#5a8a1a" : "#F87154",
+                      color: "#fff",
+                      fontSize: "1.3rem"
+                    }}>
+                      <i className={`bi ${svc.icon}`}></i>
+                    </div>
+                    <div>
+                      <h5 className="mb-2" style={{ fontWeight: 700, color: "#3d5e10" }}>{svc.title}</h5>
+                      <p className="mb-0" style={{ color: "#555", lineHeight: 1.6, fontSize: "0.95rem" }}>{svc.desc}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Official Partners Removed from here */}

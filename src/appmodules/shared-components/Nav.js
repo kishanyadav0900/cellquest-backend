@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import $ from "jquery";
 import WOW from "wowjs";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 function Nav() {
 
@@ -74,9 +74,33 @@ function Nav() {
                                 <NavLink to="/about" className={activeLink}>
                                     About
                                 </NavLink>
-                                <NavLink to="/service" className={activeLink}>
-                                    Services
-                                </NavLink>
+                                <div className="nav-item dropdown">
+                                    <button
+                                        type="button"
+                                        className="nav-link dropdown-toggle btn btn-link"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                        onClick={(e) => {
+                                            // Make sure clicking the Services title also goes to the main service page
+                                            // if we wanted to. We'll leave it as just a dropdown toggle for now.
+                                        }}
+                                    >
+                                        Services
+                                    </button>
+                                    <div className="dropdown-menu border-0 shadow-sm m-0 text-center text-lg-start" style={{maxHeight: '400px', overflowY: 'auto'}}>
+                                        <Link to="/service" className="dropdown-item fw-bold border-bottom mb-2">All Services</Link>
+                                        <Link to="/service#haematology" className="dropdown-item">Haematology</Link>
+                                        <Link to="/service#clinical-biochemistry" className="dropdown-item">Clinical Biochemistry</Link>
+                                        <Link to="/service#endocrinology" className="dropdown-item">Endocrinology</Link>
+                                        <Link to="/service#microbiology" className="dropdown-item">Microbiology</Link>
+                                        <Link to="/service#serology-and-immunology" className="dropdown-item">Serology & Immunology</Link>
+                                        <Link to="/service#cytopathology-and-histopathology" className="dropdown-item">Cytopathology & Histopathology</Link>
+                                        <Link to="/service#clinical-pathology" className="dropdown-item">Clinical Pathology</Link>
+                                        <Link to="/service#molecular-pathology" className="dropdown-item">Molecular Pathology</Link>
+                                        <Link to="/service#allergy" className="dropdown-item">Allergy</Link>
+                                        <Link to="/service#ifa" className="dropdown-item">IFA</Link>
+                                    </div>
+                                </div>
 
                                 <div className="nav-item dropdown">
                                     <button

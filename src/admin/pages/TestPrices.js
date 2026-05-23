@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { api } from "../services/api";
 
-const ICONS = ['🧪','🩸','💉','🔬','💊','☀️','🫀','🦴','🧬','🔎','📋','📦','🫁','🧠','🦷','👁️','👂','👃','👅','💧','🦋','🧍','🩺','🦠','⚕️'];
+const EMOJI_ICONS = ['🧪','🩸','💉','🔬','💊','☀️','🫀','🦴','🧬','🔎','📋','📦','🫁','🧠','🦷','👁️','👂','👃','👅','💧','🦋','🧍','🩺','🦠','⚕️'];
+const GOOGLE_ICONS = ['google:cardiology','google:pulmonology','google:neurology','google:gastroenterology','google:nephrology','google:hematology','google:orthopedics','google:dentistry','google:ophthalmology','google:dermatology','google:stethoscope','google:prescriptions','google:pill','google:vaccines','google:bloodtype','google:genetics','google:microbiology','google:radiology','google:ent','google:oncology'];
+const ICONS = [...EMOJI_ICONS, ...GOOGLE_ICONS];
 const FASTING_OPTS = ['No Fasting Required','8 hrs Fasting Required','10 hrs Fasting Required','12 hrs Fasting Required','10-12 hrs Fasting Required'];
 const REC_OPTS = ['Everyone','Male','Female','Pregnant Women','Senior Citizens'];
+
+const renderIcon = (iconStr) => {
+  if (!iconStr) return null;
+  if (iconStr.startsWith("google:")) {
+    return <span className="material-symbols-outlined" style={{ fontSize: "inherit", verticalAlign: "middle" }}>{iconStr.replace("google:", "")}</span>;
+  }
+  return <span style={{ verticalAlign: "middle" }}>{iconStr}</span>;
+};
 
 function TestPrices() {
   const [tab, setTab] = useState("tests");
@@ -161,7 +171,7 @@ function TestPrices() {
                 <label>Icon</label>
                 <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", width: "220px" }}>
                   {ICONS.map(ic => (
-                    <button type="button" key={ic} onClick={() => setForm({ ...form, icon: ic })} style={{ width: "32px", height: "32px", borderRadius: "8px", border: form.icon === ic ? "2px solid #6a9a2a" : "1px solid rgba(255,255,255,0.1)", background: form.icon === ic ? "rgba(90,138,26,0.3)" : "rgba(255,255,255,0.05)", fontSize: "16px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>{ic}</button>
+                    <button type="button" key={ic} onClick={() => setForm({ ...form, icon: ic })} style={{ width: "32px", height: "32px", borderRadius: "8px", border: form.icon === ic ? "2px solid #6a9a2a" : "1px solid rgba(255,255,255,0.1)", background: form.icon === ic ? "rgba(90,138,26,0.3)" : "rgba(255,255,255,0.05)", fontSize: "16px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>{renderIcon(ic)}</button>
                   ))}
                 </div>
               </div>
@@ -204,7 +214,7 @@ function TestPrices() {
                   {tests.map(t => (
                     <label key={t.id} style={{ display: "flex", alignItems: "center", gap: "8px", padding: "6px 8px", borderRadius: "6px", cursor: "pointer", background: selectedIds.includes(t.id) ? "rgba(90,138,26,0.15)" : "transparent", marginBottom: "2px" }}>
                       <input type="checkbox" checked={selectedIds.includes(t.id)} onChange={() => toggleId(t.id)} style={{ accentColor: "#6a9a2a" }} />
-                      <span style={{ fontSize: "14px" }}>{t.icon} {t.name}</span>
+                      <span style={{ fontSize: "14px" }}>{renderIcon(t.icon)} {t.name}</span>
                       <span style={{ marginLeft: "auto", fontSize: "11px", color: "#64748b" }}>₹{t.current_price}</span>
                     </label>
                   ))}
@@ -219,7 +229,7 @@ function TestPrices() {
                   {profiles.map(p => (
                     <label key={p.id} style={{ display: "flex", alignItems: "center", gap: "8px", padding: "6px 8px", borderRadius: "6px", cursor: "pointer", background: selectedIds.includes(p.id) ? "rgba(90,138,26,0.15)" : "transparent", marginBottom: "2px" }}>
                       <input type="checkbox" checked={selectedIds.includes(p.id)} onChange={() => toggleId(p.id)} style={{ accentColor: "#6a9a2a" }} />
-                      <span style={{ fontSize: "14px" }}>{p.icon} {p.name}</span>
+                      <span style={{ fontSize: "14px" }}>{renderIcon(p.icon)} {p.name}</span>
                       <span style={{ marginLeft: "auto", fontSize: "11px", color: "#64748b" }}>{(p.profile_tests || []).length} tests · ₹{p.current_price}</span>
                     </label>
                   ))}
@@ -261,7 +271,7 @@ function TestPrices() {
               {/* ── TESTS TAB ── */}
               {tab === "tests" && filtered(tests).map(item => (
                 <tr key={item.id}>
-                  <td style={{ fontSize: "20px", textAlign: "center", width: "40px" }}>{item.icon}</td>
+                  <td style={{ fontSize: "20px", textAlign: "center", width: "40px" }}>{renderIcon(item.icon)}</td>
                   <td style={{ fontWeight: 600 }}>{item.name}<br /><span style={{ fontSize: "0.75rem", color: "#64748b" }}>{item.description}</span></td>
                   <td><span style={badgeS("rgba(37,99,235,0.2)", "#93c5fd", "rgba(37,99,235,0.3)")}>{item.category || "—"}</span></td>
                   <td>
@@ -286,13 +296,13 @@ function TestPrices() {
                 const pts = (item.profile_tests || []).map(pt => pt.tests).filter(Boolean);
                 return (
                   <tr key={item.id}>
-                    <td style={{ fontSize: "20px", textAlign: "center", width: "40px" }}>{item.icon}</td>
+                    <td style={{ fontSize: "20px", textAlign: "center", width: "40px" }}>{renderIcon(item.icon)}</td>
                     <td style={{ fontWeight: 600 }}>{item.name}</td>
                     <td style={{ maxWidth: "280px" }}>
                       <div style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
                         {pts.map(t => (
                           <span key={t.id} style={{ background: "rgba(255,255,255,0.07)", color: "#94a3b8", padding: "2px 8px", borderRadius: "6px", fontSize: "0.7rem" }}>
-                            {t.icon} {t.name}
+                            {renderIcon(t.icon)} {t.name}
                           </span>
                         ))}
                       </div>
@@ -321,15 +331,15 @@ function TestPrices() {
                 const pps = (item.package_profiles || []).map(pp => pp.profiles).filter(Boolean);
                 return (
                   <tr key={item.id}>
-                    <td style={{ fontSize: "20px", textAlign: "center", width: "40px" }}>{item.icon}</td>
+                    <td style={{ fontSize: "20px", textAlign: "center", width: "40px" }}>{renderIcon(item.icon)}</td>
                     <td style={{ fontWeight: 600 }}>{item.name}</td>
                     <td style={{ maxWidth: "320px" }}>
                       {pps.map(prof => (
                         <div key={prof.id} style={{ marginBottom: "6px" }}>
-                          <div style={{ fontSize: "0.75rem", fontWeight: 600, color: "#c084fc", marginBottom: "2px" }}>{prof.icon} {prof.name}</div>
+                          <div style={{ fontSize: "0.75rem", fontWeight: 600, color: "#c084fc", marginBottom: "2px" }}>{renderIcon(prof.icon)} {prof.name}</div>
                           <div style={{ display: "flex", flexWrap: "wrap", gap: "3px", paddingLeft: "12px" }}>
                             {(prof.profile_tests || []).map(pt => pt.tests).filter(Boolean).map(t => (
-                              <span key={t.id} style={{ background: "rgba(255,255,255,0.05)", color: "#94a3b8", padding: "1px 6px", borderRadius: "4px", fontSize: "0.65rem" }}>{t.icon} {t.name}</span>
+                              <span key={t.id} style={{ background: "rgba(255,255,255,0.05)", color: "#94a3b8", padding: "1px 6px", borderRadius: "4px", fontSize: "0.65rem" }}>{renderIcon(t.icon)} {t.name}</span>
                             ))}
                           </div>
                         </div>
