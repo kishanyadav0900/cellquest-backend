@@ -717,13 +717,10 @@ h1,h2,h3,h4,h5{
 
 @media (max-width: 768px) {
     .test-card {
-        min-width: calc(50% - 10px);
-        width: calc(50% - 10px);
+        min-width: 85vw;
+        width: 85vw;
         max-width: none;
-        padding: 15px;
-    }
-    .test-card .test-title {
-        font-size: 1rem;
+        padding: 20px;
     }
 }
 
