@@ -8,6 +8,10 @@ const renderIcon = (iconStr) => {
     const name = iconStr.replace("icons8:", "");
     return <img src={`https://img.icons8.com/color/48/${name}.png`} alt={name} style={{ width: "1.2em", height: "1.2em", verticalAlign: "middle" }} />;
   }
+  if (iconStr.startsWith("local:")) {
+    const name = iconStr.replace("local:", "");
+    return <img src={`/icons/${name}.png`} alt={name} style={{ width: "1.2em", height: "1.2em", verticalAlign: "middle" }} />;
+  }
   if (iconStr.startsWith("google:")) {
     return <span className="material-symbols-outlined" style={{ fontSize: "inherit", verticalAlign: "middle" }}>{iconStr.replace("google:", "")}</span>;
   }
@@ -118,7 +122,7 @@ function ServicesContent() {
 
   const scrollSlider = (direction) => {
     if (sliderRef.current) {
-      const scrollAmount = direction === "left" ? -350 : 350;
+      const scrollAmount = direction === "left" ? -sliderRef.current.clientWidth : sliderRef.current.clientWidth;
       sliderRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };

@@ -3,7 +3,8 @@ import { api } from "../services/api";
 
 const EMOJI_ICONS = ['🧪','🩸','💉','🔬','💊','☀️','🫀','🦴','🧬','🔎','📋','📦','🫁','🧠','🦷','👁️','👂','👃','👅','💧','🦋','🧍','🩺','🦠','⚕️'];
 const ICONS8_ICONS = ['icons8:liver', 'icons8:kidney', 'icons8:stomach', 'icons8:heart-with-pulse', 'icons8:lungs', 'icons8:brain', 'icons8:test-tube', 'icons8:syringe', 'icons8:microscope', 'icons8:pill', 'icons8:stethoscope', 'icons8:caduceus', 'icons8:dna-helix', 'icons8:medical-doctor'];
-const ICONS = [...EMOJI_ICONS, ...ICONS8_ICONS];
+const LOCAL_ICONS = ['local:1', 'local:2', 'local:3', 'local:4', 'local:5', 'local:6', 'local:7', 'local:8', 'local:9'];
+const ICONS = [...EMOJI_ICONS, ...ICONS8_ICONS, ...LOCAL_ICONS];
 const FASTING_OPTS = ['No Fasting Required','8 hrs Fasting Required','10 hrs Fasting Required','12 hrs Fasting Required','10-12 hrs Fasting Required'];
 const REC_OPTS = ['Everyone','Male','Female','Pregnant Women','Senior Citizens'];
 
@@ -12,6 +13,10 @@ const renderIcon = (iconStr) => {
   if (iconStr.startsWith("icons8:")) {
     const name = iconStr.replace("icons8:", "");
     return <img src={`https://img.icons8.com/color/48/${name}.png`} alt={name} style={{ width: "1.2em", height: "1.2em", verticalAlign: "middle" }} />;
+  }
+  if (iconStr.startsWith("local:")) {
+    const name = iconStr.replace("local:", "");
+    return <img src={`/icons/${name}.png`} alt={name} style={{ width: "1.2em", height: "1.2em", verticalAlign: "middle" }} />;
   }
   if (iconStr.startsWith("google:")) {
     return <span className="material-symbols-outlined" style={{ fontSize: "inherit", verticalAlign: "middle" }}>{iconStr.replace("google:", "")}</span>;
