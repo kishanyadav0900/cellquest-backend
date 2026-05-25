@@ -44,13 +44,13 @@ function AboutContent() {
                     <img className="d-block w-100 h-100" src="/about-1.jpeg" alt="Lab Equipment" style={{ objectFit: "cover", transform: "scale(1.35)" }} />
                   </div>
                   <div className="carousel-item" style={{ height: "100%" }}>
-                    <img className="d-block w-100 h-100" src="/about-2.jpeg" alt="Microscope Analysis" style={{ objectFit: "cover", transform: "scale(1.35)" }} />
+                    <img className="d-block w-100 h-100" src="/about-2.jpeg" alt="Microscope Analysis" style={{ objectFit: "cover" }} />
                   </div>
                   <div className="carousel-item" style={{ height: "100%" }}>
-                    <img className="d-block w-100 h-100" src="/about-3.jpeg" alt="Scientist at Work" style={{ objectFit: "cover", transform: "scale(1.35)" }} />
+                    <img className="d-block w-100 h-100" src="/about-3.jpeg" alt="Scientist at Work" style={{ objectFit: "cover" }} />
                   </div>
                   <div className="carousel-item" style={{ height: "100%" }}>
-                    <img className="d-block w-100 h-100" src="/about-4.jpeg" alt="Advanced Analyzer" style={{ objectFit: "cover", transform: "scale(1.35)" }} />
+                    <img className="d-block w-100 h-100" src="/about-4.jpeg" alt="Advanced Analyzer" style={{ objectFit: "cover" }} />
                   </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#about-carousel" data-bs-slide="prev" style={{ width: "10%", opacity: 1 }}>
