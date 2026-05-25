@@ -41,16 +41,16 @@ function AboutContent() {
               <div id="about-carousel" className="carousel slide carousel-fade rounded overflow-hidden shadow-sm" data-bs-ride="carousel" data-bs-interval="2000">
                 <div className="carousel-inner" style={{ height: "450px" }}>
                   <div className="carousel-item active" style={{ height: "100%" }}>
-                    <img className="d-block w-100 h-100" src="/about-1.jpeg" alt="Lab Equipment" style={{ objectFit: "cover" }} />
+                    <img className="d-block w-100 h-100" src="/about-1.jpeg" alt="Lab Equipment" style={{ objectFit: "cover", transform: "scale(1.35)" }} />
                   </div>
                   <div className="carousel-item" style={{ height: "100%" }}>
-                    <img className="d-block w-100 h-100" src="/about-2.jpeg" alt="Microscope Analysis" style={{ objectFit: "cover" }} />
+                    <img className="d-block w-100 h-100" src="/about-2.jpeg" alt="Microscope Analysis" style={{ objectFit: "cover", transform: "scale(1.35)" }} />
                   </div>
                   <div className="carousel-item" style={{ height: "100%" }}>
-                    <img className="d-block w-100 h-100" src="/about-3.jpeg" alt="Scientist at Work" style={{ objectFit: "cover" }} />
+                    <img className="d-block w-100 h-100" src="/about-3.jpeg" alt="Scientist at Work" style={{ objectFit: "cover", transform: "scale(1.35)" }} />
                   </div>
                   <div className="carousel-item" style={{ height: "100%" }}>
-                    <img className="d-block w-100 h-100" src="/about-4.jpeg" alt="Advanced Analyzer" style={{ objectFit: "cover" }} />
+                    <img className="d-block w-100 h-100" src="/about-4.jpeg" alt="Advanced Analyzer" style={{ objectFit: "cover", transform: "scale(1.35)" }} />
                   </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#about-carousel" data-bs-slide="prev" style={{ width: "10%", opacity: 1 }}>
