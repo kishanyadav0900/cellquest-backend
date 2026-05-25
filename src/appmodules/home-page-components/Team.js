@@ -2,7 +2,7 @@ function Team() {
     return (
         <>
             {/* Team Start */}
-            <div className="container-fluid container-team py-5">
+            <div className="container-fluid container-team py-5 bg-light-mint">
                 <div className="container pb-5">
 
                     <div className="row g-5 align-items-center mb-5">
