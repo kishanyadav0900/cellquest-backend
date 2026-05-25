@@ -137,6 +137,18 @@ function TestPrices() {
     return c;
   };
 
+  const handlePriceChange = (field, value) => {
+    let newForm = { ...form, [field]: value };
+    const curr = parseFloat(field === 'current_price' ? value : form.current_price);
+    const old = parseFloat(field === 'old_price' ? value : form.old_price);
+    if (!isNaN(curr) && !isNaN(old) && old > curr) {
+      newForm.discount = Math.round(((old - curr) / old) * 100) + "% OFF";
+    } else if (field === 'old_price' || field === 'current_price') {
+      newForm.discount = "";
+    }
+    setForm(newForm);
+  };
+
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "6px" }}>
@@ -192,8 +204,8 @@ function TestPrices() {
 
             {/* Row 2: Prices */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "14px", marginBottom: "14px" }}>
-              <div className="sf-field"><label>Current Price (₹) *</label><input className="admin-input" type="number" required value={form.current_price || ""} onChange={e => setForm({ ...form, current_price: e.target.value })} placeholder="e.g. 499" /></div>
-              <div className="sf-field"><label>Old Price (₹)</label><input className="admin-input" type="number" value={form.old_price || ""} onChange={e => setForm({ ...form, old_price: e.target.value })} placeholder="e.g. 1499" /></div>
+              <div className="sf-field"><label>Current Price (₹) *</label><input className="admin-input" type="number" required value={form.current_price || ""} onChange={e => handlePriceChange("current_price", e.target.value)} placeholder="e.g. 499" /></div>
+              <div className="sf-field"><label>Old Price (₹)</label><input className="admin-input" type="number" value={form.old_price || ""} onChange={e => handlePriceChange("old_price", e.target.value)} placeholder="e.g. 1499" /></div>
               <div className="sf-field"><label>Discount Label</label><input className="admin-input" value={form.discount || ""} onChange={e => setForm({ ...form, discount: e.target.value })} placeholder="e.g. 70% OFF" /></div>
             </div>
 
