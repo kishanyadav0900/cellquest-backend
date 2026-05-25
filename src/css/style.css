@@ -882,12 +882,16 @@ h1,h2,h3,h4,h5{
 
 @media (max-width: 768px) {
     .slider-nav-btn {
-        display: none;
+        display: flex;
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
     }
-    .test-card {
-        min-width: 280px;
-        width: 85vw;
-        max-width: none;
+    .slider-nav-prev {
+        left: -10px;
+    }
+    .slider-nav-next {
+        right: -10px;
     }
 }
 
