@@ -472,14 +472,35 @@ select.admin-input option {
 }
 
 /* ===================== MOBILE RESPONSIVENESS ===================== */
+/* ===================== MOBILE RESPONSIVENESS ===================== */
 @media (max-width: 768px) {
-  /* Global Main Content adjustments */
+  /* Prevent browser-level horizontal viewport scrolling */
+  .admin-app-container {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  
+  .admin-body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  /* Allow the main content flex container to shrink correctly on mobile */
   .admin-main-content {
     margin-left: 0 !important;
     padding: 16px 12px !important;
+    min-width: 0 !important; /* Crucial: lets flex container shrink below content width */
+    max-width: 100% !important;
+    overflow-x: hidden !important;
   }
-  
-  /* Stack inline grid layouts dynamically */
+
+  /* Reduce card padding to maximize content area on mobile */
+  .admin-card {
+    padding: 14px 12px !important;
+    border-radius: 12px !important;
+  }
+
+  /* Stack grid layouts to 1 column globally on mobile */
   .admin-app-container form[style*="display: grid"],
   .admin-app-container div[style*="display: grid"],
   .admin-app-container form {
@@ -494,16 +515,17 @@ select.admin-input option {
     gap: 12px !important;
   }
 
-  /* Ensure child items under responsive space-between take full width */
+  /* Ensure child items under stacked flex container fill width */
   .admin-app-container div[style*="display: flex"][style*="justify-content: space-between"] > div {
     width: 100% !important;
   }
 
-  /* Specific buttons in headers (like + Add buttons) should stack nicely */
+  /* Force buttons to stack cleanly */
   .admin-btn {
     width: 100% !important;
     text-align: center !important;
     margin-top: 4px !important;
+    padding: 10px 16px !important;
   }
 
   /* Keep tabs horizontal but wrap them */
@@ -511,6 +533,11 @@ select.admin-input option {
     flex-direction: row !important;
     flex-wrap: wrap !important;
     gap: 4px !important;
+  }
+
+  .admin-app-container div[style*="display: flex"][style*="border-bottom"] button {
+    flex: 1 1 auto !important;
+    text-align: center !important;
   }
 
   /* Search & Toolbar layouts */
@@ -538,7 +565,7 @@ select.admin-input option {
     width: 100% !important;
   }
 
-  /* Table responsive wrapper scroll behavior */
+  /* Table styling - scrollable wrapper, prevent cell text wrapping into single characters */
   .admin-table-wrapper,
   .admin-table-wrap {
     width: 100% !important;
@@ -546,11 +573,23 @@ select.admin-input option {
     -webkit-overflow-scrolling: touch !important;
     display: block !important;
     margin-bottom: 15px !important;
+    border-radius: 12px !important;
+  }
+
+  .admin-table {
+    min-width: 750px !important; /* Prevents columns from collapsing and squeezing content */
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 10px 12px !important;
+    white-space: nowrap !important; /* Keeps table rows thin and readable */
   }
 
   .admin-page-title {
     font-size: 20px !important;
     flex-wrap: wrap !important;
+    gap: 6px !important;
   }
 }
 
@@ -561,10 +600,11 @@ select.admin-input option {
   }
   
   .stat-card {
-    padding: 16px !important;
+    padding: 14px !important;
+    gap: 12px !important;
   }
   
-  .admin-card {
-    padding: 16px !important;
+  .stat-number {
+    font-size: 24px !important;
   }
 }
