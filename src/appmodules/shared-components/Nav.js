@@ -75,18 +75,14 @@ function Nav() {
                                     About
                                 </NavLink>
                                 <div className="nav-item dropdown">
-                                    <button
-                                        type="button"
-                                        className="nav-link dropdown-toggle btn btn-link"
+                                    <Link
+                                        to="/service"
+                                        className="nav-link dropdown-toggle"
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false"
-                                        onClick={(e) => {
-                                            // Make sure clicking the Services title also goes to the main service page
-                                            // if we wanted to. We'll leave it as just a dropdown toggle for now.
-                                        }}
                                     >
                                         Services
-                                    </button>
+                                    </Link>
                                     <div className="dropdown-menu border-0 shadow-sm m-0 text-center text-lg-start" style={{maxHeight: '400px', overflowY: 'auto'}}>
                                         <Link to="/service" className="dropdown-item fw-bold border-bottom mb-2">All Services</Link>
                                         <Link to="/service#haematology" className="dropdown-item">Haematology</Link>
@@ -99,22 +95,6 @@ function Nav() {
                                         <Link to="/service#molecular-pathology" className="dropdown-item">Molecular Pathology</Link>
                                         <Link to="/service#allergy" className="dropdown-item">Allergy</Link>
                                         <Link to="/service#ifa" className="dropdown-item">IFA</Link>
-                                    </div>
-                                </div>
-
-                                <div className="nav-item dropdown">
-                                    <button
-                                        type="button"
-                                        className="nav-link dropdown-toggle btn btn-link"
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
-                                    >
-                                        Pages
-                                    </button>
-                                    <div className="dropdown-menu border-0 shadow-sm m-0 text-center text-lg-start">
-                                        <NavLink to="/feature" className="dropdown-item">Features</NavLink>
-                                        <NavLink to="/team" className="dropdown-item">Our Team</NavLink>
-                                        <NavLink to="/appoinment" className="dropdown-item">Appointment</NavLink>
                                     </div>
                                 </div>
 

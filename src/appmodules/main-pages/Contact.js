@@ -59,15 +59,15 @@ function Contact() {
               <div className="col-lg-6">
                 <a
                   href="tel:+919990155907"
-                  className="d-flex justify-content-lg-center bg-primary p-4 text-decoration-none"
+                  className="d-flex align-items-center justify-content-center justify-content-lg-center bg-primary p-4 text-decoration-none"
                 >
                   <div className="icon-box-light flex-shrink-0">
                     <i className="bi bi-phone text-dark"></i>
                   </div>
 
                   <div className="ms-3">
-                    <h5 className="text-white">Call Us</h5>
-                    <h2 className="text-white mb-0">+91 99901 55907</h2>
+                    <h5 className="text-white mb-1">Call Us</h5>
+                    <h2 className="text-white mb-0 fs-5 fs-sm-4 fs-md-3 fs-lg-2">+91 99901 55907</h2>
                   </div>
                 </a>
               </div>
@@ -77,15 +77,15 @@ function Contact() {
                   href="https://mail.google.com/mail/?view=cm&fs=1&to=cellquestindia@gmail.com&su=Inquiry%20from%20Website"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="d-flex justify-content-lg-center bg-primary p-4 text-decoration-none"
+                  className="d-flex align-items-center justify-content-center justify-content-lg-center bg-primary p-4 text-decoration-none"
                 >
                   <div className="icon-box-light flex-shrink-0">
                     <i className="bi bi-envelope text-dark"></i>
                   </div>
 
                   <div className="ms-3">
-                    <h5 className="text-white">Mail Us</h5>
-                    <h2 className="text-white mb-0">cellquestindia@gmail.com</h2>
+                    <h5 className="text-white mb-1">Mail Us</h5>
+                    <h2 className="text-white mb-0 fs-6 fs-sm-5 fs-md-4 fs-lg-3 text-break">cellquestindia@gmail.com</h2>
                   </div>
                 </a>
               </div>

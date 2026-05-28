@@ -472,31 +472,99 @@ select.admin-input option {
 }
 
 /* ===================== MOBILE RESPONSIVENESS ===================== */
-@media (max-width: 480px) {
-  .admin-form-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  /* Global Main Content adjustments */
+  .admin-main-content {
+    margin-left: 0 !important;
+    padding: 16px 12px !important;
   }
-  .admin-stats-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+  
+  /* Stack inline grid layouts dynamically */
+  .admin-app-container form[style*="display: grid"],
+  .admin-app-container div[style*="display: grid"],
+  .admin-app-container form {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
   }
+
+  /* Stack inline space-between flex headers/rows */
+  .admin-app-container div[style*="display: flex"][style*="justify-content: space-between"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  /* Ensure child items under responsive space-between take full width */
+  .admin-app-container div[style*="display: flex"][style*="justify-content: space-between"] > div {
+    width: 100% !important;
+  }
+
+  /* Specific buttons in headers (like + Add buttons) should stack nicely */
+  .admin-btn {
+    width: 100% !important;
+    text-align: center !important;
+    margin-top: 4px !important;
+  }
+
+  /* Keep tabs horizontal but wrap them */
+  .admin-app-container div[style*="display: flex"][style*="border-bottom"] {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+  }
+
+  /* Search & Toolbar layouts */
   .admin-search-bar {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
   }
-  .admin-search-bar input, .admin-search-bar select, .admin-search-bar button {
+
+  .admin-search-bar input,
+  .admin-search-bar select,
+  .admin-search-bar button {
     max-width: 100% !important;
-    width: 100%;
+    width: 100% !important;
   }
+
   .admin-toolbar {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
   }
+
   .admin-search {
-    max-width: 100%;
-    width: 100%;
+    max-width: 100% !important;
+    width: 100% !important;
   }
+
+  /* Table responsive wrapper scroll behavior */
+  .admin-table-wrapper,
+  .admin-table-wrap {
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    display: block !important;
+    margin-bottom: 15px !important;
+  }
+
   .admin-page-title {
-    font-size: 20px;
+    font-size: 20px !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  
+  .stat-card {
+    padding: 16px !important;
+  }
+  
+  .admin-card {
+    padding: 16px !important;
   }
 }

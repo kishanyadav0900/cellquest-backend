@@ -129,14 +129,6 @@ function TestPrices() {
   const btnEdit = { background: "rgba(90,138,26,0.2)", color: "#E7F1A8", border: "1px solid rgba(90,138,26,0.3)", padding: "5px 14px", borderRadius: "8px", fontSize: "12px", fontWeight: 600, cursor: "pointer", marginRight: "6px" };
   const btnDel = { background: "rgba(198,40,40,0.15)", color: "#fca5a5", border: "1px solid rgba(198,40,40,0.3)", padding: "5px 14px", borderRadius: "8px", fontSize: "12px", fontWeight: 600, cursor: "pointer" };
 
-  const getTestCount = (item) => {
-    if (tab === "tests") return 1;
-    if (tab === "profiles") return (item.profile_tests || []).length;
-    let c = 0;
-    (item.package_profiles || []).forEach(pp => { c += (pp.profiles?.profile_tests || []).length; });
-    return c;
-  };
-
   const handlePriceChange = (field, value) => {
     let newForm = { ...form, [field]: value };
     const curr = parseFloat(field === 'current_price' ? value : form.current_price);
