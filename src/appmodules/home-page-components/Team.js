@@ -19,7 +19,7 @@ function Team() {
                             <h3 className="mb-3">Biography</h3>
 
                             <p className="mb-4">
-                                Hi, I'm <strong>Dr. Rakesh Kumar</strong>. I am presently working as a Sr. Consultant Biochemistry at Drxlabs. With more than 15 years of hands-on experience, my core expertise lies in <strong>Quality Assurance</strong>, comprehensive <strong>Test Performing & Reporting</strong>, and <strong>Lab Operations</strong>.
+                                Hi, I'm <strong>Dr. Rakesh Kumar</strong>, a Sr. Consultant Biochemistry, With more than 15 years of hands-on experience, my core expertise lies in <strong>Quality Assurance</strong>, comprehensive <strong>Test Performing & Reporting</strong>, and <strong>Lab Operations</strong>.
                             </p>
 
                             <h5 className="mb-3">Areas of Expertise</h5>
